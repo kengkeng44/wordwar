@@ -16,14 +16,18 @@ import {
 /**
  * runStore — cloze run state.
  *
- * v0.3 adds scenario mode on top of free practice:
- *   - mode === 'free'      → 10 random A2 questions from sentences.json
+ * v0.3 added scenario mode on top of free practice. v0.5 unifies the free
+ * practice pool:
+ *   - mode === 'free'      → 10 random A2 questions drawn from the UNION
+ *                            of sentences.json (80) + scenarios.json (50)
+ *                            = 130 questions. Scenario tag is dropped at
+ *                            the surface so they show as plain A2 cloze.
  *   - mode === 'scenario'  → 10 fixed-order questions from one scenario in
  *                            scenarios.json
  *
- * Same scoring + HP + reveal flow either way. The mode only changes how the
- * pool is built (random shuffle vs. fixed sequence) and what the UI shows
- * around the question (mascot, scenario strip, achievement on EndScene).
+ * loadContent() boots BOTH JSON files eagerly so free mode can sample
+ * across them without round-trip latency. Same scoring + HP + reveal flow
+ * either way.
  */
 
 export type RunMode = 'free' | 'scenario';
@@ -62,6 +66,9 @@ export interface RunState {
   lastResult: PlayResult | null;
   answered: boolean;
 
+  /** ms timestamp (Date.now) at run start — used by EndScene for total time. */
+  runStartedAt: number;
+
   // Mode + level
   mode: RunMode;
   scenario: ScenarioId | null;
@@ -72,7 +79,10 @@ export interface RunState {
   error: string | null;
 
   // Actions
+  loadContent: () => Promise<void>;
+  /** @deprecated kept for compatibility — alias for loadContent */
   loadSentences: () => Promise<void>;
+  /** @deprecated kept for compatibility — alias for loadContent */
   loadScenarios: () => Promise<void>;
   setLevel: (level: ClozeLevel) => void;
   setMode: (mode: RunMode) => void;
@@ -132,18 +142,35 @@ export const useRunStore = create<RunState>((set, get) => ({
   history: [],
   lastResult: null,
   answered: false,
+  runStartedAt: 0,
   mode: 'free',
   scenario: null,
   level: readLevel(),
   loading: false,
   error: null,
 
-  loadSentences: async () => {
-    if (get().questions || get().loading) return;
+  /**
+   * Load BOTH sentences.json (free pool) and scenarios.json (scenario pool)
+   * eagerly. Either-or loading is gone in v0.5 because free mode samples
+   * across both files (130-question unified pool). Idempotent — short-
+   * circuits if both are already cached.
+   */
+  loadContent: async () => {
+    if (get().loading) return;
+    if (get().questions && get().scenarioQuestions) return;
     set({ loading: true, error: null });
     try {
-      const v = await loadSentences();
-      set({ questions: v, loading: false });
+      const [sentences, scenarios] = await Promise.all([
+        get().questions ? Promise.resolve(get().questions!) : loadSentences(),
+        get().scenarioQuestions
+          ? Promise.resolve(get().scenarioQuestions!)
+          : loadScenarios(),
+      ]);
+      set({
+        questions: sentences,
+        scenarioQuestions: scenarios,
+        loading: false,
+      });
     } catch (e) {
       set({
         loading: false,
@@ -152,18 +179,12 @@ export const useRunStore = create<RunState>((set, get) => ({
     }
   },
 
+  // Back-compat aliases — both kick off the unified loadContent flow.
+  loadSentences: async () => {
+    await get().loadContent();
+  },
   loadScenarios: async () => {
-    if (get().scenarioQuestions || get().loading) return;
-    set({ loading: true, error: null });
-    try {
-      const v = await loadScenarios();
-      set({ scenarioQuestions: v, loading: false });
-    } catch (e) {
-      set({
-        loading: false,
-        error: e instanceof Error ? e.message : String(e),
-      });
-    }
+    await get().loadContent();
   },
 
   setLevel: (level: ClozeLevel) => {
@@ -189,9 +210,14 @@ export const useRunStore = create<RunState>((set, get) => ({
         nextPool = questionsForScenario(scenarioQuestions, scenario).map(
           toClozeQuestion
         );
-      } else if (questions) {
-        // Free practice: random shuffle by level.
-        nextPool = pickByLevel(questions, level, QUESTIONS_PER_RUN);
+      } else {
+        // Free practice (v0.5): unified pool = sentences.json ∪ scenarios.json.
+        // Scenario-tagged questions are stripped down to ClozeQuestion so
+        // there's no scenario chip / accent in free mode — just A2 cloze.
+        const base = questions ?? [];
+        const scenarioCloze = (scenarioQuestions ?? []).map(toClozeQuestion);
+        const unified = base.concat(scenarioCloze);
+        nextPool = pickByLevel(unified, level, QUESTIONS_PER_RUN);
       }
     }
     if (nextPool.length === 0) {
@@ -297,6 +323,7 @@ export const useRunStore = create<RunState>((set, get) => ({
       history: [],
       lastResult: null,
       answered: false,
+      runStartedAt: Date.now(),
     });
   },
 }));

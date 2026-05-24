@@ -98,11 +98,11 @@ export class PlayScene extends Phaser.Scene {
   private async bootstrap(): Promise<void> {
     const store = useRunStore.getState();
     try {
-      if (store.mode === 'scenario') {
-        await store.loadScenarios();
-      } else {
-        await store.loadSentences();
-      }
+      // v0.5: load BOTH sentences + scenarios eagerly. Free mode needs
+      // both files (unified 130-question pool); scenario mode obviously
+      // needs scenarios.json; loading the smaller sentences.json on top
+      // for scenario mode is negligible.
+      await store.loadContent();
     } catch {
       // setError already happened inside the loader
     }
@@ -110,7 +110,7 @@ export class PlayScene extends Phaser.Scene {
     const ready =
       after.mode === 'scenario'
         ? !!after.scenarioQuestions
-        : !!after.questions;
+        : !!after.questions && !!after.scenarioQuestions;
     if (after.error || !ready) {
       this.showLoadFailure(after.error ?? 'unknown');
       return;

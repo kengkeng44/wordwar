@@ -78,6 +78,33 @@ body {
   }
 }
 
+/* ─── EndOverlay: banner pop + stat tile staggered fade-in ──────────────── */
+@keyframes wordwar-banner-pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes wordwar-stat-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ─── Mascot animations ──────────────────────────────────────────────── */
 
 .mascot-wrap {

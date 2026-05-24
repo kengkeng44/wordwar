@@ -152,9 +152,12 @@ export const SCENARIOS_IN_ORDER: ScenarioId[] = [
 ];
 
 // Free-practice default accent / mascot (no scenario).
+// Halo tint switched from cream (#fdfaf2) to Duolingo light green (#e0f5d0)
+// in v0.5 so the default free-practice halo reads as "Duolingo" rather than
+// the legacy cream background.
 export const FREE_PRACTICE_META = {
   accent: '#ff7a59',
-  tint: '#fdfaf2',
+  tint: '#e0f5d0',
   mascotId: 'owl',
   emoji: '🎯',
   labelZh: '自由練習',
