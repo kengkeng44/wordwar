@@ -4,14 +4,10 @@ import { useRunStore } from '../store/runStore';
 import { audio } from '../audio/AudioManager';
 
 /**
- * MenuScene — v0.3 entry point.
+ * MenuScene — v0.4 entry point.
  *
- * Phaser side: dim brand backdrop. The actual menu UI is a DOM overlay
- * (ModeMenu) for the same accessibility / touch reasons ClozeUI uses DOM.
- *
- * ModeMenu handles two flows:
- *   - Free practice → start with mode='free', level='A2'
- *   - Scenario     → pick scenario, then start with mode='scenario'
+ * Phaser side: pure white backdrop. No Phaser text. ModeMenu DOM
+ * overlay paints the entire menu (Duolingo style).
  */
 export class MenuScene extends Phaser.Scene {
   private modeMenu?: ModeMenu;
@@ -21,18 +17,7 @@ export class MenuScene extends Phaser.Scene {
   }
 
   create(): void {
-    const { width, height } = this.cameras.main;
-
-    // Faint brand text behind the overlay — only visible if the overlay
-    // ever fails to mount. Mostly invisible in practice.
-    this.add
-      .text(width / 2, height / 2, 'WordWar', {
-        fontFamily: 'system-ui, sans-serif',
-        fontSize: '40px',
-        fontStyle: 'bold',
-        color: '#e7e2d4',
-      })
-      .setOrigin(0.5);
+    this.cameras.main.setBackgroundColor('#ffffff');
 
     this.modeMenu = new ModeMenu({
       onStartFree: () => {

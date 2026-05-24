@@ -1,20 +1,15 @@
 /**
- * ModeMenu — top-level menu for v0.3.
+ * ModeMenu — top-level menu (v0.4 Duolingo aesthetic).
  *
  * UX flow:
- *   1. Mode card (1 screen): two large tappable cards
- *      🎯 自由練習 (Free Practice)   — 10 random A2 questions
- *      🎬 情境模式 (Scenario Mode)   — pick a scenario
+ *   1. Mode selection: two big Duolingo-style cards
+ *      🎯 自由練習 (Free Practice) — 10 random A2 questions
+ *      🎬 情境模式 (Scenario Mode) — pick a scenario
+ *   2a. Free Practice → starts immediately
+ *   2b. Scenario → second screen with 5 scenario cards
  *
- *   2a. If user picks Free Practice → confirm starts immediately
- *      (we hardcode A2 since it's the only unlocked level for v0.3).
- *
- *   2b. If user picks Scenario → second screen with 5 scenario cards
- *      in a vertical list, each showing emoji + scenario name + best
- *      score (from localStorage) + completion check.
- *
- * Portrait-sized: max-width 420px, vertically stacked, scrollable on
- * short screens.
+ * Aesthetic: white bg, bold rounded sans-serif, white card buttons
+ * with 2px border + 4px bottom border (Duolingo 3D depth).
  */
 
 import { applyStyle } from './domUtil';
@@ -33,6 +28,17 @@ export interface ModeMenuHandlers {
 
 const LS_INTRO_DISMISSED = 'wordwar.introDismissed';
 
+// Duolingo palette
+const COLOR_GREEN = '#58cc02';
+const COLOR_GREEN_DARK = '#58a700';
+const COLOR_BLUE = '#1cb0f6';
+const COLOR_BLUE_DARK = '#0b8ec9';
+const COLOR_YELLOW = '#ffc800';
+const COLOR_BORDER = '#e5e5e5';
+const COLOR_BORDER_DARK = '#d4d4d4';
+const COLOR_TEXT_DARK = '#3c3c3c';
+const COLOR_TEXT_MUTED = '#777777';
+
 export class ModeMenu {
   private root: HTMLDivElement;
   private content: HTMLDivElement;
@@ -46,18 +52,18 @@ export class ModeMenu {
     applyStyle(this.root, {
       position: 'fixed',
       inset: '0',
-      background: 'rgba(253, 250, 242, 0.98)',
+      background: '#ffffff',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      paddingTop: 'max(28px, env(safe-area-inset-top))',
+      paddingTop: 'max(36px, env(safe-area-inset-top))',
       paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
       overflowY: 'auto',
       zIndex: '20',
       fontFamily:
-        'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
-      color: '#2a2730',
+        '"Nunito", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
+      color: COLOR_TEXT_DARK,
     });
 
     this.content = document.createElement('div');
@@ -85,9 +91,11 @@ export class ModeMenu {
     const title = document.createElement('div');
     title.textContent = 'WordWar';
     applyStyle(title, {
-      fontSize: '34px',
-      fontWeight: '800',
+      fontSize: '40px',
+      fontWeight: '900',
       textAlign: 'center',
+      color: COLOR_GREEN,
+      letterSpacing: '-0.5px',
       marginBottom: '4px',
     });
     this.content.appendChild(title);
@@ -96,9 +104,10 @@ export class ModeMenu {
     subtitle.textContent = 'CEFR cloze · 填空挑戰';
     applyStyle(subtitle, {
       fontSize: '13px',
-      color: '#6b6375',
+      fontWeight: '600',
+      color: COLOR_TEXT_MUTED,
       textAlign: 'center',
-      marginBottom: '20px',
+      marginBottom: '24px',
     });
     this.content.appendChild(subtitle);
 
@@ -109,9 +118,11 @@ export class ModeMenu {
     const chooseLabel = document.createElement('div');
     chooseLabel.textContent = '選擇模式';
     applyStyle(chooseLabel, {
-      fontSize: '14px',
-      color: '#6b6375',
-      fontWeight: '600',
+      fontSize: '12px',
+      color: COLOR_TEXT_MUTED,
+      fontWeight: '800',
+      letterSpacing: '1.5px',
+      textTransform: 'uppercase',
       marginBottom: '10px',
       paddingLeft: '4px',
     });
@@ -122,7 +133,8 @@ export class ModeMenu {
         emoji: '🎯',
         title: '自由練習',
         sub: '10 題隨機 A2 題目',
-        accent: '#ff7a59',
+        primary: COLOR_GREEN,
+        primaryDark: COLOR_GREEN_DARK,
         onClick: () => this.handlers.onStartFree(),
       })
     );
@@ -132,19 +144,21 @@ export class ModeMenu {
         emoji: '🎬',
         title: '情境模式',
         sub: '5 個主題,每題 10 句',
-        accent: '#6a6dd3',
+        primary: COLOR_BLUE,
+        primaryDark: COLOR_BLUE_DARK,
         onClick: () => this.renderScenarioView(),
       })
     );
 
     const footer = document.createElement('div');
-    footer.textContent = 'v0.3.0 · scenario';
+    footer.textContent = 'v0.4.0';
     applyStyle(footer, {
-      marginTop: '20px',
+      marginTop: '24px',
       fontSize: '11px',
       color: '#a8a2b3',
       textAlign: 'center',
-      fontFamily: 'ui-monospace, Consolas, monospace',
+      fontFamily:
+        'ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace',
     });
     this.content.appendChild(footer);
   }
@@ -153,7 +167,8 @@ export class ModeMenu {
     emoji: string;
     title: string;
     sub: string;
-    accent: string;
+    primary: string;
+    primaryDark: string;
     onClick: () => void;
   }): HTMLButtonElement {
     const card = document.createElement('button');
@@ -163,25 +178,26 @@ export class ModeMenu {
       alignItems: 'center',
       gap: '14px',
       padding: '18px 18px',
-      marginBottom: '12px',
+      marginBottom: '14px',
       borderRadius: '16px',
-      border: `2px solid ${opts.accent}`,
-      background: opts.accent,
+      border: `2px solid ${opts.primary}`,
+      borderBottom: `5px solid ${opts.primaryDark}`,
+      background: opts.primary,
       color: '#ffffff',
       cursor: 'pointer',
       textAlign: 'left',
       fontFamily: 'inherit',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
-      boxShadow: `0 6px 18px ${opts.accent}40`,
       transition: 'transform 80ms ease-out',
     });
 
     const iconBox = document.createElement('div');
     iconBox.textContent = opts.emoji;
     applyStyle(iconBox, {
-      fontSize: '32px',
+      fontSize: '36px',
       flex: '0 0 auto',
+      lineHeight: '1',
     });
     card.appendChild(iconBox);
 
@@ -189,29 +205,35 @@ export class ModeMenu {
     applyStyle(text, {
       display: 'flex',
       flexDirection: 'column',
-      gap: '2px',
+      gap: '3px',
       flex: '1 1 auto',
     });
     const titleEl = document.createElement('div');
     titleEl.textContent = opts.title;
-    applyStyle(titleEl, { fontSize: '20px', fontWeight: '700' });
+    applyStyle(titleEl, { fontSize: '21px', fontWeight: '800' });
     const subEl = document.createElement('div');
     subEl.textContent = opts.sub;
-    applyStyle(subEl, { fontSize: '13px', opacity: '0.9' });
+    applyStyle(subEl, {
+      fontSize: '13px',
+      fontWeight: '600',
+      opacity: '0.92',
+    });
     text.appendChild(titleEl);
     text.appendChild(subEl);
     card.appendChild(text);
 
     const arrow = document.createElement('div');
     arrow.textContent = '→';
-    applyStyle(arrow, { fontSize: '20px', opacity: '0.85' });
+    applyStyle(arrow, { fontSize: '22px', fontWeight: '800', opacity: '0.9' });
     card.appendChild(arrow);
 
     card.addEventListener('pointerdown', () => {
-      card.style.transform = 'scale(0.98)';
+      card.style.transform = 'translateY(2px)';
+      card.style.borderBottomWidth = '3px';
     });
     const release = () => {
       card.style.transform = '';
+      card.style.borderBottomWidth = '5px';
     };
     card.addEventListener('pointerup', release);
     card.addEventListener('pointerleave', release);
@@ -226,14 +248,15 @@ export class ModeMenu {
   private makeIntroCard(): HTMLElement {
     const intro = document.createElement('div');
     applyStyle(intro, {
-      padding: '12px 16px 12px 14px',
-      marginBottom: '16px',
-      background: '#fff8e8',
-      border: '1px solid #f0e3bf',
+      padding: '12px 36px 12px 14px',
+      marginBottom: '18px',
+      background: '#fff9e0',
+      border: `2px solid ${COLOR_YELLOW}`,
       borderRadius: '12px',
       fontSize: '13px',
+      fontWeight: '600',
       lineHeight: '1.55',
-      color: '#3d3328',
+      color: COLOR_TEXT_DARK,
       position: 'relative',
     });
     intro.textContent =
@@ -249,13 +272,15 @@ export class ModeMenu {
       right: '6px',
       background: 'transparent',
       border: 'none',
-      color: '#a8a2b3',
-      fontSize: '18px',
+      color: COLOR_TEXT_MUTED,
+      fontSize: '20px',
+      fontWeight: '800',
       cursor: 'pointer',
       padding: '4px 8px',
       lineHeight: '1',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
+      fontFamily: 'inherit',
     });
     dismiss.addEventListener('click', (e) => {
       e.preventDefault();
@@ -280,24 +305,28 @@ export class ModeMenu {
     applyStyle(headerRow, {
       display: 'flex',
       alignItems: 'center',
-      gap: '8px',
-      marginBottom: '16px',
+      gap: '12px',
+      marginBottom: '18px',
     });
 
     const back = document.createElement('button');
     back.type = 'button';
-    back.textContent = '← 返回';
+    back.textContent = '←';
+    back.setAttribute('aria-label', 'Back');
     applyStyle(back, {
-      background: 'transparent',
-      border: '1px solid #e7e2d4',
-      borderRadius: '10px',
+      background: '#ffffff',
+      border: `2px solid ${COLOR_BORDER}`,
+      borderBottom: `4px solid ${COLOR_BORDER_DARK}`,
+      borderRadius: '12px',
       padding: '8px 14px',
-      fontSize: '13px',
-      color: '#6b6375',
+      fontSize: '18px',
+      fontWeight: '800',
+      color: COLOR_TEXT_MUTED,
       cursor: 'pointer',
       fontFamily: 'inherit',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
+      lineHeight: '1',
     });
     back.addEventListener('click', (e) => {
       e.preventDefault();
@@ -308,11 +337,11 @@ export class ModeMenu {
     const title = document.createElement('div');
     title.textContent = '🎬 選擇情境';
     applyStyle(title, {
-      fontSize: '20px',
-      fontWeight: '700',
+      fontSize: '22px',
+      fontWeight: '800',
       flex: '1 1 auto',
       textAlign: 'center',
-      marginRight: '64px',
+      marginRight: '52px',
     });
     headerRow.appendChild(title);
 
@@ -333,44 +362,56 @@ export class ModeMenu {
     applyStyle(card, {
       display: 'flex',
       alignItems: 'center',
-      gap: '12px',
+      gap: '14px',
       padding: '14px 16px',
-      marginBottom: '10px',
-      borderRadius: '14px',
-      border: `2px solid ${meta.accent}`,
-      background: meta.tint,
-      color: '#2a2730',
+      marginBottom: '12px',
+      borderRadius: '16px',
+      border: `2px solid ${COLOR_BORDER}`,
+      borderBottom: `4px solid ${COLOR_BORDER_DARK}`,
+      background: '#ffffff',
+      color: COLOR_TEXT_DARK,
       cursor: 'pointer',
       textAlign: 'left',
       fontFamily: 'inherit',
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
-      boxShadow: `0 4px 12px ${meta.accent}25`,
       transition: 'transform 80ms ease-out',
     });
 
+    // Colored emoji circle (scenario-tinted)
     const iconBox = document.createElement('div');
     iconBox.textContent = meta.emoji;
-    applyStyle(iconBox, { fontSize: '28px', flex: '0 0 auto' });
+    applyStyle(iconBox, {
+      width: '48px',
+      height: '48px',
+      borderRadius: '50%',
+      background: meta.tint,
+      border: `2px solid ${meta.accent}`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '24px',
+      flex: '0 0 auto',
+    });
     card.appendChild(iconBox);
 
     const text = document.createElement('div');
     applyStyle(text, {
       display: 'flex',
       flexDirection: 'column',
-      gap: '2px',
+      gap: '3px',
       flex: '1 1 auto',
     });
     const titleEl = document.createElement('div');
     titleEl.textContent = `${meta.labelZh} (${meta.labelEn})`;
-    applyStyle(titleEl, { fontSize: '17px', fontWeight: '700' });
+    applyStyle(titleEl, { fontSize: '17px', fontWeight: '800' });
     const subEl = document.createElement('div');
     const bestText = best > 0 ? `最佳 ${best} 分` : '尚未挑戰';
     subEl.textContent = completed ? `${bestText} · ✓ 已通關` : bestText;
     applyStyle(subEl, {
       fontSize: '12px',
-      color: completed ? meta.accent : '#6b6375',
-      fontWeight: completed ? '600' : '400',
+      fontWeight: '700',
+      color: completed ? COLOR_GREEN_DARK : COLOR_TEXT_MUTED,
     });
     text.appendChild(titleEl);
     text.appendChild(subEl);
@@ -378,14 +419,20 @@ export class ModeMenu {
 
     const arrow = document.createElement('div');
     arrow.textContent = '→';
-    applyStyle(arrow, { fontSize: '18px', color: meta.accent });
+    applyStyle(arrow, {
+      fontSize: '20px',
+      fontWeight: '800',
+      color: COLOR_TEXT_MUTED,
+    });
     card.appendChild(arrow);
 
     card.addEventListener('pointerdown', () => {
-      card.style.transform = 'scale(0.98)';
+      card.style.transform = 'translateY(2px)';
+      card.style.borderBottomWidth = '2px';
     });
     const release = () => {
       card.style.transform = '';
+      card.style.borderBottomWidth = '4px';
     };
     card.addEventListener('pointerup', release);
     card.addEventListener('pointerleave', release);
