@@ -22,18 +22,22 @@ import {
 } from '../data/scenarios';
 
 export interface ModeMenuHandlers {
+  onStartStory: () => void;
   onStartFree: () => void;
   onStartScenario: (id: ScenarioId) => void;
 }
 
 const LS_INTRO_DISMISSED = 'wordwar.introDismissed';
 
-// Duolingo palette
+// v0.8 palette — warm cream + amber accent layered over Duolingo green
 const COLOR_GREEN = '#58cc02';
 const COLOR_GREEN_DARK = '#58a700';
 const COLOR_BLUE = '#1cb0f6';
 const COLOR_BLUE_DARK = '#0b8ec9';
 const COLOR_YELLOW = '#ffc800';
+const COLOR_AMBER = '#e7a44a';
+const COLOR_AMBER_DARK = '#b07a2a';
+const COLOR_CREAM = '#fef8ed';
 const COLOR_BORDER = '#e5e5e5';
 const COLOR_BORDER_DARK = '#d4d4d4';
 const COLOR_TEXT_DARK = '#3c3c3c';
@@ -52,7 +56,7 @@ export class ModeMenu {
     applyStyle(this.root, {
       position: 'fixed',
       inset: '0',
-      background: '#ffffff',
+      background: COLOR_CREAM,
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -128,6 +132,34 @@ export class ModeMenu {
     });
     this.content.appendChild(chooseLabel);
 
+    // v0.8: 新故事 is the primary CTA — larger, amber accent, top of list.
+    this.content.appendChild(
+      this.makeModeCard({
+        emoji: '🐈',
+        title: '新故事 · 小貓回家路',
+        sub: '5 章治癒系故事 · 30 題 A2',
+        primary: COLOR_AMBER,
+        primaryDark: COLOR_AMBER_DARK,
+        primaryCta: true,
+        onClick: () => this.handlers.onStartStory(),
+      })
+    );
+
+    // Secondary modes (smaller, ghost-style cards)
+    const secondaryLabel = document.createElement('div');
+    secondaryLabel.textContent = '其他模式';
+    applyStyle(secondaryLabel, {
+      fontSize: '11px',
+      color: COLOR_TEXT_MUTED,
+      fontWeight: '800',
+      letterSpacing: '1.5px',
+      textTransform: 'uppercase',
+      marginTop: '10px',
+      marginBottom: '8px',
+      paddingLeft: '4px',
+    });
+    this.content.appendChild(secondaryLabel);
+
     this.content.appendChild(
       this.makeModeCard({
         emoji: '🎯',
@@ -151,7 +183,7 @@ export class ModeMenu {
     );
 
     const footer = document.createElement('div');
-    footer.textContent = 'v0.4.0';
+    footer.textContent = 'v0.8.0';
     applyStyle(footer, {
       marginTop: '24px',
       fontSize: '11px',
@@ -169,19 +201,21 @@ export class ModeMenu {
     sub: string;
     primary: string;
     primaryDark: string;
+    primaryCta?: boolean;
     onClick: () => void;
   }): HTMLButtonElement {
     const card = document.createElement('button');
     card.type = 'button';
+    const isPrimary = !!opts.primaryCta;
     applyStyle(card, {
       display: 'flex',
       alignItems: 'center',
       gap: '14px',
-      padding: '18px 18px',
-      marginBottom: '14px',
-      borderRadius: '16px',
+      padding: isPrimary ? '22px 20px' : '14px 18px',
+      marginBottom: isPrimary ? '20px' : '12px',
+      borderRadius: isPrimary ? '20px' : '14px',
       border: `2px solid ${opts.primary}`,
-      borderBottom: `5px solid ${opts.primaryDark}`,
+      borderBottom: `${isPrimary ? '6' : '4'}px solid ${opts.primaryDark}`,
       background: opts.primary,
       color: '#ffffff',
       cursor: 'pointer',
@@ -190,12 +224,13 @@ export class ModeMenu {
       touchAction: 'manipulation',
       WebkitTapHighlightColor: 'transparent',
       transition: 'transform 80ms ease-out',
+      boxShadow: isPrimary ? '0 6px 20px rgba(231, 164, 74, 0.3)' : 'none',
     });
 
     const iconBox = document.createElement('div');
     iconBox.textContent = opts.emoji;
     applyStyle(iconBox, {
-      fontSize: '36px',
+      fontSize: isPrimary ? '44px' : '32px',
       flex: '0 0 auto',
       lineHeight: '1',
     });
@@ -210,11 +245,14 @@ export class ModeMenu {
     });
     const titleEl = document.createElement('div');
     titleEl.textContent = opts.title;
-    applyStyle(titleEl, { fontSize: '21px', fontWeight: '800' });
+    applyStyle(titleEl, {
+      fontSize: isPrimary ? '22px' : '18px',
+      fontWeight: '800',
+    });
     const subEl = document.createElement('div');
     subEl.textContent = opts.sub;
     applyStyle(subEl, {
-      fontSize: '13px',
+      fontSize: isPrimary ? '13px' : '12px',
       fontWeight: '600',
       opacity: '0.92',
     });
@@ -224,16 +262,21 @@ export class ModeMenu {
 
     const arrow = document.createElement('div');
     arrow.textContent = '→';
-    applyStyle(arrow, { fontSize: '22px', fontWeight: '800', opacity: '0.9' });
+    applyStyle(arrow, {
+      fontSize: isPrimary ? '24px' : '20px',
+      fontWeight: '800',
+      opacity: '0.9',
+    });
     card.appendChild(arrow);
 
+    const restBottom = isPrimary ? '6px' : '4px';
     card.addEventListener('pointerdown', () => {
       card.style.transform = 'translateY(2px)';
       card.style.borderBottomWidth = '3px';
     });
     const release = () => {
       card.style.transform = '';
-      card.style.borderBottomWidth = '5px';
+      card.style.borderBottomWidth = restBottom;
     };
     card.addEventListener('pointerup', release);
     card.addEventListener('pointerleave', release);

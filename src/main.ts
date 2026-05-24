@@ -3,6 +3,10 @@ import { BootScene } from './scenes/BootScene';
 import { MenuScene } from './scenes/MenuScene';
 import { PlayScene } from './scenes/PlayScene';
 import { EndScene } from './scenes/EndScene';
+import { StoryModeScene } from './scenes/StoryModeScene';
+import { ChapterIntroScene } from './scenes/ChapterIntroScene';
+import { ChapterEndScene } from './scenes/ChapterEndScene';
+import { StoryEndingScene } from './scenes/StoryEndingScene';
 import './style.css';
 
 /**
@@ -21,7 +25,7 @@ const config: Phaser.Types.Core.GameConfig = {
   parent: 'app',
   width: PHASER_WIDTH,
   height: PHASER_HEIGHT,
-  backgroundColor: '#fdfaf2',
+  backgroundColor: '#fef8ed',
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
@@ -32,7 +36,16 @@ const config: Phaser.Types.Core.GameConfig = {
       capture: true,
     },
   },
-  scene: [BootScene, MenuScene, PlayScene, EndScene],
+  scene: [
+    BootScene,
+    MenuScene,
+    StoryModeScene,
+    ChapterIntroScene,
+    PlayScene,
+    ChapterEndScene,
+    StoryEndingScene,
+    EndScene,
+  ],
 };
 
 new Phaser.Game(config);

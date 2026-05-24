@@ -22,6 +22,11 @@ import { applyStyle } from './domUtil';
 export interface ClozeUIHandlers {
   onAnswer: (selectedIndex: number) => void;
   onContinue: () => void;
+  /** v0.8 story mode: called when a wrong answer's "再試一次" prompt
+   *  is shown and the player taps the correct (highlighted) option.
+   *  PlayScene should clear the answered flag (retryRound) and treat
+   *  this as a successful "force-correct" advance. */
+  onForceCorrect?: (selectedIndex: number) => void;
 }
 
 export interface ClozeUIOptions {
@@ -33,6 +38,11 @@ export interface ClozeUIOptions {
   buttonsSlot: HTMLElement;
   /** Flex slot for the reveal panel. */
   revealSlot: HTMLElement;
+  /** v0.8: when true, ClozeUI runs in story-mode force-correct flow:
+   *  - wrong answers DISABLE the Continue button
+   *  - the correct option stays clickable for a forced retry
+   *  - on forced retry tap, onForceCorrect is invoked instead of onAnswer */
+  forceCorrectMode?: boolean;
 }
 
 interface BtnRefs {
@@ -69,11 +79,20 @@ export class ClozeUI {
   private handlers: ClozeUIHandlers;
   private currentQuestion: ClozeQuestion | null = null;
   private locked = false;
+  /** v0.8: when true, this instance applies story-mode force-correct flow. */
+  private forceCorrectMode = false;
+  /** v0.8 force-correct: index of the correct option, kept so the button
+   *  click handler can route the forced retry tap to onForceCorrect. */
+  private currentCorrectIndex = -1;
+  /** v0.8 force-correct: true after a wrong answer is shown and we are
+   *  waiting for the player to tap the correct option. */
+  private awaitingForceCorrect = false;
 
   constructor(handlers: ClozeUIHandlers, opts: ClozeUIOptions) {
     this.handlers = handlers;
     this.buttonsSlot = opts.buttonsSlot;
     this.revealSlot = opts.revealSlot;
+    this.forceCorrectMode = !!opts.forceCorrectMode;
 
     // Build 4 stacked answer buttons directly into the buttonsSlot.
     for (let i = 0; i < 4; i++) {
@@ -129,8 +148,17 @@ export class ClozeUI {
 
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        if (this.locked) return;
         const idx = Number(btn.getAttribute('data-cloze-idx'));
+        // v0.8: in force-correct retry mode, only the correct button is
+        // clickable. Tap it → fire onForceCorrect; PlayScene clears state
+        // and advances.
+        if (this.awaitingForceCorrect && this.forceCorrectMode) {
+          if (idx === this.currentCorrectIndex) {
+            this.handlers.onForceCorrect?.(idx);
+          }
+          return;
+        }
+        if (this.locked) return;
         this.handlers.onAnswer(idx);
       });
       btn.addEventListener('pointerdown', () => {
@@ -268,6 +296,8 @@ export class ClozeUI {
 
   resetForRound(): void {
     this.locked = false;
+    this.awaitingForceCorrect = false;
+    this.currentCorrectIndex = -1;
     for (const { el, letter } of this.buttons) {
       el.disabled = false;
       el.style.display = 'flex';
@@ -295,6 +325,17 @@ export class ClozeUI {
     isCorrect?: boolean
   ): void {
     this.locked = true;
+    this.currentCorrectIndex = correctIndex;
+    const correct =
+      typeof isCorrect === 'boolean'
+        ? isCorrect
+        : selectedIndex === correctIndex && selectedIndex >= 0;
+
+    // v0.8 force-correct: a wrong answer in story mode keeps the correct
+    // button clickable so the player MUST tap it themselves to advance.
+    const forceCorrectRetry = this.forceCorrectMode && !correct;
+    this.awaitingForceCorrect = forceCorrectRetry;
+
     for (let i = 0; i < this.buttons.length; i++) {
       const { el, letter } = this.buttons[i];
       el.disabled = true;
@@ -307,6 +348,12 @@ export class ClozeUI {
         letter.style.background = '#ffffff';
         letter.style.borderColor = '#ffffff';
         letter.style.color = COLOR_GREEN_DARK;
+        // Re-enable the correct button for the forced retry tap.
+        if (forceCorrectRetry) {
+          el.disabled = false;
+          el.style.cursor = 'pointer';
+          el.style.animation = 'mascot-happy-bounce 0.9s ease-in-out infinite';
+        }
       } else if (i === selectedIndex && selectedIndex !== correctIndex) {
         el.style.background = COLOR_RED_TINT;
         el.style.borderColor = COLOR_RED;
@@ -320,29 +367,51 @@ export class ClozeUI {
       }
     }
 
-    const correct =
-      typeof isCorrect === 'boolean'
-        ? isCorrect
-        : selectedIndex === correctIndex && selectedIndex >= 0;
-
     if (correct) {
       this.revealHeaderIcon.textContent = '✓';
       this.revealHeaderIcon.style.background = COLOR_GREEN;
       this.revealHeaderIcon.style.color = '#ffffff';
-      this.revealHeaderText.textContent = 'Correct!';
+      this.revealHeaderText.textContent = this.forceCorrectMode
+        ? '答對了!'
+        : 'Correct!';
       this.revealHeaderText.style.color = COLOR_GREEN_DARK;
       this.revealPanel.style.background = COLOR_GREEN_TINT;
       this.revealContinue.style.background = COLOR_GREEN;
       this.revealContinue.style.borderBottomColor = COLOR_GREEN_DARK;
+      this.revealContinue.disabled = false;
+      this.revealContinue.style.opacity = '1';
+      this.revealContinue.style.cursor = 'pointer';
+      this.revealContinue.textContent = this.forceCorrectMode ? '繼續' : 'CONTINUE';
     } else {
       this.revealHeaderIcon.textContent = '✕';
       this.revealHeaderIcon.style.background = COLOR_RED;
       this.revealHeaderIcon.style.color = '#ffffff';
-      this.revealHeaderText.textContent = selectedIndex < 0 ? "Time's up" : 'Wrong';
+      this.revealHeaderText.textContent =
+        selectedIndex < 0
+          ? this.forceCorrectMode
+            ? '時間到 · 點綠色按鈕繼續'
+            : "Time's up"
+          : this.forceCorrectMode
+            ? '答錯了 · 請點選綠色按鈕'
+            : 'Wrong';
       this.revealHeaderText.style.color = COLOR_RED_DARK;
       this.revealPanel.style.background = COLOR_RED_TINT;
-      this.revealContinue.style.background = COLOR_RED;
-      this.revealContinue.style.borderBottomColor = COLOR_RED_DARK;
+      this.revealContinue.style.background = forceCorrectRetry
+        ? '#cccccc'
+        : COLOR_RED;
+      this.revealContinue.style.borderBottomColor = forceCorrectRetry
+        ? '#999999'
+        : COLOR_RED_DARK;
+      this.revealContinue.disabled = forceCorrectRetry;
+      this.revealContinue.style.opacity = forceCorrectRetry ? '0.6' : '1';
+      this.revealContinue.style.cursor = forceCorrectRetry
+        ? 'not-allowed'
+        : 'pointer';
+      this.revealContinue.textContent = forceCorrectRetry
+        ? '請先答對'
+        : this.forceCorrectMode
+          ? '繼續'
+          : 'CONTINUE';
     }
 
     this.revealText.textContent = explanationZh;
@@ -367,6 +436,34 @@ export class ClozeUI {
 
   revealTimeout(correctIndex: number, explanationZh: string): void {
     this.revealAnswer(-1, correctIndex, explanationZh, false);
+  }
+
+  /**
+   * v0.8 story mode — called by PlayScene after the player taps the
+   * correct option on retry. Stops the bounce animation, freezes the
+   * correct button (no longer clickable), enables the Continue button.
+   */
+  acknowledgeForceCorrect(): void {
+    this.awaitingForceCorrect = false;
+    for (let i = 0; i < this.buttons.length; i++) {
+      const { el } = this.buttons[i];
+      el.disabled = true;
+      el.style.cursor = 'default';
+      if (i === this.currentCorrectIndex) {
+        el.style.animation = '';
+      }
+    }
+    this.revealHeaderIcon.textContent = '✓';
+    this.revealHeaderIcon.style.background = COLOR_GREEN;
+    this.revealHeaderText.textContent = '答對了!';
+    this.revealHeaderText.style.color = COLOR_GREEN_DARK;
+    this.revealPanel.style.background = COLOR_GREEN_TINT;
+    this.revealContinue.disabled = false;
+    this.revealContinue.style.background = COLOR_GREEN;
+    this.revealContinue.style.borderBottomColor = COLOR_GREEN_DARK;
+    this.revealContinue.style.opacity = '1';
+    this.revealContinue.style.cursor = 'pointer';
+    this.revealContinue.textContent = '繼續';
   }
 
   private syncFromState(round: ClozeQuestion | null): void {

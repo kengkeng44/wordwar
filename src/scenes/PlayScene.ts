@@ -13,12 +13,14 @@ import { ClozeUI } from '../ui/ClozeUI';
 import { Mascot } from '../ui/Mascot';
 import { GameHUD } from '../ui/GameHUD';
 import { SCENARIO_META, FREE_PRACTICE_META } from '../data/scenarios';
+import { CHAPTER_META } from '../data/storyKitten';
 
 const ROUND_TIME_MS = 15_000;
 const HP_MAX = 3;
 const ADVANCE_CORRECT_MS = 4_000;
 const ADVANCE_WRONG_MS = 8_000;
 const ADVANCE_TIMEOUT_MS = 8_000;
+const STORY_ADVANCE_CORRECT_MS = 1_200; // story: brief celebrate then auto-advance
 const TIMER_LOW_THRESHOLD_MS = 5_000;
 
 /**
@@ -73,11 +75,26 @@ export class PlayScene extends Phaser.Scene {
     labelZh: string;
     labelEn: string;
   } {
-    const { mode, scenario } = useRunStore.getState();
+    const { mode, scenario, chapter } = useRunStore.getState();
+    if (mode === 'story' && chapter) {
+      const ch = CHAPTER_META[chapter];
+      return {
+        accent: ch.accent,
+        tint: ch.tint,
+        mascotId: ch.kittenMascotId,
+        emoji: ch.emoji,
+        labelZh: ch.titleZh,
+        labelEn: ch.titleEn,
+      };
+    }
     if (mode === 'scenario' && scenario) {
       return SCENARIO_META[scenario];
     }
     return FREE_PRACTICE_META;
+  }
+
+  private isStoryMode(): boolean {
+    return useRunStore.getState().mode === 'story';
   }
 
   // ─── Bootstrap & loading ────────────────────────────────────────────────────
@@ -107,22 +124,37 @@ export class PlayScene extends Phaser.Scene {
     store.reset();
 
     const meta = this.activeMeta();
-    const isScenario = useRunStore.getState().mode === 'scenario';
-    const scenarioLabel = isScenario
-      ? `${meta.emoji} ${meta.labelEn}`
-      : '';
+    const state = useRunStore.getState();
+    const isStory = state.mode === 'story';
+    const isScenario = state.mode === 'scenario';
+    const chipLabel = isStory
+      ? `${meta.emoji} 第 ${state.chapter} 章 · ${meta.labelZh}`
+      : isScenario
+        ? `${meta.emoji} ${meta.labelEn}`
+        : '';
+
+    // Story mode: total rounds = SRS + 6 chapter questions. Computed in
+    // startRound; if not yet set we approximate with 6 for now.
+    const totalRounds = isStory
+      ? Math.max(state.storyTotalQuestionCount, RUN_CONFIG.STORY_QUESTIONS_PER_CHAPTER)
+      : RUN_CONFIG.QUESTIONS_PER_RUN;
 
     // Mount DOM overlays.
     this.hud = new GameHUD({
       accent: meta.accent,
       tint: this.lightTintFor(meta.tint),
-      totalRounds: RUN_CONFIG.QUESTIONS_PER_RUN,
-      scenarioLabel,
+      totalRounds,
+      scenarioLabel: chipLabel,
       emoji: meta.emoji,
+      hideHp: isStory,
       onChange: () => {
         this.cleanupOverlay();
         this.stopTimer();
-        this.scene.start('MenuScene');
+        if (isStory) {
+          this.scene.start('StoryModeScene');
+        } else {
+          this.scene.start('MenuScene');
+        }
       },
     });
 
@@ -130,11 +162,13 @@ export class PlayScene extends Phaser.Scene {
       {
         onAnswer: (idx) => this.handleAnswer(idx),
         onContinue: () => this.handleContinue(),
+        onForceCorrect: (idx) => this.handleForceCorrect(idx),
       },
       {
         accent: meta.accent,
         buttonsSlot: this.hud.buttonsSlot(),
         revealSlot: this.hud.revealSlot(),
+        forceCorrectMode: isStory,
       }
     );
     this.mascot = new Mascot({ parent: this.hud.mascotSlot() });
@@ -231,9 +265,17 @@ export class PlayScene extends Phaser.Scene {
     this.stopWarning();
 
     const store = useRunStore.getState();
+    const isStory = this.isStoryMode();
 
     const rounds = store.history.length;
-    if (rounds >= RUN_CONFIG.QUESTIONS_PER_RUN || store.hp <= 0) {
+    const target = isStory
+      ? Math.max(store.storyTotalQuestionCount, RUN_CONFIG.STORY_QUESTIONS_PER_CHAPTER)
+      : RUN_CONFIG.QUESTIONS_PER_RUN;
+    if (rounds >= target && target > 0) {
+      this.toEnd();
+      return;
+    }
+    if (!isStory && store.hp <= 0) {
       this.toEnd();
       return;
     }
@@ -245,13 +287,24 @@ export class PlayScene extends Phaser.Scene {
       return;
     }
 
+    // After first startRound in story mode the total may now be known.
+    if (isStory && this.hud) {
+      this.hud.setTotalRounds(after.storyTotalQuestionCount);
+    }
+
     this.clozeUI?.resetForRound();
     this.mascot?.setAnim('idle');
     this.timerExpired = false;
     this.lastTickSecond = -1;
     this.renderHud();
     this.hud?.animateSentenceIn();
-    this.startTimer();
+    // Story mode: no timer (force-correct flow makes the timeout pressure
+    // counterproductive and stressful).
+    if (!isStory) {
+      this.startTimer();
+    } else {
+      this.hud?.hideTimer();
+    }
 
     if (rounds > 0) {
       sfxRoundTransition();
@@ -259,8 +312,13 @@ export class PlayScene extends Phaser.Scene {
   }
 
   private toEnd(): void {
+    const isStory = this.isStoryMode();
     this.cleanupOverlay();
-    this.scene.start('EndScene');
+    if (isStory) {
+      this.scene.start('ChapterEndScene');
+    } else {
+      this.scene.start('EndScene');
+    }
   }
 
   private cleanupOverlay(): void {
@@ -289,25 +347,30 @@ export class PlayScene extends Phaser.Scene {
     if (!round) return;
 
     const meta = this.activeMeta();
+    const isStory = state.mode === 'story';
     const isScenario = state.mode === 'scenario';
-    const qNum = Math.min(
-      state.history.length + 1,
-      RUN_CONFIG.QUESTIONS_PER_RUN
-    );
+    const total = isStory
+      ? Math.max(state.storyTotalQuestionCount, RUN_CONFIG.STORY_QUESTIONS_PER_CHAPTER)
+      : RUN_CONFIG.QUESTIONS_PER_RUN;
+    const qNum = Math.min(state.history.length + 1, total);
 
     const remaining = Math.max(0, this.roundEndsAt - this.time.now);
     const seconds = Math.ceil((remaining || ROUND_TIME_MS) / 1000);
     const low = remaining > 0 && remaining <= TIMER_LOW_THRESHOLD_MS;
+
+    const chipLabel = isStory && state.chapter
+      ? `${meta.emoji} 第 ${state.chapter} 章 · ${meta.labelZh}`
+      : isScenario
+        ? `${meta.emoji} ${meta.labelEn}`
+        : '';
 
     this.hud.render({
       hp: state.hp,
       hpMax: HP_MAX,
       streak: state.streak,
       currentRound: qNum,
-      totalRounds: RUN_CONFIG.QUESTIONS_PER_RUN,
-      scenarioLabel: isScenario
-        ? `${meta.emoji} ${meta.labelEn}`
-        : '',
+      totalRounds: total,
+      scenarioLabel: chipLabel,
       sentence: formatSentence(round.sentence),
       timerSeconds: seconds,
       timerRatio: remaining / ROUND_TIME_MS,
@@ -326,6 +389,7 @@ export class PlayScene extends Phaser.Scene {
 
     const state = useRunStore.getState();
     if (!state.round) return;
+    const isStory = this.isStoryMode();
     const prevStreak = state.streak;
     const result = state.answer(idx);
 
@@ -344,22 +408,50 @@ export class PlayScene extends Phaser.Scene {
       if (result.streak > prevStreak && result.streak >= 2) {
         this.hud?.pulseStreak();
       }
-      this.scheduleAdvance(ADVANCE_CORRECT_MS);
+      // Story: short auto-advance after celebratory beat (1.2s).
+      // Free/scenario: longer dwell on the explanation panel.
+      this.scheduleAdvance(isStory ? STORY_ADVANCE_CORRECT_MS : ADVANCE_CORRECT_MS);
     } else {
       this.mascot?.setAnim('sad');
-      this.hud?.shakeHp();
       this.hud?.flash('#ff4b4b', 0.13);
       this.hud?.shake();
       sfxWrong();
-      sfxHpLoss();
-      audio.vibrate([50, 30, 50]);
-      this.scheduleAdvance(ADVANCE_WRONG_MS);
+      if (!isStory) {
+        // Outside story mode, wrong → HP loss FX + auto-advance.
+        this.hud?.shakeHp();
+        sfxHpLoss();
+        audio.vibrate([50, 30, 50]);
+        this.scheduleAdvance(ADVANCE_WRONG_MS);
+      } else {
+        // Story mode: NO HP, NO auto-advance. Player must tap the
+        // correct option (handled via ClozeUI's force-correct retry).
+        audio.vibrate(30);
+      }
     }
 
     this.renderHud();
   }
 
+  private handleForceCorrect(_idx: number): void {
+    // Story mode only — fired when the player taps the correct answer
+    // after first answering wrong. Clear store retry-flag, update UI,
+    // celebrate, then schedule advance.
+    const store = useRunStore.getState();
+    if (!store.awaitingRetry) return;
+    store.retryRound();
+    this.clozeUI?.acknowledgeForceCorrect();
+    this.mascot?.setAnim('happy');
+    this.hud?.flash('#58cc02', 0.15);
+    sfxCorrect();
+    audio.vibrate(30);
+    this.scheduleAdvance(STORY_ADVANCE_CORRECT_MS);
+  }
+
   private handleContinue(): void {
+    // In story mode, the Continue button is disabled while awaiting a
+    // forced retry — but we double-check the state to be safe.
+    const store = useRunStore.getState();
+    if (store.awaitingRetry) return;
     if (!this.locked && !this.timerExpired) return;
     this.cancelAdvanceTimer();
     this.nextRound();
@@ -422,6 +514,7 @@ export class PlayScene extends Phaser.Scene {
   }
 
   private handleTimeout(): void {
+    if (this.isStoryMode()) return; // timer is hidden in story mode
     this.locked = true;
     this.stopTimer();
     const result = useRunStore.getState().timeoutRound();

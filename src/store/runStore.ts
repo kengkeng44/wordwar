@@ -8,29 +8,41 @@ import {
 import {
   loadScenarios,
   questionsForScenario,
-  toClozeQuestion,
+  toClozeQuestion as scenarioToCloze,
   type ScenarioId,
   type ScenarioQuestion,
 } from '../data/scenarios';
+import {
+  loadStoryQuestions,
+  questionsForChapter,
+  toClozeQuestion as storyToCloze,
+  srsReviewBatch,
+  addToSrs,
+  removeFromSrs,
+  markChapterCompleted,
+  type ChapterId,
+  type StoryQuestion,
+} from '../data/storyKitten';
 
 /**
  * runStore — cloze run state.
  *
- * v0.3 added scenario mode on top of free practice. v0.5 unifies the free
- * practice pool:
- *   - mode === 'free'      → 10 random A2 questions drawn from the UNION
- *                            of sentences.json (80) + scenarios.json (50)
- *                            = 130 questions. Scenario tag is dropped at
- *                            the surface so they show as plain A2 cloze.
- *   - mode === 'scenario'  → 10 fixed-order questions from one scenario in
- *                            scenarios.json
+ * v0.8 adds story mode (mode === 'story'):
+ *   - Player picks a chapter (1..5) via setChapter(c).
+ *   - startRound() loads up to 3 SRS review questions (from previous wrong
+ *     answers) plus the 6 chapter questions in order — so the player drills
+ *     past mistakes before facing new content.
+ *   - HP is disabled in story mode. wrongs count but do not cost HP.
+ *   - answer() in story mode: a wrong answer marks the round NOT advanced;
+ *     the same round stays current with `answered` true. The UI is
+ *     expected to call `retryRound()` after the player taps the correct
+ *     option, which clears `answered` and waits for the second answer.
+ *     Force-correct flow.
  *
- * loadContent() boots BOTH JSON files eagerly so free mode can sample
- * across them without round-trip latency. Same scoring + HP + reveal flow
- * either way.
+ * Other modes ('free', 'scenario') behave exactly as v0.7.
  */
 
-export type RunMode = 'free' | 'scenario';
+export type RunMode = 'free' | 'scenario' | 'story';
 
 export interface PlayResult {
   correct: boolean;
@@ -52,6 +64,8 @@ export interface RunState {
   questions: ClozeQuestion[] | null;
   // Content — scenario pool (all scenarios, filtered at run-start)
   scenarioQuestions: ScenarioQuestion[] | null;
+  // Content — story pool (v0.8)
+  storyQuestions: StoryQuestion[] | null;
 
   pool: ClozeQuestion[]; // remaining queue for the current run
   round: ClozeQuestion | null;
@@ -65,6 +79,9 @@ export interface RunState {
 
   lastResult: PlayResult | null;
   answered: boolean;
+  /** v0.8: in story mode, set to true after a WRONG answer to indicate
+   * the player must retry the same round. Cleared by retryRound(). */
+  awaitingRetry: boolean;
 
   /** ms timestamp (Date.now) at run start — used by EndScene for total time. */
   runStartedAt: number;
@@ -72,7 +89,15 @@ export interface RunState {
   // Mode + level
   mode: RunMode;
   scenario: ScenarioId | null;
+  /** v0.8: active story chapter (1..5). null when not in story mode. */
+  chapter: ChapterId | null;
   level: ClozeLevel;
+
+  /** v0.8: count of NEW (non-SRS) story questions in the current run.
+   * Used by PlayScene to know when the chapter is complete (vs review). */
+  storyNewQuestionCount: number;
+  /** v0.8: total story questions in the current run (SRS + new). */
+  storyTotalQuestionCount: number;
 
   // Loading
   loading: boolean;
@@ -87,9 +112,16 @@ export interface RunState {
   setLevel: (level: ClozeLevel) => void;
   setMode: (mode: RunMode) => void;
   setScenario: (scenario: ScenarioId | null) => void;
+  setChapter: (chapter: ChapterId | null) => void;
   startRound: () => void;
   answer: (selectedIndex: number) => PlayResult;
+  /** v0.8 story mode: clear `answered` + `awaitingRetry` so the same
+   * round can accept a second (force-correct) answer. */
+  retryRound: () => void;
   timeoutRound: () => PlayResult;
+  /** v0.8 story mode: called once a chapter's 6 NEW questions have been
+   * answered correctly. Persists completion. */
+  completeChapter: () => void;
   reset: () => void;
 }
 
@@ -98,6 +130,8 @@ const POINTS_BASE = 10;
 const STREAK_BONUS_STEP = 2;
 const STREAK_BONUS_CAP = 10;
 const QUESTIONS_PER_RUN = 10;
+const STORY_QUESTIONS_PER_CHAPTER = 6;
+const SRS_REVIEW_LIMIT = 3;
 
 const LS_LEVEL = 'wordwar.level';
 
@@ -133,6 +167,7 @@ function writeLevel(level: ClozeLevel): void {
 export const useRunStore = create<RunState>((set, get) => ({
   questions: null,
   scenarioQuestions: null,
+  storyQuestions: null,
   pool: [],
   round: null,
   score: 0,
@@ -142,33 +177,41 @@ export const useRunStore = create<RunState>((set, get) => ({
   history: [],
   lastResult: null,
   answered: false,
+  awaitingRetry: false,
   runStartedAt: 0,
   mode: 'free',
   scenario: null,
+  chapter: null,
   level: readLevel(),
+  storyNewQuestionCount: 0,
+  storyTotalQuestionCount: 0,
   loading: false,
   error: null,
 
   /**
-   * Load BOTH sentences.json (free pool) and scenarios.json (scenario pool)
-   * eagerly. Either-or loading is gone in v0.5 because free mode samples
-   * across both files (130-question unified pool). Idempotent — short-
-   * circuits if both are already cached.
+   * Load all three content sources eagerly: sentences (free), scenarios,
+   * story. Story file is small (~6KB) so loading it on top is negligible.
+   * Idempotent — short-circuits if all three are already cached.
    */
   loadContent: async () => {
     if (get().loading) return;
-    if (get().questions && get().scenarioQuestions) return;
+    if (get().questions && get().scenarioQuestions && get().storyQuestions)
+      return;
     set({ loading: true, error: null });
     try {
-      const [sentences, scenarios] = await Promise.all([
+      const [sentences, scenarios, story] = await Promise.all([
         get().questions ? Promise.resolve(get().questions!) : loadSentences(),
         get().scenarioQuestions
           ? Promise.resolve(get().scenarioQuestions!)
           : loadScenarios(),
+        get().storyQuestions
+          ? Promise.resolve(get().storyQuestions!)
+          : loadStoryQuestions(),
       ]);
       set({
         questions: sentences,
         scenarioQuestions: scenarios,
+        storyQuestions: story,
         loading: false,
       });
     } catch (e) {
@@ -200,22 +243,51 @@ export const useRunStore = create<RunState>((set, get) => ({
     set({ scenario });
   },
 
+  setChapter: (chapter: ChapterId | null) => {
+    set({ chapter });
+  },
+
   startRound: () => {
-    const { questions, scenarioQuestions, level, pool, mode, scenario } = get();
+    const {
+      questions,
+      scenarioQuestions,
+      storyQuestions,
+      level,
+      pool,
+      mode,
+      scenario,
+      chapter,
+    } = get();
 
     let nextPool = pool;
     if (nextPool.length === 0) {
-      if (mode === 'scenario' && scenario && scenarioQuestions) {
+      if (mode === 'story' && chapter && storyQuestions) {
+        // Story mode: up to 3 SRS reviews (excluding current chapter's
+        // questions) + the chapter's 6 questions in order. Force-correct
+        // flow means each entry stays in the queue once.
+        const chapterIds = new Set(
+          questionsForChapter(storyQuestions, chapter).map((q) => q.id)
+        );
+        const srsRaw = srsReviewBatch(storyQuestions, SRS_REVIEW_LIMIT + 6);
+        const srs = srsRaw
+          .filter((q) => !chapterIds.has(q.id))
+          .slice(0, SRS_REVIEW_LIMIT);
+        const newQs = questionsForChapter(storyQuestions, chapter);
+        const ordered = [...srs, ...newQs];
+        nextPool = ordered.map(storyToCloze);
+        set({
+          storyNewQuestionCount: newQs.length,
+          storyTotalQuestionCount: ordered.length,
+        });
+      } else if (mode === 'scenario' && scenario && scenarioQuestions) {
         // Scenario mode: fixed order, 10 questions.
         nextPool = questionsForScenario(scenarioQuestions, scenario).map(
-          toClozeQuestion
+          scenarioToCloze
         );
       } else {
         // Free practice (v0.5): unified pool = sentences.json ∪ scenarios.json.
-        // Scenario-tagged questions are stripped down to ClozeQuestion so
-        // there's no scenario chip / accent in free mode — just A2 cloze.
         const base = questions ?? [];
-        const scenarioCloze = (scenarioQuestions ?? []).map(toClozeQuestion);
+        const scenarioCloze = (scenarioQuestions ?? []).map(scenarioToCloze);
         const unified = base.concat(scenarioCloze);
         nextPool = pickByLevel(unified, level, QUESTIONS_PER_RUN);
       }
@@ -230,11 +302,21 @@ export const useRunStore = create<RunState>((set, get) => ({
       pool: rest,
       lastResult: null,
       answered: false,
+      awaitingRetry: false,
     });
   },
 
   answer: (selectedIndex: number): PlayResult => {
-    const { round, score, hp, history, streak, bestStreak, answered } = get();
+    const {
+      round,
+      score,
+      hp,
+      history,
+      streak,
+      bestStreak,
+      answered,
+      mode,
+    } = get();
     if (!round || answered) {
       return {
         correct: false,
@@ -246,7 +328,17 @@ export const useRunStore = create<RunState>((set, get) => ({
       };
     }
     const correct = selectedIndex === round.correctIndex;
-    const newStreak = correct ? streak + 1 : 0;
+    const isStory = mode === 'story';
+
+    // In story mode, streak only increments on FIRST-try correct, not on
+    // retry-correct. We detect "this is a retry" by checking if the
+    // history already has an entry for this same round id (failed earlier).
+    const isRetryCorrect =
+      isStory &&
+      correct &&
+      history.some((h) => h.question.id === round.id && !h.correct);
+
+    const newStreak = correct && !isRetryCorrect ? streak + 1 : isStory && correct ? streak : 0;
     const streakBonus = correct
       ? Math.min(STREAK_BONUS_CAP, Math.max(0, streak) * STREAK_BONUS_STEP)
       : 0;
@@ -265,20 +357,36 @@ export const useRunStore = create<RunState>((set, get) => ({
       correctIndex: round.correctIndex,
       explanationZh: round.explanationZh,
     };
+
+    // SRS tracking in story mode:
+    //   - wrong   → add to SRS queue
+    //   - correct → remove from SRS queue (review nailed)
+    if (isStory) {
+      if (correct) removeFromSrs(round.id);
+      else addToSrs(round.id);
+    }
+
     set({
       history: [...history, entry],
       score: score + pointsGained,
-      hp: correct ? hp : Math.max(0, hp - 1),
+      // HP only ticks down outside story mode.
+      hp: isStory ? hp : correct ? hp : Math.max(0, hp - 1),
       streak: newStreak,
       bestStreak: Math.max(bestStreak, newStreak),
       answered: true,
+      // In story mode, a wrong answer leaves the player awaiting a retry.
+      awaitingRetry: isStory && !correct,
       lastResult: result,
     });
     return result;
   },
 
+  retryRound: () => {
+    set({ answered: false, awaitingRetry: false, lastResult: null });
+  },
+
   timeoutRound: (): PlayResult => {
-    const { round, hp, history, answered } = get();
+    const { round, hp, history, answered, mode } = get();
     if (!round || answered) {
       return {
         correct: false,
@@ -302,14 +410,22 @@ export const useRunStore = create<RunState>((set, get) => ({
       correctIndex: round.correctIndex,
       explanationZh: round.explanationZh,
     };
+    const isStory = mode === 'story';
+    if (isStory) addToSrs(round.id);
     set({
       history: [...history, entry],
-      hp: Math.max(0, hp - 1),
+      hp: isStory ? hp : Math.max(0, hp - 1),
       streak: 0,
       answered: true,
+      awaitingRetry: isStory,
       lastResult: result,
     });
     return result;
+  },
+
+  completeChapter: () => {
+    const { chapter } = get();
+    if (chapter) markChapterCompleted(chapter);
   },
 
   reset: () => {
@@ -323,7 +439,10 @@ export const useRunStore = create<RunState>((set, get) => ({
       history: [],
       lastResult: null,
       answered: false,
+      awaitingRetry: false,
       runStartedAt: Date.now(),
+      storyNewQuestionCount: 0,
+      storyTotalQuestionCount: 0,
     });
   },
 }));
@@ -331,4 +450,6 @@ export const useRunStore = create<RunState>((set, get) => ({
 export const RUN_CONFIG = {
   QUESTIONS_PER_RUN,
   STARTING_HP,
+  STORY_QUESTIONS_PER_CHAPTER,
+  SRS_REVIEW_LIMIT,
 };

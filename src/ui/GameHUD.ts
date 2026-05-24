@@ -37,6 +37,8 @@ export interface GameHUDOptions {
   emoji: string;
   /** Callback for "← change" link (back to menu). */
   onChange: () => void;
+  /** v0.8 story mode: hide the HP heart counter entirely. */
+  hideHp?: boolean;
 }
 
 export interface GameHUDState {
@@ -251,6 +253,9 @@ export class GameHUD {
     this.hpEl.appendChild(hpCount);
     this.hpHearts = [heart, hpCount];
     this.header.appendChild(this.hpEl);
+    if (this.opts.hideHp) {
+      this.hpEl.style.display = 'none';
+    }
 
     // Timer pill — right of HP (replaces former mute button; user controls audio via phone volume)
     this.timerEl = document.createElement('div');
@@ -482,6 +487,16 @@ export class GameHUD {
     this.timerEl.style.color = low ? '#ff4b4b' : '#3c3c3c';
     this.timerEl.style.borderColor = low ? '#ffb3b3' : '#e5e5e5';
     this.timerEl.style.borderBottomColor = low ? '#ff4b4b' : '#d4d4d4';
+  }
+
+  /** v0.8 story mode: hide the timer pill in the header. */
+  hideTimer(): void {
+    this.timerEl.style.display = 'none';
+  }
+
+  /** v0.8 story mode: total rounds may grow once SRS reviews are computed. */
+  setTotalRounds(n: number): void {
+    if (n > 0) this.opts.totalRounds = n;
   }
 
   /** Tiny pulse on the sentence card on round-in. */
