@@ -79,6 +79,8 @@ export class GameHUD {
   private mascotMount!: HTMLDivElement;
   private card!: HTMLDivElement;
   private sentenceEl!: HTMLDivElement;
+  /** v1.7.13: expose so PlayScene can swap content for listening mode. */
+  public getSentenceElement(): HTMLDivElement { return this.sentenceEl; }
   private timerEl!: HTMLDivElement;
   private timerNum!: HTMLSpanElement;
   private buttonsSlotEl!: HTMLDivElement;

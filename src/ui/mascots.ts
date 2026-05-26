@@ -321,8 +321,10 @@ const receptionist = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 1
 // (from Claude Design / ChatGPT chat). Wrapped in SVG to maintain the
 // existing inline-render API. Other 15 mascots still use placeholder SVG
 // — will swap over when user generates more variants.
+// v1.7.13: switched .png -> .webp (754KB -> 74KB, 90% reduction).
+// All modern browsers (Safari 14+, Chrome 32+, Firefox 65+) support WebP.
 const kittenCh1 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
-  <image href="/mascots/calico-anchor.png" x="0" y="0" width="100" height="140" preserveAspectRatio="xMidYMid meet"/>
+  <image href="/mascots/calico-anchor.webp" x="0" y="0" width="100" height="140" preserveAspectRatio="xMidYMid meet"/>
 </svg>`;
 
 // ─── Kitten Ch2 — sitting straight observing baker, alert and curious ────

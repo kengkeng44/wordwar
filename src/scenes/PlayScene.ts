@@ -325,12 +325,48 @@ export class PlayScene extends Phaser.Scene {
     this.updatePovScene();
     this.renderHud();
 
-    // v1.7.11: listening mode — speak the new round's sentence via
-    // browser TTS. Small delay so HUD render commits first; then user
-    // hears the audio with the visible card paint.
-    if (useRunStore.getState().listeningMode && after.round) {
-      const sentence = after.round.sentence;
-      window.setTimeout(() => speak(sentence), 320);
+    // v1.7.13: listening mode UX overhaul.
+    //  - Replace the visible sentence with a 🔊 "Tap to listen" button
+    //    so the player has to USE THEIR EARS, not read the text.
+    //  - Auto-play once on round start (delayed ~280ms so the visual
+    //    settles first). iOS will play because the listening sheet
+    //    button warmed up speechSynthesis during the user gesture.
+    //  - Tapping the button replays the audio.
+    if (useRunStore.getState().listeningMode && after.round && this.hud) {
+      const sentenceText = after.round.sentence;
+      const sentenceEl = this.hud.getSentenceElement();
+      if (sentenceEl) {
+        sentenceEl.innerHTML = `
+          <button type="button" class="pickup-listen-btn" style="
+            display:inline-flex; align-items:center; gap:10px;
+            margin:6px auto; padding:14px 28px;
+            background:#3d8aae; color:#ffffff;
+            border:none; border-bottom:4px solid #2c6986;
+            border-radius:18px;
+            font-family:inherit; font-size:17px; font-weight:900;
+            letter-spacing:0.5px; cursor:pointer;
+            touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+            transition: transform 80ms ease-out, border-bottom-width 80ms ease-out;
+          " aria-label="Tap to hear sentence">
+            <span style="font-size:22px;">🔊</span> Tap to listen
+          </button>
+        `;
+        const btn = sentenceEl.querySelector('.pickup-listen-btn') as HTMLButtonElement | null;
+        if (btn) {
+          const onPress = () => { btn.style.transform = 'translateY(3px)'; btn.style.borderBottomWidth = '1px'; };
+          const onRelease = () => { btn.style.transform = ''; btn.style.borderBottomWidth = '4px'; };
+          btn.addEventListener('mousedown', onPress);
+          btn.addEventListener('mouseup', onRelease);
+          btn.addEventListener('mouseleave', onRelease);
+          btn.addEventListener('touchstart', onPress, { passive: true });
+          btn.addEventListener('touchend', onRelease);
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            speak(sentenceText);
+          });
+        }
+      }
+      window.setTimeout(() => speak(sentenceText), 280);
     }
     this.hud?.animateSentenceIn();
     // Story mode: no timer (force-correct flow makes the timeout pressure

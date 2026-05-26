@@ -12,6 +12,7 @@
  */
 
 import { applyStyle } from './domUtil';
+import { speak } from '../audio/tts';
 
 export interface NodeActivityHandlers {
   onListening: () => void;
@@ -94,6 +95,12 @@ export class NodeActivitySheet {
       bg: COLOR_ACCENT,
       bgDark: COLOR_ACCENT_DARK,
       onClick: () => {
+        // v1.7.13 iOS TTS unlock: speechSynthesis is blocked on iOS
+        // Safari until first invoked DURING a user gesture. We fire a
+        // silent warm-up speak() right here in the click handler so
+        // subsequent speak() calls in PlayScene (which happen via
+        // setTimeout, well after the gesture) work.
+        speak(' ', 'en-US');
         this.dismiss();
         this.handlers.onListening();
       },
