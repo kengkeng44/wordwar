@@ -32,36 +32,65 @@ function head(skin = '#fde0c2', stroke = '#2a2730'): string {
 }
 
 // ─── Owl (default / free practice) ─────────────────────────────────────────
-// v0.7 redesign — cleaner Duo-style owl: vivid green, big sparkly eyes,
-// white belly, orange triangle beak, tiny feet, soft ground shadow.
+// v0.9 redesign — 林明子 (Akiko Hayashi) hand-drawn warm style.
+// Pencil-sketch feel via irregular paths + round caps; soft amber/cream
+// palette (no Duolingo green); subtle pencil shading lines; slight rotation
+// breaks symmetry so it reads "drawn not generated".
 const owl = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 140" aria-hidden="true">
-  <!-- Soft ground shadow -->
-  <ellipse cx="50" cy="128" rx="26" ry="4" fill="#000000" opacity="0.12"/>
-  <g class="mascot-body">
-    <!-- Tufts (behind body) -->
-    <path d="M22 50 Q26 36 34 44 Q30 50 26 54 Z" fill="#43a302"/>
-    <path d="M78 50 Q74 36 66 44 Q70 50 74 54 Z" fill="#43a302"/>
-    <!-- Body (vivid Duolingo green, rounded teardrop) -->
-    <path d="M50 38 C30 38 20 56 20 80 C20 106 32 122 50 122 C68 122 80 106 80 80 C80 56 70 38 50 38 Z"
-          fill="#58cc02"/>
-    <!-- Belly highlight (white) -->
-    <ellipse cx="50" cy="92" rx="22" ry="24" fill="#ffffff"/>
-    <!-- Wings -->
-    <path d="M22 76 Q14 80 18 100 Q24 104 30 96 Z" fill="#43a302"/>
-    <path d="M78 76 Q86 80 82 100 Q76 104 70 96 Z" fill="#43a302"/>
-    <!-- Eye whites (big) -->
-    <circle cx="39" cy="68" r="13" fill="#ffffff"/>
-    <circle cx="61" cy="68" r="13" fill="#ffffff"/>
-    <!-- Pupils with sparkle highlights -->
-    <circle cx="40" cy="69" r="6" fill="#2a2730" class="mascot-pupil mascot-eye"/>
-    <circle cx="60" cy="69" r="6" fill="#2a2730" class="mascot-pupil mascot-eye mascot-eye-right"/>
-    <circle cx="42" cy="66" r="2" fill="#ffffff"/>
-    <circle cx="62" cy="66" r="2" fill="#ffffff"/>
-    <!-- Beak (orange triangle) -->
-    <path d="M50 80 L44 86 L56 86 Z" fill="#ff9600"/>
-    <!-- Feet (tiny orange) -->
-    <ellipse cx="42" cy="122" rx="5" ry="3" fill="#ff9600"/>
-    <ellipse cx="58" cy="122" rx="5" ry="3" fill="#ff9600"/>
+  <defs>
+    <!-- Pencil-grain noise for soft texture on body fills -->
+    <filter id="owl-paper" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0.55  0 0 0 0 0.42  0 0 0 0 0.28  0 0 0 0.12 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+      <feComposite in="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+  <!-- Soft ground shadow (slightly uneven, warm umber) -->
+  <path d="M24 128 Q38 124 50 127 Q64 130 76 127 Q72 132 50 132 Q28 132 24 128 Z"
+        fill="#8b6f4a" opacity="0.18"/>
+  <g class="mascot-body" transform="rotate(-1.5 50 80)"
+     stroke="#6b4a2a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Tufts (ear feathers — wobbly, asymmetric) -->
+    <path d="M24 52 Q27 38 35 46 Q33 52 28 56 Q25 55 24 52 Z" fill="#c9a368"/>
+    <path d="M77 51 Q73 36 65 45 Q68 51 73 56 Q76 54 77 51 Z" fill="#c9a368"/>
+    <!-- Body (irregular teardrop, soft amber-brown) -->
+    <path d="M50 39 C31 40 21 57 21 80 C20 104 33 122 50 122 C68 123 80 105 80 80 C80 57 69 39 50 39 Z"
+          fill="#d9b483" filter="url(#owl-paper)"/>
+    <!-- Belly (cream, hand-drawn oval, slightly off-center) -->
+    <path d="M50 70 C36 71 32 84 33 96 C34 110 42 117 51 117 C61 117 68 109 68 96 C68 83 63 70 50 70 Z"
+          fill="#f4e1c0" stroke="#a07d52" stroke-width="1"/>
+    <!-- Pencil shading on body sides (thin parallel strokes) -->
+    <path d="M26 76 Q24 84 26 92" fill="none" stroke="#8b6f4a" stroke-width="0.6" opacity="0.5"/>
+    <path d="M28 72 Q26 82 28 94" fill="none" stroke="#8b6f4a" stroke-width="0.6" opacity="0.4"/>
+    <path d="M74 76 Q76 84 74 92" fill="none" stroke="#8b6f4a" stroke-width="0.6" opacity="0.5"/>
+    <path d="M72 72 Q74 82 72 94" fill="none" stroke="#8b6f4a" stroke-width="0.6" opacity="0.4"/>
+    <!-- Wings (irregular leaf shapes, warm brown) -->
+    <path d="M23 76 Q14 82 19 102 Q26 106 31 96 Q28 86 23 76 Z" fill="#a07d52"/>
+    <path d="M77 75 Q86 81 81 102 Q74 107 69 96 Q72 85 77 75 Z" fill="#a07d52"/>
+    <!-- Wing feather lines -->
+    <path d="M22 84 Q20 92 24 100" fill="none" stroke="#6b4a2a" stroke-width="0.7" opacity="0.6"/>
+    <path d="M78 84 Q80 92 76 100" fill="none" stroke="#6b4a2a" stroke-width="0.7" opacity="0.6"/>
+    <!-- Eye whites (hand-drawn cream, slightly uneven sizes) -->
+    <path d="M39 68 Q32 67 30 73 Q31 80 39 81 Q47 80 48 73 Q47 67 39 68 Z"
+          fill="#fef8ed" stroke="#6b4a2a" stroke-width="1.2"/>
+    <path d="M61 68 Q54 67 53 73 Q54 80 61 81 Q69 80 70 73 Q68 67 61 68 Z"
+          fill="#fef8ed" stroke="#6b4a2a" stroke-width="1.2"/>
+    <!-- Pupils (warm dark brown, not black) -->
+    <ellipse cx="40" cy="73" rx="3.2" ry="3.6" fill="#3d2817" class="mascot-pupil mascot-eye"/>
+    <ellipse cx="60" cy="73" rx="3.2" ry="3.6" fill="#3d2817" class="mascot-pupil mascot-eye mascot-eye-right"/>
+    <!-- Tiny eye glints (cream not pure white) -->
+    <circle cx="41" cy="71.5" r="0.9" fill="#fef8ed"/>
+    <circle cx="61" cy="71.5" r="0.9" fill="#fef8ed"/>
+    <!-- Beak (amber, slightly curved triangle — hand drawn) -->
+    <path d="M50 82 Q46 86 47 89 Q50 90 53 89 Q54 86 50 82 Z"
+          fill="#e7a44a" stroke="#a06b1a" stroke-width="1"/>
+    <!-- Dusty rose cheek blush (林明子 signature) -->
+    <ellipse cx="34" cy="82" rx="3.5" ry="2.2" fill="#d99a8a" opacity="0.55"/>
+    <ellipse cx="66" cy="82" rx="3.5" ry="2.2" fill="#d99a8a" opacity="0.55"/>
+    <!-- Feet (warm amber, slightly uneven) -->
+    <path d="M40 121 Q37 123 38 125 Q42 126 45 124 Q44 121 40 121 Z" fill="#c9893a"/>
+    <path d="M60 121 Q57 121 56 124 Q59 126 63 125 Q64 123 60 121 Z" fill="#c9893a"/>
   </g>
 </svg>`;
 
