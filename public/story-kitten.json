@@ -2,24 +2,16 @@
   {
     "id": "kt-ch1-01",
     "level": "A2",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 1,
-    "storyBeat": "小貓在巷子裡醒來。雨下得很大,身上都濕了。",
-    "sentence": "The kitten wakes up. It is raining ___.",
-    "options": [
-      "hardly",
-      "hard",
-      "softly",
-      "loudly"
-    ],
+    "type": "listen-mc",
+    "storyBeat": "我在雨夜醒來,雨下得很大",
+    "sentence": "I wake up. The rain is falling hard.",
+    "options": ["heart", "hard", "heard", "hat"],
     "correctIndex": 1,
-    "explanationZh": "raining hard 是「下大雨」的固定用法。hardly 意思是「幾乎不」,跟「用力」沒關係。",
-    "tags": [
-      "story",
-      "ch1",
-      "weather"
-    ]
+    "explanationZh": "聽 hard(用力地、大力地)— 跟 heart / heard / hat 都是近音字陷阱,要靠耳朵分辨子音和母音長度。",
+    "tags": ["story", "ch1", "weather", "homophone"]
   },
   {
     "id": "kt-ch1-02",
@@ -27,21 +19,14 @@
     "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 2,
-    "storyBeat": "牠的毛全濕了,風吹過來好冷。",
-    "sentence": "My fur is wet. I feel very ___.",
-    "options": [
-      "cold",
-      "hot",
-      "warm",
-      "dry"
-    ],
-    "correctIndex": 0,
-    "explanationZh": "濕掉的毛 + 風 = 冷 (cold)。warm 是溫暖,dry 是乾的,都不符合情境。",
-    "tags": [
-      "story",
-      "ch1",
-      "feeling"
-    ]
+    "type": "listen-emoji",
+    "storyBeat": "毛濕了,我覺得很冷",
+    "sentence": "My fur is wet. I feel very cold.",
+    "question": "How do I feel?",
+    "options": ["😄 happy", "🥶 cold", "🥵 hot", "😴 sleepy"],
+    "correctIndex": 1,
+    "explanationZh": "聽完整句後選對應的 emoji。cold(冷)是當下感受,fur is wet 也能推。",
+    "tags": ["story", "ch1", "feeling", "emoji-match"]
   },
   {
     "id": "kt-ch1-03",
@@ -49,65 +34,48 @@
     "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 3,
-    "storyBeat": "肚子咕咕叫,昨天都沒吃東西。",
-    "sentence": "I have not eaten since yesterday. I am so ___.",
+    "type": "listen-comprehension",
+    "storyBeat": "我從昨天就沒吃,好餓",
+    "sentence": "I have not eaten since yesterday. I am so hungry.",
+    "question": "What is the problem?",
     "options": [
-      "thirsty",
-      "tired",
-      "hungry",
-      "happy"
+      "I am sleepy",
+      "I am sick",
+      "I am hungry",
+      "I am lost"
     ],
     "correctIndex": 2,
-    "explanationZh": "沒吃東西就是 hungry (餓)。thirsty 是「渴」,跟沒喝水有關。",
-    "tags": [
-      "story",
-      "ch1",
-      "feeling"
-    ]
+    "explanationZh": "Comprehension 題:聽完整句後選最貼近主旨的整句答案。「沒吃 + so hungry」對應 I am hungry。",
+    "tags": ["story", "ch1", "feeling", "comprehension"]
   },
   {
     "id": "kt-ch1-04",
     "level": "A2",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 4,
-    "storyBeat": "一個大人影靠近,小貓嚇得縮起來。",
-    "sentence": "A big shadow comes close. The kitten is ___.",
-    "options": [
-      "brave",
-      "scared",
-      "kind",
-      "funny"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "陌生人影靠近 → 害怕 (scared)。brave 是勇敢,情境相反。",
-    "tags": [
-      "story",
-      "ch1",
-      "emotion"
-    ]
+    "type": "read-mc-with-audio",
+    "storyBeat": "一個大影子靠近,我嚇到",
+    "sentence": "A big shadow comes close. I am ___.",
+    "question": "Fill in the blank.",
+    "options": ["scared", "brave", "funny", "kind"],
+    "correctIndex": 0,
+    "explanationZh": "閱讀題附音檔(可選聽)。大影子靠近 → scared(害怕)。其他選項都是正面情緒。",
+    "tags": ["story", "ch1", "emotion", "reading-with-audio"]
   },
   {
     "id": "kt-ch1-05",
     "level": "A2",
-    "difficulty": "easy",
+    "difficulty": "medium",
     "chapter": 1,
     "questionInChapter": 5,
-    "storyBeat": "原來是一位撐藍傘的阿嬤。她笑了笑。",
-    "sentence": "It is a grandma with a blue umbrella. She has a ___ face.",
-    "options": [
-      "angry",
-      "kind",
-      "sad",
-      "busy"
-    ],
-    "correctIndex": 1,
-    "explanationZh": "看到笑容 → kind (友善的) 臉。angry / sad / busy 都跟笑相反。",
-    "tags": [
-      "story",
-      "ch1",
-      "people"
-    ]
+    "type": "listen-mc",
+    "storyBeat": "是個阿嬤,撐著藍色傘,慈祥的臉",
+    "sentence": "It is a grandma with a blue umbrella. She has a kind face.",
+    "options": ["kind", "kid", "king", "kine"],
+    "correctIndex": 0,
+    "explanationZh": "進階聽力辨字:kind(慈祥)vs kid(小孩)vs king(國王)— 母音和尾音都不一樣,仔細聽。",
+    "tags": ["story", "ch1", "people", "homophone"]
   },
   {
     "id": "kt-ch1-06",
@@ -115,20 +83,13 @@
     "difficulty": "medium",
     "chapter": 1,
     "questionInChapter": 6,
-    "storyBeat": "阿嬤把傘往小貓那邊傾過來,擋住雨。",
+    "type": "read-mc-with-audio",
+    "storyBeat": "阿嬤把傘撐到我頭上",
     "sentence": "The grandma ___ her umbrella over me.",
-    "options": [
-      "throws",
-      "drops",
-      "holds",
-      "buys"
-    ],
+    "question": "What action did she do?",
+    "options": ["throws", "drops", "holds", "buys"],
     "correctIndex": 2,
-    "explanationZh": "把傘撐在某物上面 → hold (拿、撐著)。throw 是丟,drop 是掉落。",
-    "tags": [
-      "story",
-      "ch1",
-      "action"
-    ]
+    "explanationZh": "閱讀 + 聽力雙重輔助:阿嬤撐傘 = holds(握持/撐起)。throw 是丟、drop 是掉、buy 是買,情境都不合。",
+    "tags": ["story", "ch1", "action", "reading-with-audio"]
   }
 ]

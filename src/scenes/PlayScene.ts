@@ -325,23 +325,31 @@ export class PlayScene extends Phaser.Scene {
     this.updatePovScene();
     this.renderHud();
 
-    // v1.7.13: listening mode UX overhaul.
-    //  - Replace the visible sentence with a 🔊 "Tap to listen" button
-    //    so the player has to USE THEIR EARS, not read the text.
-    //  - Auto-play once on round start (delayed ~280ms so the visual
-    //    settles first). iOS will play because the listening sheet
-    //    button warmed up speechSynthesis during the user gesture.
-    //  - Tapping the button replays the audio.
-    // v1.7.14: speak the COMPLETE sentence with the correct answer
-    //  substituted into the blank — never speak "[blank]". User hears
-    //  natural English; the task is to identify which option was
-    //  spoken in that position (listening dictation pattern).
-    if (useRunStore.getState().listeningMode && after.round && this.hud) {
-      const correctWord = after.round.options[after.round.correctIndex] ?? '';
-      const sentenceText = after.round.sentence.replace(/_{2,}/g, correctWord);
+    // v1.8.0: question type drives UI, not the sheet flag. listen-*
+    // types hide the sentence; read-* show it with a speaker button.
+    // Comprehension prompts (round.question) appear above either.
+    const round = after.round;
+    const qType = round?.type;
+    const isListeningType =
+      qType === 'listen-mc' ||
+      qType === 'listen-emoji' ||
+      qType === 'listen-comprehension';
+    const useListeningUI = round
+      ? (qType ? isListeningType : useRunStore.getState().listeningMode)
+      : false;
+
+    if (useListeningUI && round && this.hud) {
+      const correctWord = round.options[round.correctIndex] ?? '';
+      const sentenceText = round.sentence.replace(/_{2,}/g, correctWord);
       const sentenceEl = this.hud.getSentenceElement();
+      // v1.8.0: render an optional comprehension prompt above the 🔊
+      // button (e.g. "How do I feel?" or "What is the problem?").
+      const promptHtml = round.question
+        ? `<div style="font-size:13px;color:#7a6850;font-weight:800;margin-bottom:10px;letter-spacing:0.3px;">${round.question}</div>`
+        : '';
       if (sentenceEl) {
         sentenceEl.innerHTML = `
+          ${promptHtml}
           <button type="button" class="pickup-listen-btn" style="
             display:inline-flex; align-items:center; gap:10px;
             margin:6px auto; padding:14px 28px;
@@ -379,10 +387,22 @@ export class PlayScene extends Phaser.Scene {
     // style: every exercise has audio access even when reading is
     // primary. Speaks the FULL sentence with the correct word filled
     // in (no [blank], no underscores).
-    if (!useRunStore.getState().listeningMode && after.round && this.hud) {
+    if (!useListeningUI && round && this.hud) {
       const sentenceEl = this.hud.getSentenceElement();
       if (sentenceEl) {
-        const round = after.round;
+        // v1.8.0: optional comprehension prompt above the sentence
+        if (round.question) {
+          const prompt = document.createElement('div');
+          prompt.textContent = round.question;
+          Object.assign(prompt.style, {
+            fontSize: '13px',
+            color: '#7a6850',
+            fontWeight: '800',
+            marginBottom: '8px',
+            letterSpacing: '0.3px',
+          });
+          sentenceEl.insertBefore(prompt, sentenceEl.firstChild);
+        }
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'pickup-mini-speaker';

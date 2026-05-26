@@ -30,6 +30,17 @@ export const ClozeQuestionSchema = z.object({
   correctIndex: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3)]),
   explanationZh: z.string(),
   tags: z.array(z.string()).optional(),
+  /** v1.8.0: TOEIC-style question type. Optional — legacy data defaults
+   *  to "listen-mc" / "read-mc-with-audio" behavior. */
+  type: z.enum([
+    'listen-mc',
+    'listen-emoji',
+    'listen-comprehension',
+    'read-mc-with-audio',
+  ]).optional(),
+  /** v1.8.0: comprehension prompt shown above the options for
+   *  emoji / comprehension types (e.g. "How do I feel?"). */
+  question: z.string().optional(),
 });
 
 export const ClozeQuestionsSchema = z.array(ClozeQuestionSchema);

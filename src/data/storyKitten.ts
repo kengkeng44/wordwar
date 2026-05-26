@@ -24,10 +24,35 @@ export const ChapterIdSchema = z.union([
 
 export type ChapterId = z.infer<typeof ChapterIdSchema>;
 
+/**
+ * v1.8.0: question type system for varied listening/reading exercises.
+ *
+ *   - listen-mc           Hear full sentence, pick the word that was spoken in the blank position
+ *   - listen-emoji        Hear sentence, pick the emoji that matches the feeling/situation
+ *   - listen-comprehension Hear sentence, answer a Who/What question about it
+ *   - read-mc-with-audio  Read sentence with blank, audio button optional, pick word
+ *
+ * All four use 4-choice multiple-choice UI. Differences are framing,
+ * spoken vs. visible sentence, and whether a comprehension prompt is shown.
+ */
+export const QuestionTypeSchema = z.enum([
+  'listen-mc',
+  'listen-emoji',
+  'listen-comprehension',
+  'read-mc-with-audio',
+]);
+export type QuestionType = z.infer<typeof QuestionTypeSchema>;
+
 export const StoryQuestionSchema = ClozeQuestionSchema.extend({
   chapter: ChapterIdSchema,
   questionInChapter: z.number().int().min(1).max(6),
   storyBeat: z.string().optional(),
+  /** v1.8.0: optional. Defaults to 'listen-mc' if absent (legacy data). */
+  type: QuestionTypeSchema.optional(),
+  /** v1.8.0: comprehension prompt shown above the options.
+   *  e.g. "What is the kitten feeling?" or "Choose the emoji that matches."
+   *  Absent for plain listen-mc / read-mc-with-audio. */
+  question: z.string().optional(),
 });
 
 export const StoryQuestionsSchema = z.array(StoryQuestionSchema);
@@ -66,6 +91,10 @@ export function toClozeQuestion(q: StoryQuestion): ClozeQuestion {
     correctIndex: q.correctIndex,
     explanationZh: q.explanationZh,
     tags: q.tags,
+    // v1.8.0: carry type + question through to runStore.round so PlayScene
+    // can pick the right UI variant.
+    type: q.type,
+    question: q.question,
   };
 }
 
@@ -102,8 +131,10 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
       "The umbrella tilts over the kitten, and the rain grows quiet. For the first time, the world feels a little less frightening.",
     kittenMascotId: 'kittenCh1',
     npcMascotId: 'npcGrandma',
-    tint: '#e6e9f0',
-    accent: '#6e88a8',
+    // v1.8.0: shifted from cool blue (#6e88a8) to warm peach to align with
+    // Pickup's amber brand. Still distinct from Ch2 amber (#e7a44a).
+    tint: '#fce5d6',
+    accent: '#d68a52',
   },
   2: {
     id: 2,

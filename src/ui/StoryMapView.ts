@@ -46,9 +46,23 @@ const COLOR_TEXT_MUTED = '#7a6850';
 // rather than circles. Width > height for the isometric foreshortening.
 const NODE_SIZE = 82;   // width
 const NODE_HEIGHT = 64; // visual height — gives the 5:4 ratio
-const ROW_HEIGHT = 108;
 const CONTAINER_W = 320;
-const ZIG_OFFSET = 64; // horizontal swing of each node from container center
+
+// v1.8.0: irregular hand-tuned node positions, tighter vertical spacing.
+// Replaces strict ±64 left/right zig-zag at ROW_HEIGHT=108 with an organic
+// path. {dx} is horizontal offset from container center; {top} is absolute
+// top position within the scroll column. 8 entries = 6 Ch1 + 2 Ch2 lock.
+const NODE_PATH: Array<{ dx: number; top: number }> = [
+  { dx: -28, top: 12 },    // node 0 — slight left
+  { dx: 50,  top: 94 },    // node 1 — right swing
+  { dx: -64, top: 178 },   // node 2 — far left
+  { dx: 26,  top: 258 },   // node 3 — right but tight
+  { dx: -42, top: 342 },   // node 4 — left medium
+  { dx: 58,  top: 430 },   // node 5 — right wide
+  { dx: -36, top: 538 },   // node 6 — Ch2 lock 1 (after divider)
+  { dx: 46,  top: 626 },   // node 7 — Ch2 lock 2
+];
+// (ROW_HEIGHT removed v1.8.0 — irregular path replaces it)
 
 // Ch1 narrative beats — short label per question, used as tooltip / aria.
 const CH1_BEAT_LABELS = [
@@ -291,11 +305,9 @@ export class StoryMapView {
     row.setAttribute('aria-label', `${opts.label}${opts.unlocked ? '' : ' (locked)'}`);
     row.dataset.nodeIdx = String(opts.idx);
 
-    // Zig-zag horizontal offset
-    const isLeft = opts.idx % 2 === 0;
-    const leftPx = isLeft
-      ? CONTAINER_W / 2 - NODE_SIZE / 2 - ZIG_OFFSET
-      : CONTAINER_W / 2 - NODE_SIZE / 2 + ZIG_OFFSET;
+    // v1.8.0: irregular hand-tuned position
+    const slot = NODE_PATH[opts.idx] ?? NODE_PATH[NODE_PATH.length - 1];
+    const leftPx = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
 
     const baseColor = opts.completed
       ? COLOR_NODE_DONE
@@ -311,7 +323,7 @@ export class StoryMapView {
     applyStyle(row, {
       position: 'absolute',
       left: `${leftPx}px`,
-      top: `${opts.idx * ROW_HEIGHT + 16}px`,
+      top: `${slot.top}px`,
       width: `${NODE_SIZE}px`,
       height: `${NODE_HEIGHT}px`,
       borderRadius: '50%', // ellipse since W != H
@@ -394,7 +406,7 @@ export class StoryMapView {
       position: 'absolute',
       left: '0',
       right: '0',
-      top: `${6 * ROW_HEIGHT + 8}px`,
+      top: `${NODE_PATH[5].top + NODE_HEIGHT + 26}px`,
       textAlign: 'center',
       fontSize: '11px',
       fontWeight: '800',
@@ -470,11 +482,10 @@ export class StoryMapView {
     // Translate-to coordinates: place cat top-left such that its bottom
     // overlaps the node center. Cat is 88x110, node is 76x76, node top
     // is at row*ROW_HEIGHT + 16.
-    const rowTop = nodeIdx * ROW_HEIGHT + 16;
-    const isLeft = nodeIdx % 2 === 0;
-    const nodeLeft = isLeft
-      ? CONTAINER_W / 2 - NODE_SIZE / 2 - ZIG_OFFSET
-      : CONTAINER_W / 2 - NODE_SIZE / 2 + ZIG_OFFSET;
+    // v1.8.0: derive from irregular NODE_PATH instead of fixed zig-zag
+    const slot = NODE_PATH[nodeIdx] ?? NODE_PATH[0];
+    const rowTop = slot.top;
+    const nodeLeft = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
     // v1.7.16: container is now 138px wide (tighter grandma+shiba duo).
     const catX = nodeLeft + NODE_SIZE / 2 - 138 / 2;
     const catY = rowTop - 96;
