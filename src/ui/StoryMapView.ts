@@ -27,6 +27,7 @@ import {
   CHAPTER_META,
   type ChapterId,
 } from '../data/storyKitten';
+import { readXp, levelForXp } from '../data/xp';
 
 export interface StoryMapHandlers {
   onPlayChapter: (chapter: ChapterId) => void;
@@ -120,6 +121,10 @@ export class StoryMapView {
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
       color: COLOR_TEXT_DARK,
     });
+
+    // v1.9.1: Top HUD bar (Duolingo style — gamification at-a-glance)
+    const hudBar = this.buildHudBar();
+    this.root.appendChild(hudBar);
 
     // Header — section banner (Duolingo-style filled card at top)
     const header = this.buildHeader();
@@ -236,6 +241,41 @@ export class StoryMapView {
   }
 
   // ───────────────────────────────────────────────────────────────────
+
+  private buildHudBar(): HTMLElement {
+    // v1.9.1: gamification HUD — chapter / XP / level (no streak yet)
+    const wrap = document.createElement('div');
+    applyStyle(wrap, {
+      padding: 'max(14px, env(safe-area-inset-top)) 14px 0',
+      flex: '0 0 auto',
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      gap: '8px',
+      fontFamily: 'inherit',
+      marginBottom: '8px',
+    });
+    const progress = readChapterProgress();
+    const xp = readXp();
+    const level = levelForXp(xp);
+
+    const item = (icon: string, value: string, label: string, color: string) => {
+      const el = document.createElement('div');
+      el.innerHTML = `
+        <div style="display:flex;align-items:center;gap:5px;font-family:inherit;">
+          <span style="font-size:18px;">${icon}</span>
+          <span style="font-size:17px;font-weight:900;color:${color};line-height:1;">${value}</span>
+        </div>
+        <div style="font-size:9px;font-weight:800;color:${COLOR_TEXT_MUTED};letter-spacing:0.8px;text-transform:uppercase;text-align:center;margin-top:3px;">${label}</div>
+      `;
+      return el;
+    };
+
+    wrap.appendChild(item('🐾', `${progress.highestCompleted}/8`, 'Chapters', '#a47148'));
+    wrap.appendChild(item('⭐', String(xp), 'XP', '#e7a44a'));
+    wrap.appendChild(item('🎯', `L${level}`, 'Level', '#7d9a4f'));
+    return wrap;
+  }
 
   private buildHeader(): HTMLElement {
     const meta = CHAPTER_META[1];
