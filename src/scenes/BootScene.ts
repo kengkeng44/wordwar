@@ -21,6 +21,10 @@ export class BootScene extends Phaser.Scene {
   create(): void {
     this.cameras.main.setBackgroundColor('#fef8ed');
     // Defer one tick to let Phaser settle the camera before scene swap.
-    this.time.delayedCall(0, () => this.scene.start('MenuScene'));
+    // v1.7.4: tear-intro -> map view directly. MenuScene's mode-card
+    // intermediate page was deleted from the main flow (still callable
+    // for legacy fallback paths). All modes are now reachable from the
+    // bottom nav inside StoryModeScene.
+    this.time.delayedCall(0, () => this.scene.start('StoryModeScene'));
   }
 }
