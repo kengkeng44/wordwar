@@ -332,8 +332,13 @@ export class PlayScene extends Phaser.Scene {
     //    settles first). iOS will play because the listening sheet
     //    button warmed up speechSynthesis during the user gesture.
     //  - Tapping the button replays the audio.
+    // v1.7.14: speak the COMPLETE sentence with the correct answer
+    //  substituted into the blank — never speak "[blank]". User hears
+    //  natural English; the task is to identify which option was
+    //  spoken in that position (listening dictation pattern).
     if (useRunStore.getState().listeningMode && after.round && this.hud) {
-      const sentenceText = after.round.sentence;
+      const correctWord = after.round.options[after.round.correctIndex] ?? '';
+      const sentenceText = after.round.sentence.replace(/_{2,}/g, correctWord);
       const sentenceEl = this.hud.getSentenceElement();
       if (sentenceEl) {
         sentenceEl.innerHTML = `

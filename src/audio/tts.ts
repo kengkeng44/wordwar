@@ -20,7 +20,11 @@ export function speak(text: string, lang = 'en-US'): void {
   if (typeof window === 'undefined' || !window.speechSynthesis) return;
   try {
     window.speechSynthesis.cancel(); // stop any prior utterance
-    const cleaned = text.replace(/_{2,}/g, '[blank]').trim();
+    // v1.7.14: do NOT speak "[blank]" or underscores. Caller is now
+    // responsible for filling the cloze gap with the correct word
+    // (or whatever it wants the listener to hear). We just say what
+    // we're given, cleaned of any leftover underscores.
+    const cleaned = text.replace(/_{2,}/g, ' ').replace(/\s+/g, ' ').trim();
     const u = new SpeechSynthesisUtterance(cleaned);
     u.lang = lang;
     u.rate = 0.92;
