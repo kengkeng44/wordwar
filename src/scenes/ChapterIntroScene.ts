@@ -113,7 +113,7 @@ export class ChapterIntroScene extends Phaser.Scene {
     headerRow.appendChild(back);
 
     const chapterTitle = document.createElement('div');
-    chapterTitle.textContent = `第 ${chapter} 章`;
+    chapterTitle.textContent = `Chapter ${chapter}`;
     applyStyle(chapterTitle, {
       fontSize: '14px',
       fontWeight: '800',
@@ -128,28 +128,15 @@ export class ChapterIntroScene extends Phaser.Scene {
 
     // Big title
     const title = document.createElement('div');
-    title.textContent = meta.titleZh;
+    title.textContent = meta.titleEn;
     applyStyle(title, {
-      fontSize: '30px',
+      fontSize: '28px',
       fontWeight: '900',
       textAlign: 'center',
       color: COLOR_TEXT_DARK,
       letterSpacing: '-0.5px',
     });
     content.appendChild(title);
-
-    const subtitle = document.createElement('div');
-    subtitle.textContent = meta.titleEn;
-    applyStyle(subtitle, {
-      fontSize: '13px',
-      fontWeight: '700',
-      color: COLOR_TEXT_MUTED,
-      textAlign: 'center',
-      letterSpacing: '1.5px',
-      textTransform: 'uppercase',
-      marginBottom: '6px',
-    });
-    content.appendChild(subtitle);
 
     // Scene illustration row — kitten state + NPC, side by side on a card.
     const sceneCard = document.createElement('div');
@@ -217,7 +204,7 @@ export class ChapterIntroScene extends Phaser.Scene {
     // SRS notice (optional)
     if (srsCount > 0) {
       const srsNote = document.createElement('div');
-      srsNote.textContent = `開始前會先複習 ${srsCount} 題之前答錯的題目`;
+      srsNote.textContent = `Quick review first: ${srsCount} question${srsCount > 1 ? 's' : ''} you missed before`;
       applyStyle(srsNote, {
         background: '#fff4d4',
         border: `2px solid ${COLOR_AMBER}`,
@@ -234,7 +221,7 @@ export class ChapterIntroScene extends Phaser.Scene {
     // CTA
     const cta = document.createElement('button');
     cta.type = 'button';
-    cta.textContent = '開始本章 →';
+    cta.textContent = 'Begin chapter →';
     applyStyle(cta, {
       marginTop: '4px',
       minHeight: '56px',

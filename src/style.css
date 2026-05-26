@@ -26,46 +26,47 @@
    * Each color carries meaning — apply CONSISTENTLY across every
    * surface. Per Duolingo's UX playbook (Crosley / 925studios /
    * raw.studio). */
-  --pickup-success: #3fa600;
-  --pickup-success-dark: #58a700;
-  --pickup-success-tint: #e0f5d0;
+  /* v1.2 muted Ghibli palette — was too saturated, user wants 文藝 cozy tones */
+  --pickup-success: #4f6b30;       /* muted sage olive (was Duo green #3fa600) */
+  --pickup-success-dark: #36481f;
+  --pickup-success-tint: #dfe5cb;
 
-  --pickup-warning: #ffc800;
-  --pickup-warning-dark: #e5b400;
-  --pickup-warning-tint: #fff4d4;
+  --pickup-warning: #c4a040;       /* muted gold (was bright yellow) */
+  --pickup-warning-dark: #8e7228;
+  --pickup-warning-tint: #f0e5c8;
 
-  --pickup-error: #d92e2e;
-  --pickup-error-dark: #a82020;
-  --pickup-error-tint: #ffd6d6;
+  --pickup-error: #8b4530;         /* terracotta brown-red (was bright red) */
+  --pickup-error-dark: #5f2e1f;
+  --pickup-error-tint: #efd6cd;
 
-  --pickup-streak: #cc7800;
-  --pickup-streak-dark: #cc7800;
-  --pickup-streak-tint: #fff0d6;
+  --pickup-streak: #8a5f1f;        /* muted amber-brown */
+  --pickup-streak-dark: #5e3f0f;
+  --pickup-streak-tint: #efe0c2;
 
-  --pickup-xp: #ffd900;
-  --pickup-xp-dark: #d4b400;
+  --pickup-xp: #b08838;            /* muted gold-yellow */
+  --pickup-xp-dark: #7a5e25;
 
-  --pickup-info: #1cb0f6;
-  --pickup-info-dark: #0b8ec9;
-  --pickup-info-tint: #d6f0fb;
+  --pickup-info: #4a6678;          /* slate blue (was Duo blue #1cb0f6) */
+  --pickup-info-dark: #2e4554;
+  --pickup-info-tint: #d8dfe5;
 
-  /* Brand (Ghibli warm — replaces v0.4 Duolingo green primary) */
-  --pickup-bg: #fef8ed;
-  --pickup-bg-outer: #f4ecd8;
-  --pickup-surface: #ffffff;
-  --pickup-accent: #e7a44a;
-  --pickup-accent-dark: #8e5e1e;
-  --pickup-accent-tint: #fdedd0;
+  /* Brand (Ghibli warm, muted — v1.2) */
+  --pickup-bg: #faf5ed;            /* slight warmer cream */
+  --pickup-bg-outer: #ede2c8;
+  --pickup-surface: #fbf8f1;
+  --pickup-accent: #b88660;        /* muted toffee (was bright amber #e7a44a) */
+  --pickup-accent-dark: #7a4f1f;
+  --pickup-accent-tint: #e8d4b8;
 
   /* Text */
-  --pickup-text: #3d2817;
-  --pickup-text-muted: #8b6f4a;
-  --pickup-text-soft: #b8a280;
-  --pickup-outline: #1a1a1a;
+  --pickup-text: #2e2520;          /* warm near-black */
+  --pickup-text-muted: #6b5848;
+  --pickup-text-soft: #8a7864;
+  --pickup-outline: #2a2520;       /* warm dark (was pure black-ish #1a1a1a) */
 
   /* Surface utility (borders + dividers) */
-  --pickup-border: #ead9bb;
-  --pickup-border-dark: #d4c098;
+  --pickup-border: #ddd0b3;
+  --pickup-border-dark: #c2b08c;
 
   /* ─── Typography scale (Layer 1) ───────────────────────────────────
    * Use as `font: var(--font-display);` shorthand OR pull pieces. */
@@ -527,7 +528,7 @@ button:focus-visible {
 
 /* ─── Pre-boot loading skeleton (Layer 5 polish) ──────────────────────
  * Inserted directly into index.html as #pickup-preboot — first paint
- * shows a subtle 拾光 wordmark on cream bg instead of blank white. */
+ * shows a subtle Pickup wordmark on cream bg instead of blank white. */
 #pickup-preboot {
   position: fixed;
   inset: 0;
@@ -608,8 +609,8 @@ button:focus-visible {
   text-align: center;
 }
 .pickup-splash-mascot {
-  width: 220px;
-  height: 250px;
+  width: 180px;
+  height: 200px;
   animation: mascot-idle-bob 2.6s ease-in-out infinite;
   transform-origin: 50% 100%;
   display: flex;
@@ -625,9 +626,9 @@ button:focus-visible {
 }
 .pickup-splash-title {
   font-family: var(--font-display);
-  font-size: 64px;
+  font-size: 40px;
   font-weight: 900;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   color: var(--pickup-accent);
   margin: 0 auto;
   text-shadow: 0 2px 0 var(--pickup-accent-dark);

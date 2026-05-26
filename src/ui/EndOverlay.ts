@@ -54,11 +54,11 @@ const COLOR_BORDER_DARK = '#d4c098';
 
 // v0.10 — Duolingo-style encouraging summaries.
 const COMPLETE_PRAISE = [
-  '今天又拾起一段時光',
-  '單字又進步了一點',
-  '繼續這樣下去!',
-  '太棒了 · 又一輪完成',
-  '英文越來越穩了',
+  'Picked up another moment',
+  'A little stronger today',
+  'Keep going like this',
+  'Nice · another round done',
+  'Your English is settling in',
 ];
 function pickPraise(pool: readonly string[]): string {
   return pool[Math.floor(Math.random() * pool.length)];
@@ -162,7 +162,7 @@ export class EndOverlay {
     });
 
     const banner = document.createElement('div');
-    banner.textContent = this.opts.dead ? '差一點 · 別放棄' : '完成一輪!';
+    banner.textContent = this.opts.dead ? "So close · don't give up" : 'Round Complete!';
     applyStyle(banner, {
       fontSize: '32px',
       fontWeight: '900',
@@ -226,7 +226,7 @@ export class EndOverlay {
     });
 
     const head = document.createElement('div');
-    head.textContent = meta.labelZh;
+    head.textContent = meta.labelEn;
     applyStyle(head, {
       fontSize: '15px',
       fontWeight: '800',
@@ -248,7 +248,7 @@ export class EndOverlay {
 
     const best = document.createElement('div');
     best.textContent = this.opts.newBest
-      ? `新紀錄 · Best ${this.opts.bestScore}`
+      ? `New best · ${this.opts.bestScore}`
       : `Best ${this.opts.bestScore}`;
     applyStyle(best, {
       fontSize: '12px',
@@ -295,7 +295,7 @@ export class EndOverlay {
     row.appendChild(
       this.makeStatTile({
         icon: '',
-        label: '準確率',
+        label: 'Accuracy',
         value: `${accuracy}%`,
         color: COLOR_GREEN,
         delayMs: 320,
@@ -304,7 +304,7 @@ export class EndOverlay {
     row.appendChild(
       this.makeStatTile({
         icon: '',
-        label: '時間',
+        label: 'Time',
         value: timeLabel,
         color: COLOR_BLUE,
         delayMs: 440,
@@ -313,7 +313,7 @@ export class EndOverlay {
     row.appendChild(
       this.makeStatTile({
         icon: '',
-        label: '連勝',
+        label: 'Streak',
         value: String(this.opts.bestStreak),
         color: COLOR_ORANGE,
         delayMs: 560,
@@ -397,7 +397,7 @@ export class EndOverlay {
     });
 
     const primary = this.makeCtaButton({
-      text: '再來一輪 →',
+      text: 'Play again →',
       bg: COLOR_GREEN,
       bgDark: COLOR_GREEN_DARK,
       color: '#ffffff',
@@ -407,7 +407,7 @@ export class EndOverlay {
     wrap.appendChild(primary);
 
     const secondary = this.makeCtaButton({
-      text: this.opts.isScenario ? '換個情境' : '換個模式',
+      text: this.opts.isScenario ? 'Try another scenario' : 'Change mode',
       bg: '#ffffff',
       bgDark: COLOR_BORDER_DARK,
       color: COLOR_MUTED,
@@ -473,7 +473,7 @@ export class EndOverlay {
 
   private makeFooter(): HTMLElement {
     const footer = document.createElement('div');
-    footer.textContent = 'v0.5.0';
+    footer.textContent = 'v1.2.0';
     applyStyle(footer, {
       marginTop: '12px',
       fontSize: '11px',

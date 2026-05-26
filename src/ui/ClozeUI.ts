@@ -67,9 +67,9 @@ const COLOR_TEXT_MUTED = '#8b6f4a';
 
 // v0.10 — encouraging microcopy with character (Duolingo principle 4).
 // Vary the copy per call so it stays fresh rather than feeling canned.
-const PRAISE_CORRECT_ZH = ['太棒了!', '厲害!', '你抓到了!', '一發入魂!', '答對啦!', '就是這個!'];
-const PRAISE_TIMEOUT_ZH = ['時間到了 · 點綠色按鈕繼續', '差一點 · 點綠色按鈕'];
-const PRAISE_WRONG_ZH = ['再試試', '差一點', '不是這個 · 再試試', '快接近了'];
+const PRAISE_CORRECT = ['Brilliant!', 'Nice!', 'You got it!', 'Perfect!', 'Yes!', "That's the one!"];
+const PRAISE_TIMEOUT = ['Time up · tap the green button', 'Almost · tap the green one'];
+const PRAISE_WRONG = ['Try again', 'Almost', 'Not quite · keep going', 'One more try'];
 
 function pickPraise(pool: readonly string[]): string {
   return pool[Math.floor(Math.random() * pool.length)];
@@ -256,7 +256,7 @@ export class ClozeUI {
 
     this.revealContinue = document.createElement('button');
     this.revealContinue.type = 'button';
-    this.revealContinue.textContent = '繼續 →';
+    this.revealContinue.textContent = 'Continue →';
     applyStyle(this.revealContinue, {
       marginTop: '12px',
       padding: '13px 22px',
@@ -400,7 +400,7 @@ export class ClozeUI {
         letter.style.background = '#ffffff';
         letter.style.borderColor = '#ffffff';
         letter.style.color = COLOR_GREEN_DARK;
-        el.setAttribute('aria-label', `正確答案：${label.textContent ?? ''}`);
+        el.setAttribute('aria-label', `Correct answer: ${label.textContent ?? ''}`);
         // Celebratory bounce on the correct option (only on correct
         // answers — for wrong-then-retry the bounce signals "tap me").
         if (correct) {
@@ -428,7 +428,7 @@ export class ClozeUI {
         letter.style.background = COLOR_RED;
         letter.style.borderColor = COLOR_RED;
         letter.style.color = '#ffffff';
-        el.setAttribute('aria-label', `你選的錯誤答案：${label.textContent ?? ''}`);
+        el.setAttribute('aria-label', `Your wrong choice: ${label.textContent ?? ''}`);
         // Gentle wobble on the wrong button — "no, try again" without harshness.
         el.classList.remove('pickup-wobble');
         void el.offsetWidth;
@@ -443,9 +443,7 @@ export class ClozeUI {
       this.revealHeaderIcon.textContent = '✓';
       this.revealHeaderIcon.style.background = COLOR_GREEN;
       this.revealHeaderIcon.style.color = '#ffffff';
-      this.revealHeaderText.textContent = this.forceCorrectMode
-        ? pickPraise(PRAISE_CORRECT_ZH)
-        : pickPraise(PRAISE_CORRECT_ZH);
+      this.revealHeaderText.textContent = pickPraise(PRAISE_CORRECT);
       this.revealHeaderText.style.color = COLOR_GREEN_DARK;
       this.revealPanel.style.background = COLOR_GREEN_TINT;
       this.revealContinue.style.background = COLOR_GREEN;
@@ -453,7 +451,7 @@ export class ClozeUI {
       this.revealContinue.disabled = false;
       this.revealContinue.style.opacity = '1';
       this.revealContinue.style.cursor = 'pointer';
-      this.revealContinue.textContent = this.forceCorrectMode ? '繼續 →' : '繼續 →';
+      this.revealContinue.textContent = 'Continue →';
     } else {
       this.revealHeaderIcon.textContent = '✕';
       this.revealHeaderIcon.style.background = COLOR_RED;
@@ -461,11 +459,11 @@ export class ClozeUI {
       this.revealHeaderText.textContent =
         selectedIndex < 0
           ? this.forceCorrectMode
-            ? pickPraise(PRAISE_TIMEOUT_ZH)
-            : '時間到了'
+            ? pickPraise(PRAISE_TIMEOUT)
+            : 'Time up'
           : this.forceCorrectMode
-            ? '差一點 · 請點選綠色按鈕'
-            : pickPraise(PRAISE_WRONG_ZH);
+            ? 'Almost · tap the green button'
+            : pickPraise(PRAISE_WRONG);
       this.revealHeaderText.style.color = COLOR_RED_DARK;
       this.revealPanel.style.background = COLOR_RED_TINT;
       this.revealContinue.style.background = forceCorrectRetry
@@ -480,8 +478,8 @@ export class ClozeUI {
         ? 'not-allowed'
         : 'pointer';
       this.revealContinue.textContent = forceCorrectRetry
-        ? '請先答對'
-        : '繼續 →';
+        ? 'Answer first'
+        : 'Continue →';
     }
 
     this.revealText.textContent = explanationZh;
@@ -536,13 +534,13 @@ export class ClozeUI {
         letter.style.background = '#ffffff';
         letter.style.borderColor = '#ffffff';
         letter.style.color = COLOR_GREEN_DARK;
-        el.setAttribute('aria-label', `正確答案：${label.textContent ?? ''}`);
+        el.setAttribute('aria-label', `Correct answer: ${label.textContent ?? ''}`);
       }
     }
     this.revealHeaderIcon.textContent = '✓';
     this.revealHeaderIcon.style.background = COLOR_GREEN;
     this.revealHeaderIcon.style.color = '#ffffff';
-    this.revealHeaderText.textContent = pickPraise(PRAISE_CORRECT_ZH);
+    this.revealHeaderText.textContent = pickPraise(PRAISE_CORRECT);
     this.revealHeaderText.style.color = COLOR_GREEN_DARK;
     this.revealPanel.style.background = COLOR_GREEN_TINT;
     this.revealContinue.disabled = false;
@@ -550,7 +548,7 @@ export class ClozeUI {
     this.revealContinue.style.borderBottomColor = COLOR_GREEN_DARK;
     this.revealContinue.style.opacity = '1';
     this.revealContinue.style.cursor = 'pointer';
-    this.revealContinue.textContent = '繼續 →';
+    this.revealContinue.textContent = 'Continue →';
     // v0.8.1: blind-retry path skipped the reveal panel earlier. Make
     // sure it's shown now with the cached explanation.
     if (this.pendingExplanationZh) {
@@ -594,7 +592,7 @@ export class ClozeUI {
     letter.style.background = COLOR_RED;
     letter.style.borderColor = COLOR_RED;
     letter.style.color = '#ffffff';
-    el.setAttribute('aria-label', `你選的錯誤答案：${label.textContent ?? ''}`);
+    el.setAttribute('aria-label', `Your wrong choice: ${label.textContent ?? ''}`);
     // v0.10 — gentle wobble (Duolingo pacing principle) replaces the
     // harsher shake on blind-retry follow-up taps. PlayScene still
     // shakes the entire app on the first wrong tap.

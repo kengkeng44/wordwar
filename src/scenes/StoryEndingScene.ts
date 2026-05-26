@@ -81,7 +81,7 @@ export class StoryEndingScene extends Phaser.Scene {
 
     // Top banner
     const banner = document.createElement('div');
-    banner.textContent = '故事 · 完結';
+    banner.textContent = 'Story · Complete';
     applyStyle(banner, {
       textAlign: 'center',
       fontSize: '14px',
@@ -94,7 +94,7 @@ export class StoryEndingScene extends Phaser.Scene {
     content.appendChild(banner);
 
     const title = document.createElement('div');
-    title.textContent = '小貓回家路';
+    title.textContent = "A Cat's Way Home";
     applyStyle(title, {
       fontSize: '32px',
       fontWeight: '900',
@@ -181,23 +181,25 @@ export class StoryEndingScene extends Phaser.Scene {
       whiteSpace: 'pre-wrap',
     });
     ending.textContent =
-      '從濕冷的巷子,到撐傘的阿嬤;從麵包店的香味,到公園的小妹妹;\n' +
-      '從街頭的老大哥,到一個用力擁著她的家——\n\n' +
-      '直到她在雪夜裡聽見遠方的狗吠,\n' +
-      '在神社裡明白:每一個遇見都不是偶然,\n' +
-      '原來她的家人,不只在那扇窗裡。\n\n' +
-      '她從沒關緊的窗,再一次溜了出去。\n' +
-      '這次不是逃,是去接她的人。\n\n' +
-      '她有過家。她現在,選了家人。\n\n' +
-      '雪又下了起來,但她不再是被風吹著走的小貓——\n' +
-      '她是那群人圍著的、那個中心。\n\n' +
-      '你陪牠走完了這條路。謝謝你。';
+      'From a wet, cold alley to a grandmother with a blue umbrella;\n' +
+      "from the warm smell of a bakery to a little girl in the park;\n" +
+      'from a battered street elder to a family that held her tight —\n\n' +
+      'until one snowy night she heard a familiar bark on the wind,\n' +
+      'and at the shrine she understood:\n' +
+      "no one walks into your story by accident.\n" +
+      "Her family was never only the one behind that window.\n\n" +
+      "She slipped through the unlatched window once more.\n" +
+      "This time, not running. Going to find her people.\n\n" +
+      'She had a home. Now, she chose her family.\n\n' +
+      "Snow began to fall again, but she was no longer the kitten the wind pushed around —\n" +
+      "she was the one they circled around. The center.\n\n" +
+      "You walked this path with her. Thank you.";
     content.appendChild(ending);
 
     // Stats line
     const ch = useRunStore.getState();
     const stats = document.createElement('div');
-    stats.textContent = `總 XP · ${ch.score}`;
+    stats.textContent = `Total XP · ${ch.score}`;
     applyStyle(stats, {
       textAlign: 'center',
       fontSize: '13px',
@@ -209,7 +211,7 @@ export class StoryEndingScene extends Phaser.Scene {
     // Replay CTA
     const replay = document.createElement('button');
     replay.type = 'button';
-    replay.textContent = '重新體驗故事';
+    replay.textContent = 'Play the story again';
     applyStyle(replay, {
       marginTop: '4px',
       minHeight: '56px',
@@ -233,7 +235,7 @@ export class StoryEndingScene extends Phaser.Scene {
     replay.addEventListener('click', (e) => {
       e.preventDefault();
       if (typeof window !== 'undefined' && window.confirm) {
-        if (!window.confirm('確定重新開始嗎?所有章節進度會清除。')) return;
+        if (!window.confirm('Restart the story? All chapter progress will be cleared.')) return;
       }
       resetStoryProgress();
       this.root?.remove();
@@ -245,7 +247,7 @@ export class StoryEndingScene extends Phaser.Scene {
     // Back to menu
     const menuLink = document.createElement('button');
     menuLink.type = 'button';
-    menuLink.textContent = '← 回主選單';
+    menuLink.textContent = '← Back to menu';
     applyStyle(menuLink, {
       marginTop: '6px',
       background: 'transparent',

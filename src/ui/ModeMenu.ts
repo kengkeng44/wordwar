@@ -93,20 +93,20 @@ export class ModeMenu {
     this.content.innerHTML = '';
 
     const title = document.createElement('div');
-    title.textContent = '拾光';
+    title.textContent = 'Pickup';
     applyStyle(title, {
-      fontSize: '44px',
+      fontSize: '32px',
       fontWeight: '900',
       textAlign: 'center',
       color: COLOR_AMBER,
-      letterSpacing: '-1px',
+      letterSpacing: '-0.5px',
       marginBottom: '2px',
       textShadow: `0 2px 0 ${COLOR_AMBER_DARK}`,
     });
     this.content.appendChild(title);
 
     const subtitle = document.createElement('div');
-    subtitle.textContent = '學英文 · 撿回時間';
+    subtitle.textContent = 'Pick up moments. Learn English.';
     applyStyle(subtitle, {
       fontSize: '14px',
       fontWeight: '600',
@@ -123,7 +123,7 @@ export class ModeMenu {
     }
 
     const chooseLabel = document.createElement('div');
-    chooseLabel.textContent = '選擇模式';
+    chooseLabel.textContent = 'Choose a mode';
     applyStyle(chooseLabel, {
       fontSize: '12px',
       color: COLOR_TEXT_MUTED,
@@ -135,12 +135,12 @@ export class ModeMenu {
     });
     this.content.appendChild(chooseLabel);
 
-    // v0.8: 新故事 is the primary CTA — larger, amber accent, top of list.
+    // v0.8: Story mode is the primary CTA — larger, amber accent, top of list.
     this.content.appendChild(
       this.makeModeCard({
         emoji: '',
-        title: '新故事 · 小貓回家路',
-        sub: '8 章治癒系故事 · 48 題 A2',
+        title: "Story · A Cat's Way Home",
+        sub: '8 cozy chapters · 48 A2 questions',
         primary: COLOR_AMBER,
         primaryDark: COLOR_AMBER_DARK,
         primaryCta: true,
@@ -150,7 +150,7 @@ export class ModeMenu {
 
     // Secondary modes (smaller, ghost-style cards)
     const secondaryLabel = document.createElement('div');
-    secondaryLabel.textContent = '其他模式';
+    secondaryLabel.textContent = 'Other modes';
     applyStyle(secondaryLabel, {
       fontSize: '11px',
       color: COLOR_TEXT_MUTED,
@@ -166,8 +166,8 @@ export class ModeMenu {
     this.content.appendChild(
       this.makeModeCard({
         emoji: '',
-        title: '自由練習',
-        sub: '10 題隨機 A2 題目',
+        title: 'Free Practice',
+        sub: '10 random A2 questions',
         primary: COLOR_GREEN,
         primaryDark: COLOR_GREEN_DARK,
         onClick: () => this.handlers.onStartFree(),
@@ -177,8 +177,8 @@ export class ModeMenu {
     this.content.appendChild(
       this.makeModeCard({
         emoji: '',
-        title: '情境模式',
-        sub: '5 個主題,每題 10 句',
+        title: 'Scenarios',
+        sub: '5 themes · 10 sentences each',
         primary: COLOR_BLUE,
         primaryDark: COLOR_BLUE_DARK,
         onClick: () => this.renderScenarioView(),
@@ -186,7 +186,7 @@ export class ModeMenu {
     );
 
     const footer = document.createElement('div');
-    footer.textContent = 'v0.8.0';
+    footer.textContent = 'v1.2.0';
     applyStyle(footer, {
       marginTop: '24px',
       fontSize: '11px',
@@ -313,7 +313,7 @@ export class ModeMenu {
       position: 'relative',
     });
     intro.textContent =
-      '答題像對話 — 答對就推進故事,答錯也沒事,再試到對為止。';
+      "Answering feels like a chat. Get it right and the story moves on; miss it and just try again.";
 
     const dismiss = document.createElement('button');
     dismiss.type = 'button';
@@ -388,7 +388,7 @@ export class ModeMenu {
     headerRow.appendChild(back);
 
     const title = document.createElement('div');
-    title.textContent = '選擇情境';
+    title.textContent = 'Choose a scenario';
     applyStyle(title, {
       fontSize: '22px',
       fontWeight: '800',
@@ -458,11 +458,11 @@ export class ModeMenu {
       flex: '1 1 auto',
     });
     const titleEl = document.createElement('div');
-    titleEl.textContent = `${meta.labelZh} (${meta.labelEn})`;
+    titleEl.textContent = meta.labelEn;
     applyStyle(titleEl, { fontSize: '17px', fontWeight: '800' });
     const subEl = document.createElement('div');
-    const bestText = best > 0 ? `最佳 ${best} 分` : '尚未挑戰';
-    subEl.textContent = completed ? `${bestText} · 已通關` : bestText;
+    const bestText = best > 0 ? `Best ${best}` : 'Not yet attempted';
+    subEl.textContent = completed ? `${bestText} · Cleared` : bestText;
     applyStyle(subEl, {
       fontSize: '12px',
       fontWeight: '700',

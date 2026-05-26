@@ -109,7 +109,7 @@ export class StoryModeScene extends Phaser.Scene {
     headerRow.appendChild(back);
 
     const title = document.createElement('div');
-    title.textContent = '小貓回家路';
+    title.textContent = "A Cat's Way Home";
     applyStyle(title, {
       fontSize: '22px',
       fontWeight: '900',
@@ -122,7 +122,7 @@ export class StoryModeScene extends Phaser.Scene {
     content.appendChild(headerRow);
 
     const sub = document.createElement('div');
-    sub.textContent = '8 章節 · 每章 6 題 · 答錯不扣血,改答對即可';
+    sub.textContent = '8 Chapters · 6 questions each · No HP, just keep trying';
     applyStyle(sub, {
       fontSize: '12px',
       fontWeight: '700',
@@ -143,7 +143,7 @@ export class StoryModeScene extends Phaser.Scene {
     if (progress.highestCompleted > 0) {
       const restart = document.createElement('button');
       restart.type = 'button';
-      restart.textContent = '重新開始故事';
+      restart.textContent = 'Restart story';
       applyStyle(restart, {
         marginTop: '10px',
         background: 'transparent',
@@ -159,7 +159,7 @@ export class StoryModeScene extends Phaser.Scene {
       restart.addEventListener('click', (e) => {
         e.preventDefault();
         if (typeof window !== 'undefined' && window.confirm) {
-          if (!window.confirm('確定重新開始嗎?所有章節進度會清除。')) return;
+          if (!window.confirm('Restart the story? All chapter progress will be cleared.')) return;
         }
         resetStoryProgress();
         this.root?.remove();
@@ -223,7 +223,7 @@ export class StoryModeScene extends Phaser.Scene {
         svg.setAttribute('height', '60');
       }
     } else {
-      mascotBox.textContent = '鎖';
+      mascotBox.textContent = '🔒';
       mascotBox.style.fontSize = '20px';
       mascotBox.style.fontWeight = '800';
       mascotBox.style.color = COLOR_LOCKED;
@@ -238,15 +238,15 @@ export class StoryModeScene extends Phaser.Scene {
       flex: '1 1 auto',
     });
     const titleEl = document.createElement('div');
-    titleEl.textContent = `第 ${id} 章 · ${meta.titleZh}`;
+    titleEl.textContent = `Chapter ${id} · ${meta.titleEn}`;
     applyStyle(titleEl, { fontSize: '16px', fontWeight: '800' });
     text.appendChild(titleEl);
 
     const subEl = document.createElement('div');
     let subText = meta.titleEn;
-    if (completed) subText = `已完成 · ${meta.titleEn}`;
-    else if (inProgress) subText = `進行中 · ${meta.titleEn}`;
-    else if (!unlocked) subText = `未解鎖 · 完成第 ${id - 1} 章後開啟`;
+    if (completed) subText = `Cleared · ${meta.titleEn}`;
+    else if (inProgress) subText = `Active · ${meta.titleEn}`;
+    else if (!unlocked) subText = `Locked · Clear Chapter ${id - 1} to unlock`;
     subEl.textContent = subText;
     applyStyle(subEl, {
       fontSize: '12px',

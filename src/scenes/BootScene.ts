@@ -19,9 +19,9 @@ import type { Difficulty } from '../data/sentences';
  */
 
 const DIFFICULTY_LABELS: Record<Difficulty, string> = {
-  easy: '簡單',
-  medium: '中等',
-  hard: '困難',
+  easy: 'Easy',
+  medium: 'Medium',
+  hard: 'Hard',
 };
 
 export class BootScene extends Phaser.Scene {
@@ -74,20 +74,20 @@ export class BootScene extends Phaser.Scene {
     // Title — single big amber wordmark, centered.
     const title = document.createElement('h1');
     title.className = 'pickup-splash-title';
-    title.textContent = '拾光';
+    title.textContent = 'Pickup';
     root.appendChild(title);
 
     // Subtitle — tagline directly under the wordmark.
     const subtitle = document.createElement('div');
     subtitle.className = 'pickup-splash-subtitle';
-    subtitle.textContent = '學英文 · 撿回時間';
+    subtitle.textContent = 'Pick up moments. Learn English.';
     root.appendChild(subtitle);
 
     // CTA — primary action, large.
     const cta = document.createElement('button');
     cta.type = 'button';
     cta.className = 'pickup-splash-cta';
-    cta.textContent = '開始';
+    cta.textContent = 'Start';
     root.appendChild(cta);
 
     // Difficulty — collapsible, much smaller than CTA.
@@ -96,7 +96,7 @@ export class BootScene extends Phaser.Scene {
     // Tiny version footer
     const footer = document.createElement('div');
     footer.className = 'pickup-splash-footer';
-    footer.textContent = `v1.0.0`;
+    footer.textContent = `v1.2.0`;
     root.appendChild(footer);
 
     document.body.appendChild(root);
@@ -129,13 +129,13 @@ export class BootScene extends Phaser.Scene {
     const summary = document.createElement('summary');
     summary.className = 'pickup-difficulty-summary';
     const current = useRunStore.getState().difficulty;
-    summary.innerHTML = `<span class="pickup-difficulty-label">難度 · <span class="pickup-difficulty-current">${DIFFICULTY_LABELS[current]}</span></span><span class="pickup-difficulty-caret">⌄</span>`;
+    summary.innerHTML = `<span class="pickup-difficulty-label">Difficulty · <span class="pickup-difficulty-current">${DIFFICULTY_LABELS[current]}</span></span><span class="pickup-difficulty-caret">⌄</span>`;
     details.appendChild(summary);
 
     if (!seen) {
       firstTimeHint = document.createElement('div');
       firstTimeHint.className = 'pickup-difficulty-hint';
-      firstTimeHint.textContent = '先選你的程度';
+      firstTimeHint.textContent = 'Pick your level first';
       details.appendChild(firstTimeHint);
     }
 

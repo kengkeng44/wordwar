@@ -99,7 +99,7 @@ export const SCENARIO_META: Record<ScenarioId, ScenarioMeta> = {
     accent: '#f08a3e',
     tint: '#fff1e0',
     mascotId: 'waiter',
-    achievement: '你掌握了餐廳對話',
+    achievement: 'You handled the restaurant conversation',
   },
   airport: {
     id: 'airport',
@@ -109,7 +109,7 @@ export const SCENARIO_META: Record<ScenarioId, ScenarioMeta> = {
     accent: '#4aa8d8',
     tint: '#e6f3fb',
     mascotId: 'flightAttendant',
-    achievement: '你掌握了機場對話',
+    achievement: 'You navigated the airport',
   },
   hospital: {
     id: 'hospital',
@@ -119,7 +119,7 @@ export const SCENARIO_META: Record<ScenarioId, ScenarioMeta> = {
     accent: '#3aa89b',
     tint: '#e1f3f1',
     mascotId: 'doctor',
-    achievement: '你掌握了醫院對話',
+    achievement: 'You handled the hospital visit',
   },
   office: {
     id: 'office',
@@ -129,7 +129,7 @@ export const SCENARIO_META: Record<ScenarioId, ScenarioMeta> = {
     accent: '#6a6dd3',
     tint: '#ebebfb',
     mascotId: 'coworker',
-    achievement: '你掌握了辦公室對話',
+    achievement: 'You held your own at the office',
   },
   hotel: {
     id: 'hotel',
@@ -139,7 +139,7 @@ export const SCENARIO_META: Record<ScenarioId, ScenarioMeta> = {
     accent: '#cba24a',
     tint: '#f8f0d8',
     mascotId: 'receptionist',
-    achievement: '你掌握了飯店對話',
+    achievement: 'You handled the hotel check-in',
   },
 };
 
@@ -160,7 +160,7 @@ export const FREE_PRACTICE_META = {
   tint: '#e0f5d0',
   mascotId: 'owl',
   emoji: '',
-  labelZh: '自由練習',
+  labelZh: 'Free Practice',
   labelEn: 'Free Practice',
 };
 

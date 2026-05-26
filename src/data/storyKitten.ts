@@ -95,10 +95,11 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
     id: 1,
     emoji: '',
     titleZh: '流落街頭',
-    titleEn: 'Lost on the Streets',
+    titleEn: 'A Rainy Night',
     narration:
-      '小貓在巷子裡醒來,雨下得好大,身上的毛都濕了。肚子餓,身體冷,牠不知道家在哪裡。\n\n這時,一個撐著藍傘的阿嬤走了過來……',
-    outro: '阿嬤把傘遮在小貓身上,雨聲變遠了。小貓第一次覺得,世界沒有那麼可怕。',
+      "The kitten wakes in an alley. The rain falls hard, soaking through her fur. She's hungry, she's cold, and she doesn't know where home is.\n\nThen, an old woman with a blue umbrella walks toward her…",
+    outro:
+      "The umbrella tilts over the kitten, and the rain grows quiet. For the first time, the world feels a little less frightening.",
     kittenMascotId: 'kittenCh1',
     npcMascotId: 'npcGrandma',
     tint: '#e6e9f0',
@@ -107,11 +108,12 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   2: {
     id: 2,
     emoji: '',
-    titleZh: '麵包店午後',
-    titleEn: 'Bakery Afternoon',
+    titleZh: '街頭智者',
+    titleEn: 'The Street Sage',
     narration:
-      '小貓躲在一家麵包店的後門。一股甜甜的香味從裡面飄出來。\n\n門開了,圍著白圍裙的老闆走出來,手上拿著一塊麵包……',
-    outro: '小貓吃飽了,在老闆的腳邊磨蹭。從今天起,牠不再只是流浪的小貓。',
+      "The kitten curls up behind a bakery. A warm, sweet smell drifts out the back door.\n\nThe door swings open. A baker in a white apron steps out, a piece of bread in his hand…",
+    outro:
+      "The kitten eats her fill and rubs against his ankles. From today on, she's not just a stray.",
     kittenMascotId: 'kittenCh2',
     npcMascotId: 'npcBaker',
     tint: '#fce8c2',
@@ -120,11 +122,12 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   3: {
     id: 3,
     emoji: '',
-    titleZh: '公園的小妹妹',
-    titleEn: 'Park Girl',
+    titleZh: '麵包店的選擇',
+    titleEn: "The Baker's Choice",
     narration:
-      '公園的長椅旁,一個綁馬尾的小女孩遠遠看著小貓。她手裡拿著一小包貓零食。\n\n「你好,我叫美美。」她輕輕地說……',
-    outro: '美美天天來,慢慢地,小貓敢讓她摸了。世界比想像中還要溫柔。',
+      "By the park bench, a little girl with a ponytail watches the kitten from afar. A small bag of cat treats is cupped in her hands.\n\n\"Hi. I'm Meimei,\" she whispers…",
+    outro:
+      "Meimei comes every day. Slowly, the kitten lets her hand close in. The world is gentler than she thought.",
     kittenMascotId: 'kittenCh3',
     npcMascotId: 'npcMeimei',
     tint: '#fde2e8',
@@ -133,11 +136,12 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   4: {
     id: 4,
     emoji: '',
-    titleZh: '流浪狗大哥',
-    titleEn: 'Stray Dog Big Brother',
+    titleZh: '小女孩的秘密',
+    titleEn: "The Girl's Secret",
     narration:
-      '夜晚的街角,一隻獨眼的老狗布魯托走了過來。他看起來凶,卻擋在小貓前面,趕走了想欺負牠的大狗。\n\n他低聲地說:「跟我走吧,我教你……」',
-    outro: '布魯托和小貓一起穿過街道。原來街頭也可以有家人。',
+      "At a street corner, an old one-eyed dog named Brutus pads up. He looks rough, but he steps between the kitten and a snarling bigger dog and drives it off.\n\nLow and steady, he says: \"Come with me. I'll teach you…\"",
+    outro:
+      "Brutus and the kitten cross the streets together. So the streets can hold family too.",
     kittenMascotId: 'kittenCh4',
     npcMascotId: 'npcBrutus',
     tint: '#d8dfd0',
@@ -147,14 +151,14 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
     id: 5,
     emoji: '',
     titleZh: '永遠的家',
-    titleEn: 'Forever Home',
+    titleEn: 'A Forever Home',
     narration:
-      '美美帶著爸媽來到公園。媽媽蹲下來,輕輕摸著小貓的頭。\n\n「我們帶你回家好嗎?」',
+      "Meimei brings her parents to the park. Her mother kneels down, gently strokes the kitten's head.\n\n\"Will you come home with us?\"",
     // ── False ending. Kitten is in the home, surrounded by love, but realizes
     // she was CHOSEN, not that she CHOSE. Slips out into the snow. The arc
     // continues into Ch6-8.
     outro:
-      '屋子裡有燈、有飯、有抱著牠的人。媽媽笑了,美美哭了,爸爸把暖氣調高了一格。\n\n夜裡,小貓蜷在窗邊。窗外開始下雪,一片一片,落得好慢。\n\n「他們選擇了我。」牠看著自己模糊的倒影。「但我選擇了這個家嗎?」\n\n窗戶沒關緊。牠輕輕跳了下去,腳掌陷進雪裡。\n\n「我需要知道——如果有一天我回來,是因為我想回來,不是因為沒地方去。」',
+      "Inside the house: warm lamps, warm food, and arms that hold her. Mom smiles. Meimei cries. Dad nudges the heater one notch higher.\n\nThat night, the kitten curls up by the window. Outside, snow begins to fall — slow, soft, one flake at a time.\n\n\"They chose me,\" she thinks, watching her blurred reflection. \"But did I choose this home?\"\n\nThe window isn't latched tight. She slips through it, soft paws sinking into snow.\n\n\"I need to know — if I come back one day, that it's because I want to. Not because I have nowhere else to go.\"",
     kittenMascotId: 'kittenCh5',
     npcMascotId: 'npcFamily',
     tint: '#fef0d0',
@@ -164,12 +168,13 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
     id: 6,
     emoji: '',
     titleZh: '寒冬考驗',
-    titleEn: 'Winter Trial',
+    titleEn: "Winter's Trial",
     narration:
-      '牠從那扇沒關緊的窗戶溜出來,腳印一個一個,被新雪慢慢蓋掉。\n\n風好冷,世界靜得只剩自己的呼吸。走著走著,牠走進了夢——夢裡走來一個熟悉的身影,是老黑,街頭的老導師,早就不在了的老朋友。\n\n「孩子,你終於為自己做了選擇。」老黑看著牠。「選擇本身,就是長大。」',
-    outro: '小貓在雪地上站起來,腳印一個接一個,深深地、堅定地往前。\n\n牠不再只是被照顧的小貓——牠選擇了活下去,選擇了往前走。這一刻,牠長大了。',
-    // NOTE: kittenCh6 + ghost-mentor (老黑) SVG not yet drawn — reusing kittenCh4
-    // (standing/forward pose) + npcBrutus (老狗導師 fits the ghost mentor vibe) as
+      "She slips through the unlatched window. Her pawprints, one by one, are slowly buried by fresh snow.\n\nThe wind bites. The world is quiet enough to hear her own breath. She walks and walks, and slips into a dream — and out of that dream walks a familiar shape: Old Black, the street's old mentor, a friend long gone.\n\n\"Kid,\" he says, looking at her, \"you finally made a choice for yourself. The choosing itself — that's growing up.\"",
+    outro:
+      "She stands up in the snow. Pawprint by pawprint, deep and sure, she keeps moving forward.\n\nShe's no longer just the kitten being taken care of. She chose to live. She chose to walk on. In this moment, she grew up.",
+    // NOTE: kittenCh6 + ghost-mentor (Old Black) SVG not yet drawn — reusing kittenCh4
+    // (standing/forward pose) + npcBrutus (the old dog mentor fits the ghost mentor vibe) as
     // visual stand-ins. Replace with dedicated mascots in a follow-up.
     kittenMascotId: 'kittenCh4',
     npcMascotId: 'npcBrutus',
@@ -180,11 +185,12 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
     id: 7,
     emoji: '',
     titleZh: '神社的相遇',
-    titleEn: 'Shrine Encounter',
+    titleEn: 'The Shrine Encounter',
     narration:
-      '雪一直下,直到牠走進一座山邊的小神社。\n\n奇怪的是,踏進石階的那一刻,雪停了。月光從雲縫裡漏下來,照在朱紅色的鳥居上。\n\n殿前的香爐旁,坐著一個說不出形狀的存在——像霧、像光、像一隻很老很老的貓。\n\n「沒有人是偶然走進你的故事的。」它的聲音很輕。「每一個人,都是你回家路上的一塊石頭。」',
-    outro: '她在神社靜靜坐了一夜。第一次,她知道自己屬於哪裡了——\n\n不是哪一個屋簷,而是哪一群人。',
-    // NOTE: kittenCh7 + 神社靈 SVG not yet drawn — reusing kittenCh5 (mature
+      "The snow keeps falling, until she walks up the stone steps of a small mountain shrine.\n\nStrangely, the moment her paw touches the stone, the snow stops. Moonlight slips through a crack in the clouds, falling soft on the vermilion gate.\n\nBeside the incense bowl sits a presence she can't quite see — like mist, like light, like a very, very old cat.\n\n\"No one walks into your story by accident,\" it says, quietly. \"Every person you meet is a stone on the path home.\"",
+    outro:
+      "She sits at the shrine through the night. For the first time, she knows where she belongs —\n\nnot under one roof, but with a certain group of people.",
+    // NOTE: kittenCh7 + shrine spirit SVG not yet drawn — reusing kittenCh5 (mature
     // posture) + npcGrandma (gentle mystical vibe-adjacent) as visual stand-ins.
     // Replace with dedicated mascots in a follow-up.
     kittenMascotId: 'kittenCh5',
@@ -196,18 +202,18 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
     id: 8,
     emoji: '',
     titleZh: '選擇了家人',
-    titleEn: 'I Chose My People',
+    titleEn: 'Choosing Family',
     narration:
-      '天快亮的時候,美美在雪地裡找到了她。\n\n美美的眼睛紅紅的——從 Ch5 那扇沒關緊的窗開始,她和爸媽找了好幾天好幾夜。她把三花輕輕抱起來,沒有責備,只是一直、一直地擁著。\n\n溫熱的浴、軟綿的毛巾、燉得很爛的小魚乾。然後是那張軟軟的小床。她睡著了——這次是真的睡著了,安全得不能再安全。',
+      "Just before dawn, Meimei finds her in the snow.\n\nMeimei's eyes are red — from the night that unlatched window swung open in Chapter 5, she and her parents searched for days. She lifts the calico into her arms, no scolding, just holding her, holding her.\n\nA warm bath. Soft towels. Tiny dried fish stewed until they fall apart. And then the small soft bed. She sleeps — really sleeps this time, safer than safe.",
     // ── The REAL real ending (v0.9.2). Same warm family, but in the night she
-    // hears 布魯托's bark and realises her people are also out there. She doesn't
-    // reject 美美 — she chooses BOTH. Walks back to the street family not as
+    // hears Brutus's bark and realises her people are also out there. She doesn't
+    // reject Meimei — she chooses BOTH. Walks back to the street family not as
     // victim, but as the one they look to.
     outro:
-      '半夜她醒過來。\n\n遠遠的、很遠的地方,風裡傳來一聲熟悉的狗吠——布魯托,還在外面,聲音裡有疲倦。\n\n她想起神社靈說的:「每一個人,都是你回家路上的一塊石頭。」原來布魯托、阿嬤、麵包店老闆,他們也是她的家人,不是只有這扇窗裡的人。\n\n她在美美床邊坐了很久。然後輕輕跳到地上,在新雪上留下一串腳印,通往美美的房門。\n\n美美沒有醒。但在睡夢裡,她伸出手——像是早就知道了——輕輕地、放開。\n\n三花從那扇沒關緊的窗,再一次溜了出去。\n\n這次,不是逃。是去接她的人。\n\n她在街角找到布魯托,瘸著腿,身邊圍著一隻發抖的小奶貓和兩三個街頭的老朋友。布魯托抬起頭,獨眼裡有光。\n\n「我就知道你會回來。」\n\n她沒回話,只是走到他們中間,輕輕用頭蹭了蹭那隻小奶貓。\n\n那一刻她明白了——\n她有過家。她現在,選了家人。\n\n雪又下了起來。但這次,她不再是被風吹著走的小貓。\n她是那群人圍著的、那個中心。',
-    // NOTE: kittenCh8 (中年從容領袖貓 + 街頭家族圍繞構圖) SVG not yet drawn —
+      "She wakes in the middle of the night.\n\nFar, far away, the wind carries a familiar bark — Brutus, still out there, tiredness in his voice.\n\nShe remembers what the shrine spirit said: \"Every person you meet is a stone on the path home.\" Brutus, the umbrella grandma, the baker — they were her family too. Not only the people inside this window.\n\nShe sits a long time at the edge of Meimei's bed. Then softly drops to the floor, leaving a trail of prints across fresh snow that lead to Meimei's door.\n\nMeimei doesn't wake. But in her sleep, she reaches out a hand — as if she already knew — and gently, lets go.\n\nThe calico slips through the unlatched window once more.\n\nThis time, not running away. Going to find her people.\n\nShe finds Brutus at the corner, limping, surrounded by a shivering kitten and two or three old friends of the street. Brutus lifts his head; light glints in his one good eye.\n\n\"I knew you'd come back.\"\n\nShe doesn't answer. She just walks into the middle of them and gently presses her head against the shivering kitten.\n\nIn that moment she understands —\nShe had a home. Now, she chose her family.\n\nThe snow starts again. But this time she's no longer the kitten the wind pushes around.\nShe is the one they circle around. The center.",
+    // NOTE: kittenCh8 (mature, composed leader cat + street family group composition) SVG not yet drawn —
     // reusing kittenCh5 (mature posture) + npcBrutus (street family stand-in)
-    // as visual stand-ins. v0.9.2 ending pivot calls for new "三花 + 街頭家族
+    // as visual stand-ins. v0.9.2 ending pivot calls for new "calico + street family
     // group composition" mascot art — main Claude will dispatch follow-up.
     kittenMascotId: 'kittenCh5',
     npcMascotId: 'npcBrutus',

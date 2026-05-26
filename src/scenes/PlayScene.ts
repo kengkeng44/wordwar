@@ -129,7 +129,7 @@ export class PlayScene extends Phaser.Scene {
     const isStory = state.mode === 'story';
     const isScenario = state.mode === 'scenario';
     const chipLabel = isStory
-      ? `第 ${state.chapter} 章 · ${meta.labelZh}`
+      ? `Chapter ${state.chapter} · ${meta.labelEn}`
       : isScenario
         ? meta.labelEn
         : '';
@@ -207,7 +207,7 @@ export class PlayScene extends Phaser.Scene {
       textAlign: 'center',
       animation: 'pickup-pulse 1.6s ease-in-out infinite',
     } as CSSStyleDeclaration);
-    this.loadingEl.textContent = '準備中…';
+    this.loadingEl.textContent = 'Loading…';
     document.body.appendChild(this.loadingEl);
   }
 
@@ -221,12 +221,12 @@ export class PlayScene extends Phaser.Scene {
   private showLoadFailure(reason: string): void {
     if (this.loadingEl) {
       this.loadingEl.style.animation = '';
-      this.loadingEl.innerHTML = `載入失敗,再試一次?<br><span style="font-weight:600;color:var(--pickup-error);font-size:13px;">${escapeHtml(reason)}</span>`;
+      this.loadingEl.innerHTML = `Loading failed, try again?<br><span style="font-weight:600;color:var(--pickup-error);font-size:13px;">${escapeHtml(reason)}</span>`;
     }
     if (this.retryEl) return;
     this.retryEl = document.createElement('button');
     this.retryEl.type = 'button';
-    this.retryEl.textContent = '重試';
+    this.retryEl.textContent = 'Retry';
     Object.assign(this.retryEl.style, {
       position: 'fixed',
       top: 'calc(50% + 60px)',
@@ -362,7 +362,7 @@ export class PlayScene extends Phaser.Scene {
     const low = remaining > 0 && remaining <= TIMER_LOW_THRESHOLD_MS;
 
     const chipLabel = isStory && state.chapter
-      ? `第 ${state.chapter} 章 · ${meta.labelZh}`
+      ? `Chapter ${state.chapter} · ${meta.labelEn}`
       : isScenario
         ? meta.labelEn
         : '';

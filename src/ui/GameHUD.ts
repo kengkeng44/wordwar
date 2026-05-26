@@ -437,7 +437,7 @@ export class GameHUD {
   private buildChangeLink(): void {
     this.changeLink = document.createElement('button');
     this.changeLink.type = 'button';
-    this.changeLink.textContent = '← 換模式';
+    this.changeLink.textContent = '← Change mode';
     applyStyle(this.changeLink, {
       alignSelf: 'center',
       marginTop: 'auto',
@@ -610,7 +610,7 @@ function renderSentence(raw: string): string {
   return escaped.replace(
     /_{3,}/g,
     () =>
-      `<span style="display:inline-block;min-width:60px;border-bottom:3px solid var(--pickup-accent);margin:0 4px;padding:0 4px;color:var(--pickup-accent);">&nbsp;</span>`
+      `<span aria-label="blank" style="display:inline-block;min-width:60px;border-bottom:3px solid var(--pickup-accent);margin:0 4px;padding:0 4px;color:var(--pickup-accent);">&nbsp;</span>`
   );
 }
 

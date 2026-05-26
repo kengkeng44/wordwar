@@ -93,7 +93,7 @@ export class ChapterEndScene extends Phaser.Scene {
 
     // Chapter complete banner
     const banner = document.createElement('div');
-    banner.textContent = `第 ${chapter} 章 · 完成!`;
+    banner.textContent = `Chapter ${chapter} · Complete!`;
     applyStyle(banner, {
       textAlign: 'center',
       fontSize: '14px',
@@ -106,7 +106,7 @@ export class ChapterEndScene extends Phaser.Scene {
     content.appendChild(banner);
 
     const title = document.createElement('div');
-    title.textContent = meta.titleZh;
+    title.textContent = meta.titleEn;
     applyStyle(title, {
       fontSize: '26px',
       fontWeight: '900',
@@ -205,7 +205,7 @@ export class ChapterEndScene extends Phaser.Scene {
     const correct = state.history.filter((h) => h.correct).length;
     const total = state.history.length;
     const stats = document.createElement('div');
-    stats.textContent = `本章答對 ${correct}/${total} · +${state.score} XP`;
+    stats.textContent = `Correct ${correct}/${total} · +${state.score} XP`;
     applyStyle(stats, {
       textAlign: 'center',
       fontSize: '13px',
@@ -217,7 +217,7 @@ export class ChapterEndScene extends Phaser.Scene {
     // Next chapter CTA
     const cta = document.createElement('button');
     cta.type = 'button';
-    cta.textContent = `下一章 → ${nextMeta.titleZh}`;
+    cta.textContent = `Next chapter → ${nextMeta.titleEn}`;
     applyStyle(cta, {
       marginTop: '4px',
       minHeight: '56px',
@@ -263,7 +263,7 @@ export class ChapterEndScene extends Phaser.Scene {
     // Back-to-chapter-select link
     const backLink = document.createElement('button');
     backLink.type = 'button';
-    backLink.textContent = '← 回章節選擇';
+    backLink.textContent = '← Back to chapters';
     applyStyle(backLink, {
       marginTop: '6px',
       background: 'transparent',
