@@ -200,7 +200,7 @@ export class ModeMenu {
     );
 
     const footer = document.createElement('div');
-    footer.textContent = 'v1.9.3';
+    footer.textContent = 'v1.9.4';
     applyStyle(footer, {
       marginTop: '24px',
       fontSize: '11px',

@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { updateStreak } from '../data/streak';
 
 /**
  * BootScene — v1.7.0 pass-through.
@@ -20,6 +21,9 @@ export class BootScene extends Phaser.Scene {
 
   create(): void {
     this.cameras.main.setBackgroundColor('#fef8ed');
+    // v1.9.4: tick the daily streak on every app boot (idempotent — only
+    // changes state when the calendar day differs from lastDate).
+    updateStreak();
     // Defer one tick to let Phaser settle the camera before scene swap.
     // v1.7.4: tear-intro -> map view directly. MenuScene's mode-card
     // intermediate page was deleted from the main flow (still callable

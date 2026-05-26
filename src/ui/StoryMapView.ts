@@ -28,6 +28,7 @@ import {
   type ChapterId,
 } from '../data/storyKitten';
 import { readXp, levelForXp } from '../data/xp';
+import { readStreak } from '../data/streak';
 
 export interface StoryMapHandlers {
   onPlayChapter: (chapter: ChapterId) => void;
@@ -271,7 +272,10 @@ export class StoryMapView {
       return el;
     };
 
+    // v1.9.4: 4-slot HUD — Chapters / Streak / XP / Level
+    const streak = readStreak();
     wrap.appendChild(item('🐾', `${progress.highestCompleted}/8`, 'Chapters', '#a47148'));
+    wrap.appendChild(item('🔥', String(streak), 'Streak', '#d4823a'));
     wrap.appendChild(item('⭐', String(xp), 'XP', '#e7a44a'));
     wrap.appendChild(item('🎯', `L${level}`, 'Level', '#7d9a4f'));
     return wrap;
