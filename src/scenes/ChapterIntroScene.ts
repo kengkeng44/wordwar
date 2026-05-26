@@ -230,17 +230,16 @@ export class ChapterIntroScene extends Phaser.Scene {
       const speaker = document.createElement('button');
       speaker.type = 'button';
       speaker.setAttribute('aria-label', `Listen to sentence ${idx + 1}`);
-      speaker.innerHTML = '🔊';
+      // v1.8.8: smaller icon-only style closer to Duolingo Stories.
+      // Was 34×34 chunky button; now 24×24 minimal icon.
+      speaker.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="#3d8aae" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
       applyStyle(speaker, {
         flex: '0 0 auto',
-        width: '34px',
-        height: '34px',
+        width: '28px',
+        height: '28px',
         borderRadius: '50%',
-        background: '#3d8aae',
-        color: '#ffffff',
+        background: 'transparent',
         border: 'none',
-        borderBottom: '3px solid #2c6986',
-        fontSize: '16px',
         cursor: 'pointer',
         padding: '0',
         display: 'flex',

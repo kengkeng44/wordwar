@@ -461,6 +461,26 @@ button:focus-visible {
   94%, 97% { transform: scaleY(0.1); }
 }
 
+/* ─── v1.8.8 map character idle micro-animation ────────────────────────
+ * Subtle "alive" bob applied to the inner images of .pickup-map-cat so
+ * the duo doesn't sit motionless. Matches Duolingo Lin's idle behavior
+ * (small breathing + slight sway every few seconds). */
+.pickup-map-cat img {
+  animation: pickup-map-cat-idle 3.8s ease-in-out infinite;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+.pickup-map-cat img:nth-child(2) {
+  animation-delay: 0.4s; /* shiba breathes slightly off-phase from grandma */
+}
+@keyframes pickup-map-cat-idle {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-3px) scale(1.015); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pickup-map-cat img { animation: none !important; }
+}
+
 /* ─── v1.7.12 current map node pulse ───────────────────────────────────
  * Replaces the visual "you are here" function the cat sprite used to
  * serve. Uses filter: drop-shadow which respects border-radius and
