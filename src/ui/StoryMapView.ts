@@ -487,18 +487,26 @@ export class StoryMapView {
     const slot = NODE_PATH[nodeIdx] ?? NODE_PATH[0];
     const rowTop = slot.top;
     const nodeLeft = CONTAINER_W / 2 - NODE_SIZE / 2 + slot.dx;
-    // v1.8.4: position character on the INSIDE of the curve, not based
-    // on the node's absolute dx. Compute local flow direction from
-    // (next.dx - prev.dx). Path curves right → character on right side;
-    // curves left → character on left side.
+    // v1.8.5: per user screenshot — character no longer follows current
+    // node. It fills the empty VISUAL SPACE opposite to where nodes
+    // cluster. For Ch1 (path drifts right then loops left), the gap
+    // is on the upper-left at vertical midpoint. Calculate dynamically:
+    //   - avgDx across visible nodes → average horizontal cluster bias
+    //   - character X on OPPOSITE side of column from cluster
+    //   - character Y at vertical center of node range
     const containerW = 122;
-    const prevSlot = NODE_PATH[Math.max(0, nodeIdx - 1)] ?? slot;
-    const nextSlot = NODE_PATH[Math.min(NODE_PATH.length - 1, nodeIdx + 1)] ?? slot;
-    const flowDir = nextSlot.dx - prevSlot.dx;
-    const catX = flowDir >= 0
-      ? nodeLeft + NODE_SIZE - 50   // curve flowing right → character on RIGHT of node
-      : nodeLeft - containerW + 50; // curve flowing left → character on LEFT of node
-    const catY = rowTop - 36;
+    const visibleNodes = NODE_PATH.slice(0, 6); // 6 actual Ch1 nodes
+    const avgDx = visibleNodes.reduce((s, n) => s + n.dx, 0) / visibleNodes.length;
+    const topY = visibleNodes[0].top;
+    const bottomY = visibleNodes[visibleNodes.length - 1].top + NODE_HEIGHT;
+    const catY = (topY + bottomY) / 2 - 55;
+    // If cluster average is right of center → put character far LEFT
+    // (and vice versa). Use a hefty offset toward the column edge.
+    const catX = avgDx >= 0
+      ? 4                                 // cluster right → character far left
+      : CONTAINER_W - containerW - 4;     // cluster left → character far right
+    // Silence the "nodeIdx unused" lint — we deliberately ignore it now
+    void nodeIdx; void nodeLeft; void rowTop;
 
     if (!animate) {
       this.cat.style.transition = 'none';
