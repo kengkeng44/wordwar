@@ -19,6 +19,7 @@ import { BottomNav, type BottomNavTab } from '../ui/BottomNav';
 import { NodeActivitySheet } from '../ui/NodeActivitySheet';
 import { readXp, levelProgress } from '../data/xp';
 import { readStreak } from '../data/streak';
+import { evaluateAchievements, countUnlocked } from '../data/achievements';
 
 const COLOR_BG = '#fef8ed';
 const COLOR_AMBER = '#e7a44a';
@@ -619,32 +620,46 @@ export class StoryModeScene extends Phaser.Scene {
   // ─── Alerts tab (placeholder for v1.8+) ───────────────────────────────
 
   private buildAlertsPanel(): HTMLDivElement {
-    const panel = this.makePanelShell('Alerts', 'Soon: streak reminders, new-chapter pings');
+    // v1.9.7: Alerts tab now hosts the Achievements grid (renamed function
+    // but tab still routed via 'alerts'). Future: also add streak nudges.
+    const counts = countUnlocked();
+    const panel = this.makePanelShell(
+      'Achievements',
+      `${counts.unlocked}/${counts.total} unlocked`
+    );
     const content = this.getPanelContentRoot(panel);
 
-    const card = document.createElement('div');
-    applyStyle(card, {
-      background: '#ffffff',
-      border: `2px solid ${COLOR_BORDER}`,
-      borderBottom: `4px solid ${COLOR_BORDER_DARK}`,
-      borderRadius: '18px',
-      padding: '24px 18px',
-      textAlign: 'center',
+    const grid = document.createElement('div');
+    applyStyle(grid, {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '12px',
     });
-    card.innerHTML = `
-      <div style="font-size:48px;line-height:1;margin-bottom:8px;">🔔</div>
-      <div style="font-size:15px;font-weight:800;color:${COLOR_TEXT_DARK};margin-bottom:6px;">
-        No alerts yet
-      </div>
-      <div style="font-size:13px;font-weight:600;color:${COLOR_TEXT_MUTED};line-height:1.5;">
-        Coming in v1.8+:<br/>
-        · Daily streak reminders<br/>
-        · New chapter unlocks<br/>
-        · "你已經 3 天沒練習了" 治癒系 nudges
-      </div>
-    `;
-    content.appendChild(card);
 
+    for (const ach of evaluateAchievements()) {
+      const card = document.createElement('div');
+      applyStyle(card, {
+        background: ach.unlocked ? '#ffffff' : '#f3eddc',
+        border: `2px solid ${ach.unlocked ? COLOR_AMBER : COLOR_BORDER}`,
+        borderBottom: `4px solid ${ach.unlocked ? COLOR_AMBER_DARK : COLOR_BORDER_DARK}`,
+        borderRadius: '16px',
+        padding: '14px 12px',
+        textAlign: 'center',
+        opacity: ach.unlocked ? '1' : '0.6',
+        filter: ach.unlocked ? 'none' : 'grayscale(0.3)',
+      });
+      card.innerHTML = `
+        <div style="font-size:36px;line-height:1;margin-bottom:6px;">${ach.emoji}</div>
+        <div style="font-size:13px;font-weight:900;color:${COLOR_TEXT_DARK};line-height:1.2;">${ach.title}</div>
+        <div style="font-size:11px;font-weight:600;color:${COLOR_TEXT_MUTED};margin-top:4px;line-height:1.35;">
+          ${ach.description}
+        </div>
+        ${ach.progressLabel ? `<div style="font-size:10px;font-weight:800;letter-spacing:0.5px;color:${COLOR_AMBER_DARK};margin-top:6px;">${ach.progressLabel}</div>` : ''}
+      `;
+      grid.appendChild(card);
+    }
+
+    content.appendChild(grid);
     return panel;
   }
 }
