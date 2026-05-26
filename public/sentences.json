@@ -2,6 +2,7 @@
   {
     "id": "a2-001",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "She is ___ in learning Korean.",
     "options": ["interesting", "interested", "interest", "interests"],
     "correctIndex": 1,
@@ -11,6 +12,7 @@
   {
     "id": "a2-002",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "I love ___ pizza on weekends.",
     "options": ["eat", "eating", "ate", "eaten"],
     "correctIndex": 1,
@@ -20,6 +22,7 @@
   {
     "id": "a2-003",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "We ___ to the beach last summer.",
     "options": ["go", "going", "went", "gone"],
     "correctIndex": 2,
@@ -29,6 +32,7 @@
   {
     "id": "a2-004",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "My brother is ___ than me.",
     "options": ["tall", "taller", "tallest", "more tall"],
     "correctIndex": 1,
@@ -38,6 +42,7 @@
   {
     "id": "a2-005",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "There ___ a lot of people at the party last night.",
     "options": ["was", "were", "is", "are"],
     "correctIndex": 1,
@@ -47,6 +52,7 @@
   {
     "id": "a2-006",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "I'm going to ___ a new bike next month.",
     "options": ["buy", "buying", "bought", "buys"],
     "correctIndex": 0,
@@ -56,6 +62,7 @@
   {
     "id": "a2-007",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "She was born ___ March 2005.",
     "options": ["on", "at", "in", "by"],
     "correctIndex": 2,
@@ -65,6 +72,7 @@
   {
     "id": "a2-008",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "He ___ used to drink coffee, but now he loves it.",
     "options": ["isn't", "didn't", "wasn't", "doesn't"],
     "correctIndex": 1,
@@ -74,6 +82,7 @@
   {
     "id": "a2-009",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "The keys are ___ the table.",
     "options": ["in", "on", "at", "to"],
     "correctIndex": 1,
@@ -83,6 +92,7 @@
   {
     "id": "a2-010",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "I don't have ___ money in my wallet.",
     "options": ["many", "much", "few", "lot"],
     "correctIndex": 1,
@@ -92,6 +102,7 @@
   {
     "id": "a2-011",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "She ___ her homework every evening.",
     "options": ["do", "does", "doing", "did"],
     "correctIndex": 1,
@@ -101,6 +112,7 @@
   {
     "id": "a2-012",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "Look! It ___ raining outside.",
     "options": ["is", "are", "was", "be"],
     "correctIndex": 0,
@@ -110,6 +122,7 @@
   {
     "id": "a2-013",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "My sister is good ___ playing the piano.",
     "options": ["in", "at", "on", "of"],
     "correctIndex": 1,
@@ -119,6 +132,7 @@
   {
     "id": "a2-014",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "If it rains tomorrow, we ___ stay at home.",
     "options": ["will", "would", "are", "do"],
     "correctIndex": 0,
@@ -128,6 +142,7 @@
   {
     "id": "a2-015",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "She speaks English ___ than her brother.",
     "options": ["good", "well", "better", "best"],
     "correctIndex": 2,
@@ -137,6 +152,7 @@
   {
     "id": "a2-016",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "I have ___ apple every morning for breakfast.",
     "options": ["a", "an", "the", "some"],
     "correctIndex": 1,
@@ -146,6 +162,7 @@
   {
     "id": "a2-017",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "He often ___ to work by bus.",
     "options": ["go", "goes", "going", "gone"],
     "correctIndex": 1,
@@ -155,6 +172,7 @@
   {
     "id": "a2-018",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "There are some books ___ the shelf.",
     "options": ["in", "on", "at", "under"],
     "correctIndex": 1,
@@ -164,6 +182,7 @@
   {
     "id": "a2-019",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "Would you like ___ coffee?",
     "options": ["any", "some", "much", "a"],
     "correctIndex": 1,
@@ -173,6 +192,7 @@
   {
     "id": "a2-020",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "She is the ___ student in the class.",
     "options": ["smart", "smarter", "smartest", "more smart"],
     "correctIndex": 2,
@@ -182,6 +202,7 @@
   {
     "id": "a2-021",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "I ___ TV when my mom called me.",
     "options": ["watch", "watched", "was watching", "am watching"],
     "correctIndex": 2,
@@ -191,6 +212,7 @@
   {
     "id": "a2-022",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "My grandmother ___ live in Taipei when she was young.",
     "options": ["use to", "used to", "uses to", "using to"],
     "correctIndex": 1,
@@ -200,6 +222,7 @@
   {
     "id": "a2-023",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "He is the man ___ lives next door.",
     "options": ["who", "which", "what", "where"],
     "correctIndex": 0,
@@ -209,6 +232,7 @@
   {
     "id": "a2-024",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "There aren't ___ chairs in the room.",
     "options": ["some", "any", "much", "a"],
     "correctIndex": 1,
@@ -218,6 +242,7 @@
   {
     "id": "a2-025",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "What ___ you do last weekend?",
     "options": ["do", "did", "does", "are"],
     "correctIndex": 1,
@@ -227,6 +252,7 @@
   {
     "id": "a2-026",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "Hurry up! The train ___ in 5 minutes.",
     "options": ["leaves", "left", "is leaving", "leave"],
     "correctIndex": 0,
@@ -236,6 +262,7 @@
   {
     "id": "a2-027",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "I'd like ___ tea, please.",
     "options": ["cup of", "a cup of", "the cup", "a cup"],
     "correctIndex": 1,
@@ -245,6 +272,7 @@
   {
     "id": "a2-028",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "He's been working here ___ 2018.",
     "options": ["for", "since", "from", "in"],
     "correctIndex": 1,
@@ -254,6 +282,7 @@
   {
     "id": "a2-029",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "She has lived in Tokyo ___ five years.",
     "options": ["for", "since", "from", "during"],
     "correctIndex": 0,
@@ -263,6 +292,7 @@
   {
     "id": "a2-030",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "If I ___ rich, I would travel around the world.",
     "options": ["am", "was", "were", "be"],
     "correctIndex": 2,
@@ -272,6 +302,7 @@
   {
     "id": "a2-031",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "The weather is ___ today than yesterday.",
     "options": ["bad", "worse", "worst", "badder"],
     "correctIndex": 1,
@@ -281,6 +312,7 @@
   {
     "id": "a2-032",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "Can you ___ me your phone for a minute?",
     "options": ["borrow", "lend", "rent", "give"],
     "correctIndex": 1,
@@ -290,6 +322,7 @@
   {
     "id": "a2-033",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "I want ___ a doctor when I grow up.",
     "options": ["be", "to be", "being", "been"],
     "correctIndex": 1,
@@ -299,6 +332,7 @@
   {
     "id": "a2-034",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "She speaks ___ slowly that I can understand her easily.",
     "options": ["very", "so", "too", "such"],
     "correctIndex": 1,
@@ -308,6 +342,7 @@
   {
     "id": "a2-035",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "Don't worry, I ___ help you with your bags.",
     "options": ["am", "will", "going", "would"],
     "correctIndex": 1,
@@ -317,6 +352,7 @@
   {
     "id": "a2-036",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "There ___ a cat on the roof.",
     "options": ["have", "has", "is", "are"],
     "correctIndex": 2,
@@ -326,6 +362,7 @@
   {
     "id": "a2-037",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "How ___ sugar do you want in your coffee?",
     "options": ["many", "much", "any", "few"],
     "correctIndex": 1,
@@ -335,6 +372,7 @@
   {
     "id": "a2-038",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "I ___ to the gym three times a week.",
     "options": ["go", "am going", "goes", "went"],
     "correctIndex": 0,
@@ -344,6 +382,7 @@
   {
     "id": "a2-039",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "She was tired, ___ she went to bed early.",
     "options": ["but", "so", "and", "or"],
     "correctIndex": 1,
@@ -353,6 +392,7 @@
   {
     "id": "a2-040",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "We arrived ___ the airport at 6 a.m.",
     "options": ["in", "to", "at", "on"],
     "correctIndex": 2,
@@ -362,6 +402,7 @@
   {
     "id": "a2-041",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "He's much ___ than his older brother.",
     "options": ["tall", "taller", "tallest", "the tallest"],
     "correctIndex": 1,
@@ -371,6 +412,7 @@
   {
     "id": "a2-042",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "I'm afraid ___ spiders.",
     "options": ["from", "of", "for", "about"],
     "correctIndex": 1,
@@ -380,6 +422,7 @@
   {
     "id": "a2-043",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "What ___ you doing now?",
     "options": ["is", "are", "do", "does"],
     "correctIndex": 1,
@@ -389,6 +432,7 @@
   {
     "id": "a2-044",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "She's lived here ___ she was a child.",
     "options": ["for", "since", "from", "when"],
     "correctIndex": 1,
@@ -398,6 +442,7 @@
   {
     "id": "a2-045",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "Could you please ___ the window? It's cold.",
     "options": ["close", "to close", "closing", "closed"],
     "correctIndex": 0,
@@ -407,6 +452,7 @@
   {
     "id": "a2-046",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "My sister enjoys ___ to music while studying.",
     "options": ["listen", "listens", "listening", "to listen"],
     "correctIndex": 2,
@@ -416,6 +462,7 @@
   {
     "id": "a2-047",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "My birthday is ___ April 15.",
     "options": ["in", "on", "at", "by"],
     "correctIndex": 1,
@@ -425,6 +472,7 @@
   {
     "id": "a2-048",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "He ___ never been to Japan before.",
     "options": ["have", "has", "is", "was"],
     "correctIndex": 1,
@@ -434,6 +482,7 @@
   {
     "id": "a2-049",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "These shoes are ___ expensive. I can't afford them.",
     "options": ["very", "too", "so", "enough"],
     "correctIndex": 1,
@@ -443,6 +492,7 @@
   {
     "id": "a2-050",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "Don't forget ___ the lights when you leave.",
     "options": ["turn off", "to turn off", "turning off", "turned off"],
     "correctIndex": 1,
@@ -452,6 +502,7 @@
   {
     "id": "a2-051",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "She's ___ tired to go out tonight.",
     "options": ["very", "too", "so", "much"],
     "correctIndex": 1,
@@ -461,6 +512,7 @@
   {
     "id": "a2-052",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "We were watching a movie ___ the power went out.",
     "options": ["while", "when", "during", "since"],
     "correctIndex": 1,
@@ -470,6 +522,7 @@
   {
     "id": "a2-053",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "This book is ___ than that one.",
     "options": ["interesting", "more interesting", "most interesting", "interestinger"],
     "correctIndex": 1,
@@ -479,6 +532,7 @@
   {
     "id": "a2-054",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "I'd rather stay home ___ go out tonight.",
     "options": ["to", "than", "that", "then"],
     "correctIndex": 1,
@@ -488,6 +542,7 @@
   {
     "id": "a2-055",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "She works ___ a hospital downtown.",
     "options": ["in", "at", "on", "to"],
     "correctIndex": 1,
@@ -497,6 +552,7 @@
   {
     "id": "a2-056",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "He doesn't like coffee, and ___ do I.",
     "options": ["so", "neither", "either", "too"],
     "correctIndex": 1,
@@ -506,6 +562,7 @@
   {
     "id": "a2-057",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "The movie was ___ . I almost fell asleep.",
     "options": ["bored", "boring", "bore", "bores"],
     "correctIndex": 1,
@@ -515,6 +572,7 @@
   {
     "id": "a2-058",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "I'm looking ___ to seeing you next week.",
     "options": ["for", "after", "forward", "up"],
     "correctIndex": 2,
@@ -524,6 +582,7 @@
   {
     "id": "a2-059",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "If you ___ harder, you'll pass the exam.",
     "options": ["study", "studied", "will study", "studying"],
     "correctIndex": 0,
@@ -533,6 +592,7 @@
   {
     "id": "a2-060",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "She is one of the ___ singers in the country.",
     "options": ["best", "better", "good", "more good"],
     "correctIndex": 0,
@@ -542,6 +602,7 @@
   {
     "id": "a2-061",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "He ___ his keys yesterday and couldn't open the door.",
     "options": ["lose", "lost", "losing", "loses"],
     "correctIndex": 1,
@@ -551,6 +612,7 @@
   {
     "id": "a2-062",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "I usually have lunch ___ noon.",
     "options": ["in", "on", "at", "by"],
     "correctIndex": 2,
@@ -560,6 +622,7 @@
   {
     "id": "a2-063",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "She's the girl ___ won the singing contest.",
     "options": ["which", "who", "whose", "what"],
     "correctIndex": 1,
@@ -569,6 +632,7 @@
   {
     "id": "a2-064",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "There isn't ___ milk left in the fridge.",
     "options": ["some", "any", "many", "few"],
     "correctIndex": 1,
@@ -578,6 +642,7 @@
   {
     "id": "a2-065",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "It's raining hard. You ___ take an umbrella.",
     "options": ["should", "would", "could", "might"],
     "correctIndex": 0,
@@ -587,6 +652,7 @@
   {
     "id": "a2-066",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "My job is ___ stressful than my last one.",
     "options": ["less", "few", "little", "small"],
     "correctIndex": 0,
@@ -596,6 +662,7 @@
   {
     "id": "a2-067",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "I haven't seen him ___ Monday.",
     "options": ["for", "since", "in", "at"],
     "correctIndex": 1,
@@ -605,6 +672,7 @@
   {
     "id": "a2-068",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "She avoids ___ junk food.",
     "options": ["eat", "to eat", "eating", "ate"],
     "correctIndex": 2,
@@ -614,6 +682,7 @@
   {
     "id": "a2-069",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "Look at those clouds! It ___ rain soon.",
     "options": ["will", "is going to", "would", "is"],
     "correctIndex": 1,
@@ -623,6 +692,7 @@
   {
     "id": "a2-070",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "My dad ___ get up early to go fishing on weekends.",
     "options": ["used to", "is used to", "use to", "uses to"],
     "correctIndex": 0,
@@ -632,6 +702,7 @@
   {
     "id": "a2-071",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "How long ___ you been studying English?",
     "options": ["did", "do", "have", "are"],
     "correctIndex": 2,
@@ -641,6 +712,7 @@
   {
     "id": "a2-072",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "The restaurant was ___ crowded that we couldn't find a seat.",
     "options": ["very", "too", "so", "such"],
     "correctIndex": 2,
@@ -650,6 +722,7 @@
   {
     "id": "a2-073",
     "level": "A2",
+    "difficulty": "medium",
     "sentence": "We went to Paris ___ vacation last year.",
     "options": ["in", "on", "at", "for"],
     "correctIndex": 1,
@@ -659,6 +732,7 @@
   {
     "id": "a2-074",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "She speaks French better than ___ in our class.",
     "options": ["anyone", "someone", "everyone", "no one"],
     "correctIndex": 0,
@@ -668,6 +742,7 @@
   {
     "id": "a2-075",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "I can't decide ___ to wear today.",
     "options": ["that", "what", "which", "how"],
     "correctIndex": 1,
@@ -677,6 +752,7 @@
   {
     "id": "a2-076",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "If I were you, I ___ tell him the truth.",
     "options": ["will", "would", "can", "am"],
     "correctIndex": 1,
@@ -686,6 +762,7 @@
   {
     "id": "a2-077",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "He's been to Korea ___ times.",
     "options": ["much", "many", "lot", "every"],
     "correctIndex": 1,
@@ -695,6 +772,7 @@
   {
     "id": "a2-078",
     "level": "A2",
+    "difficulty": "easy",
     "sentence": "Please be quiet. The baby ___ .",
     "options": ["sleeps", "is sleeping", "slept", "sleep"],
     "correctIndex": 1,
@@ -704,6 +782,7 @@
   {
     "id": "a2-079",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "We need to leave ___ , or we'll miss the train.",
     "options": ["immediately", "lately", "yet", "ago"],
     "correctIndex": 0,
@@ -713,6 +792,7 @@
   {
     "id": "a2-080",
     "level": "A2",
+    "difficulty": "hard",
     "sentence": "She made me ___ at her joke.",
     "options": ["to laugh", "laugh", "laughing", "laughed"],
     "correctIndex": 1,

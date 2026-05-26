@@ -20,6 +20,8 @@ import {
   isScenarioCompleted,
   type ScenarioId,
 } from '../data/scenarios';
+import { useRunStore } from '../store/runStore';
+import type { Difficulty } from '../data/sentences';
 
 export interface ModeMenuHandlers {
   onStartStory: () => void;
@@ -121,6 +123,9 @@ export class ModeMenu {
     if (!this.introDismissed()) {
       this.content.appendChild(this.makeIntroCard());
     }
+
+    // v0.11 — difficulty toggle applies globally across all modes.
+    this.content.appendChild(this.makeDifficultyToggle());
 
     const chooseLabel = document.createElement('div');
     chooseLabel.textContent = '選擇模式';
@@ -296,6 +301,110 @@ export class ModeMenu {
       opts.onClick();
     });
     return card;
+  }
+
+  /**
+   * v0.11 — 3-button segmented pill toggle: 簡單 / 中等 / 困難.
+   * Persists to localStorage via useRunStore.setDifficulty (key
+   * `pickup.difficulty`, default `medium`). Applies to free / scenario /
+   * story modes alike.
+   */
+  private makeDifficultyToggle(): HTMLElement {
+    const wrapper = document.createElement('div');
+    applyStyle(wrapper, {
+      marginBottom: '16px',
+      paddingLeft: '4px',
+      paddingRight: '4px',
+    });
+
+    const label = document.createElement('div');
+    label.textContent = '題目難度';
+    applyStyle(label, {
+      fontSize: '12px',
+      color: COLOR_TEXT_MUTED,
+      fontWeight: '800',
+      letterSpacing: '1.5px',
+      textTransform: 'uppercase',
+      marginBottom: '8px',
+    });
+    wrapper.appendChild(label);
+
+    const row = document.createElement('div');
+    applyStyle(row, {
+      display: 'flex',
+      gap: '8px',
+      width: '100%',
+    });
+
+    const tiers: Array<{ id: Difficulty; labelZh: string }> = [
+      { id: 'easy', labelZh: '簡單' },
+      { id: 'medium', labelZh: '中等' },
+      { id: 'hard', labelZh: '困難' },
+    ];
+
+    const current = useRunStore.getState().difficulty;
+    const buttons: Array<{ id: Difficulty; el: HTMLButtonElement }> = [];
+
+    const paint = (active: Difficulty) => {
+      for (const { id, el } of buttons) {
+        const isActive = id === active;
+        applyStyle(el, {
+          background: isActive ? COLOR_AMBER : '#ffffff',
+          color: isActive ? '#ffffff' : COLOR_TEXT_DARK,
+          borderColor: isActive ? COLOR_AMBER : COLOR_BORDER,
+          borderBottomColor: isActive ? COLOR_AMBER_DARK : COLOR_BORDER_DARK,
+          boxShadow: isActive
+            ? '0 3px 10px rgba(231, 164, 74, 0.25)'
+            : 'none',
+        });
+      }
+    };
+
+    for (const tier of tiers) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = tier.labelZh;
+      applyStyle(btn, {
+        flex: '1 1 0',
+        minHeight: '40px',
+        padding: '8px 4px',
+        borderRadius: '12px',
+        border: `2px solid ${COLOR_BORDER}`,
+        borderBottom: `3px solid ${COLOR_BORDER_DARK}`,
+        background: '#ffffff',
+        color: COLOR_TEXT_DARK,
+        fontSize: '14px',
+        fontWeight: '800',
+        cursor: 'pointer',
+        fontFamily: 'inherit',
+        touchAction: 'manipulation',
+        WebkitTapHighlightColor: 'transparent',
+        transition:
+          'background 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out, box-shadow 200ms ease-out',
+      });
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        useRunStore.getState().setDifficulty(tier.id);
+        paint(tier.id);
+      });
+      buttons.push({ id: tier.id, el: btn });
+      row.appendChild(btn);
+    }
+    paint(current);
+    wrapper.appendChild(row);
+
+    const helper = document.createElement('div');
+    helper.textContent = '依選擇調整每題單字難度,所有模式通用';
+    applyStyle(helper, {
+      fontSize: '11px',
+      color: COLOR_TEXT_MUTED,
+      fontWeight: '600',
+      marginTop: '6px',
+      lineHeight: '1.4',
+    });
+    wrapper.appendChild(helper);
+
+    return wrapper;
   }
 
   private makeIntroCard(): HTMLElement {

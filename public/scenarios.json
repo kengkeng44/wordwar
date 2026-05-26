@@ -2,6 +2,7 @@
   {
     "id": "rs-001",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "restaurant",
     "scenarioOrder": 0,
     "sentence": "Excuse me, could I ___ the menu, please?",
@@ -13,6 +14,7 @@
   {
     "id": "rs-002",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "restaurant",
     "scenarioOrder": 1,
     "sentence": "I'd like to ___ a table for two at seven o'clock.",
@@ -24,6 +26,7 @@
   {
     "id": "rs-003",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "restaurant",
     "scenarioOrder": 2,
     "sentence": "Are you ready ___ order, or do you need more time?",
@@ -35,6 +38,7 @@
   {
     "id": "rs-004",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "restaurant",
     "scenarioOrder": 3,
     "sentence": "This soup is too salty. Could you ___ me the manager?",
@@ -46,6 +50,7 @@
   {
     "id": "rs-005",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "restaurant",
     "scenarioOrder": 4,
     "sentence": "How much ___ the bill, including the tip?",
@@ -57,6 +62,7 @@
   {
     "id": "rs-006",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "restaurant",
     "scenarioOrder": 5,
     "sentence": "I'll ___ the steak with mushroom sauce, please.",
@@ -68,6 +74,7 @@
   {
     "id": "rs-007",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "restaurant",
     "scenarioOrder": 6,
     "sentence": "The waiter was very ___ and brought our food quickly.",
@@ -79,6 +86,7 @@
   {
     "id": "rs-008",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "restaurant",
     "scenarioOrder": 7,
     "sentence": "Do you have ___ vegetarian dishes on the menu?",
@@ -90,6 +98,7 @@
   {
     "id": "rs-009",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "restaurant",
     "scenarioOrder": 8,
     "sentence": "We've been waiting ___ our food for thirty minutes.",
@@ -101,6 +110,7 @@
   {
     "id": "rs-010",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "restaurant",
     "scenarioOrder": 9,
     "sentence": "Can we ___ the bill, please? We need to leave soon.",
@@ -112,6 +122,7 @@
   {
     "id": "ap-001",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "airport",
     "scenarioOrder": 0,
     "sentence": "Where can I ___ in for my flight to Tokyo?",
@@ -123,6 +134,7 @@
   {
     "id": "ap-002",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "airport",
     "scenarioOrder": 1,
     "sentence": "Please ___ your laptop out of your bag for the security check.",
@@ -134,6 +146,7 @@
   {
     "id": "ap-003",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "airport",
     "scenarioOrder": 2,
     "sentence": "Your flight ___ from Gate 24 in 30 minutes.",
@@ -145,6 +158,7 @@
   {
     "id": "ap-004",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "airport",
     "scenarioOrder": 3,
     "sentence": "Do you have anything ___ declare at customs?",
@@ -156,6 +170,7 @@
   {
     "id": "ap-005",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "airport",
     "scenarioOrder": 4,
     "sentence": "My luggage is too heavy. I need to ___ some items.",
@@ -167,6 +182,7 @@
   {
     "id": "ap-006",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "airport",
     "scenarioOrder": 5,
     "sentence": "Passengers ___ now boarding through Gate 12.",
@@ -178,6 +194,7 @@
   {
     "id": "ap-007",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "airport",
     "scenarioOrder": 6,
     "sentence": "Excuse me, ___ is the gate for flight CI 100?",
@@ -189,6 +206,7 @@
   {
     "id": "ap-008",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "airport",
     "scenarioOrder": 7,
     "sentence": "I ___ my passport at the hotel. What should I do?",
@@ -200,6 +218,7 @@
   {
     "id": "ap-009",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "airport",
     "scenarioOrder": 8,
     "sentence": "Please fasten your seat belt ___ the plane is taking off.",
@@ -211,6 +230,7 @@
   {
     "id": "ap-010",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "airport",
     "scenarioOrder": 9,
     "sentence": "How long ___ the flight from Taipei to Seoul?",
@@ -222,6 +242,7 @@
   {
     "id": "hs-001",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hospital",
     "scenarioOrder": 0,
     "sentence": "Doctor, I've ___ a bad headache since yesterday.",
@@ -233,6 +254,7 @@
   {
     "id": "hs-002",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hospital",
     "scenarioOrder": 1,
     "sentence": "I'd like to ___ an appointment with Dr. Lin, please.",
@@ -244,6 +266,7 @@
   {
     "id": "hs-003",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "hospital",
     "scenarioOrder": 2,
     "sentence": "Take this medicine twice a day ___ meals.",
@@ -255,6 +278,7 @@
   {
     "id": "hs-004",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "hospital",
     "scenarioOrder": 3,
     "sentence": "The doctor ___ me to drink more water and rest.",
@@ -266,6 +290,7 @@
   {
     "id": "hs-005",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "hospital",
     "scenarioOrder": 4,
     "sentence": "Please come back ___ a follow-up visit next week.",
@@ -277,6 +302,7 @@
   {
     "id": "hs-006",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "hospital",
     "scenarioOrder": 5,
     "sentence": "Does your insurance ___ the cost of this treatment?",
@@ -288,6 +314,7 @@
   {
     "id": "hs-007",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "hospital",
     "scenarioOrder": 6,
     "sentence": "I feel ___ today than I did yesterday — thank you, doctor.",
@@ -299,6 +326,7 @@
   {
     "id": "hs-008",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hospital",
     "scenarioOrder": 7,
     "sentence": "The nurse will ___ your blood pressure now.",
@@ -310,6 +338,7 @@
   {
     "id": "hs-009",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hospital",
     "scenarioOrder": 8,
     "sentence": "If the pain ___ worse, please call us immediately.",
@@ -321,6 +350,7 @@
   {
     "id": "hs-010",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hospital",
     "scenarioOrder": 9,
     "sentence": "Could you ___ me where the X-ray room is?",
@@ -332,6 +362,7 @@
   {
     "id": "of-001",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "office",
     "scenarioOrder": 0,
     "sentence": "The meeting ___ at 10 a.m. tomorrow in the main conference room.",
@@ -343,6 +374,7 @@
   {
     "id": "of-002",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "office",
     "scenarioOrder": 1,
     "sentence": "I'm sorry, I can't make it. I have ___ deadline to finish today.",
@@ -354,6 +386,7 @@
   {
     "id": "of-003",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "office",
     "scenarioOrder": 2,
     "sentence": "Could you ___ me with this Excel file? I'm stuck.",
@@ -365,6 +398,7 @@
   {
     "id": "of-004",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "office",
     "scenarioOrder": 3,
     "sentence": "I will ___ you the report by the end of the day.",
@@ -376,6 +410,7 @@
   {
     "id": "of-005",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "office",
     "scenarioOrder": 4,
     "sentence": "The deadline ___ moved from Friday to Wednesday.",
@@ -387,6 +422,7 @@
   {
     "id": "of-006",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "office",
     "scenarioOrder": 5,
     "sentence": "Please ___ everyone on this email about the schedule change.",
@@ -398,6 +434,7 @@
   {
     "id": "of-007",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "office",
     "scenarioOrder": 6,
     "sentence": "I think we should ___ this issue in the next team meeting.",
@@ -409,6 +446,7 @@
   {
     "id": "of-008",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "office",
     "scenarioOrder": 7,
     "sentence": "She is ___ the new project, so please direct your questions to her.",
@@ -420,6 +458,7 @@
   {
     "id": "of-009",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "office",
     "scenarioOrder": 8,
     "sentence": "Don't forget ___ the document before sending it.",
@@ -431,6 +470,7 @@
   {
     "id": "of-010",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "office",
     "scenarioOrder": 9,
     "sentence": "I've been working on this report ___ three hours.",
@@ -442,6 +482,7 @@
   {
     "id": "ht-001",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "hotel",
     "scenarioOrder": 0,
     "sentence": "Good evening. I'd like to ___ in. My name is Chen.",
@@ -453,6 +494,7 @@
   {
     "id": "ht-002",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "hotel",
     "scenarioOrder": 1,
     "sentence": "Do you have a room ___ for tonight?",
@@ -464,6 +506,7 @@
   {
     "id": "ht-003",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hotel",
     "scenarioOrder": 2,
     "sentence": "Could I ___ a wake-up call at 6 a.m., please?",
@@ -475,6 +518,7 @@
   {
     "id": "ht-004",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hotel",
     "scenarioOrder": 3,
     "sentence": "The Wi-Fi in my room ___ working. Can you help?",
@@ -486,6 +530,7 @@
   {
     "id": "ht-005",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hotel",
     "scenarioOrder": 4,
     "sentence": "I'd like to order ___ room service, please.",
@@ -497,6 +542,7 @@
   {
     "id": "ht-006",
     "level": "A2",
+    "difficulty": "hard",
     "scenario": "hotel",
     "scenarioOrder": 5,
     "sentence": "Breakfast ___ from 6:30 to 10 a.m. in the main dining room.",
@@ -508,6 +554,7 @@
   {
     "id": "ht-007",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "hotel",
     "scenarioOrder": 6,
     "sentence": "What time do I have to ___ out tomorrow?",
@@ -519,6 +566,7 @@
   {
     "id": "ht-008",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hotel",
     "scenarioOrder": 7,
     "sentence": "Excuse me, ___ I leave my luggage here until 4 p.m.?",
@@ -530,6 +578,7 @@
   {
     "id": "ht-009",
     "level": "A2",
+    "difficulty": "medium",
     "scenario": "hotel",
     "scenarioOrder": 8,
     "sentence": "The room next to mine is too noisy. Could you ___ me to another room?",
@@ -541,6 +590,7 @@
   {
     "id": "ht-010",
     "level": "A2",
+    "difficulty": "easy",
     "scenario": "hotel",
     "scenarioOrder": 9,
     "sentence": "Here ___ your key card and breakfast voucher. Enjoy your stay!",

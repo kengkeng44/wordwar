@@ -2,6 +2,7 @@
   {
     "id": "kt-ch1-01",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 1,
     "questionInChapter": 1,
     "storyBeat": "小貓在巷子裡醒來。雨下得很大,身上都濕了。",
@@ -14,6 +15,7 @@
   {
     "id": "kt-ch1-02",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 2,
     "storyBeat": "牠的毛全濕了,風吹過來好冷。",
@@ -26,6 +28,7 @@
   {
     "id": "kt-ch1-03",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 3,
     "storyBeat": "肚子咕咕叫,昨天都沒吃東西。",
@@ -38,6 +41,7 @@
   {
     "id": "kt-ch1-04",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 1,
     "questionInChapter": 4,
     "storyBeat": "一個大人影靠近,小貓嚇得縮起來。",
@@ -50,6 +54,7 @@
   {
     "id": "kt-ch1-05",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 1,
     "questionInChapter": 5,
     "storyBeat": "原來是一位撐藍傘的阿嬤。她笑了笑。",
@@ -62,6 +67,7 @@
   {
     "id": "kt-ch1-06",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 1,
     "questionInChapter": 6,
     "storyBeat": "阿嬤把傘往小貓那邊傾過來,擋住雨。",
@@ -75,6 +81,7 @@
   {
     "id": "kt-ch2-01",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 2,
     "questionInChapter": 1,
     "storyBeat": "小貓躲在麵包店後門。一股香味飄出來。",
@@ -87,6 +94,7 @@
   {
     "id": "kt-ch2-02",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 2,
     "questionInChapter": 2,
     "storyBeat": "麵包店老闆走出來,手上拿著一塊麵包。",
@@ -99,6 +107,7 @@
   {
     "id": "kt-ch2-03",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 2,
     "questionInChapter": 3,
     "storyBeat": "他在麵包上塗了一點奶油。",
@@ -111,6 +120,7 @@
   {
     "id": "kt-ch2-04",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 2,
     "questionInChapter": 4,
     "storyBeat": "他把麵包剝成小塊,輕輕放在地上。",
@@ -123,6 +133,7 @@
   {
     "id": "kt-ch2-05",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 2,
     "questionInChapter": 5,
     "storyBeat": "他蹲下來,慢慢地把手伸過來。",
@@ -135,6 +146,7 @@
   {
     "id": "kt-ch2-06",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 2,
     "questionInChapter": 6,
     "storyBeat": "吃飽了,小貓在他腳邊磨蹭。",
@@ -148,6 +160,7 @@
   {
     "id": "kt-ch3-01",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 3,
     "questionInChapter": 1,
     "storyBeat": "公園裡,一個綁馬尾的小女孩遠遠看著小貓。",
@@ -160,6 +173,7 @@
   {
     "id": "kt-ch3-02",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 3,
     "questionInChapter": 2,
     "storyBeat": "她拿出一小包貓零食。",
@@ -172,6 +186,7 @@
   {
     "id": "kt-ch3-03",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 3,
     "questionInChapter": 3,
     "storyBeat": "她蹲下來,慢慢靠近,怕嚇到小貓。",
@@ -184,6 +199,7 @@
   {
     "id": "kt-ch3-04",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 3,
     "questionInChapter": 4,
     "storyBeat": "「你好,我叫美美。」她輕輕說。",
@@ -196,6 +212,7 @@
   {
     "id": "kt-ch3-05",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 3,
     "questionInChapter": 5,
     "storyBeat": "她連續好幾天都來,終於敢摸摸小貓了。",
@@ -208,6 +225,7 @@
   {
     "id": "kt-ch3-06",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 3,
     "questionInChapter": 6,
     "storyBeat": "她笑了,小貓也跟著喵了一聲。",
@@ -221,6 +239,7 @@
   {
     "id": "kt-ch4-01",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 4,
     "questionInChapter": 1,
     "storyBeat": "夜晚的街角,一隻獨眼老狗布魯托走過來。",
@@ -233,6 +252,7 @@
   {
     "id": "kt-ch4-02",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 4,
     "questionInChapter": 2,
     "storyBeat": "另一隻大狗想欺負小貓,布魯托擋在前面。",
@@ -245,6 +265,7 @@
   {
     "id": "kt-ch4-03",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 4,
     "questionInChapter": 3,
     "storyBeat": "他帶小貓去找一個躲雨的地方。",
@@ -257,6 +278,7 @@
   {
     "id": "kt-ch4-04",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 4,
     "questionInChapter": 4,
     "storyBeat": "他把找到的一片麵包分一半給小貓。",
@@ -269,6 +291,7 @@
   {
     "id": "kt-ch4-05",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 4,
     "questionInChapter": 5,
     "storyBeat": "他教小貓怎麼避開大車和惡狗。",
@@ -281,6 +304,7 @@
   {
     "id": "kt-ch4-06",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 4,
     "questionInChapter": 6,
     "storyBeat": "現在小貓和布魯托一起走過街頭,不再害怕。",
@@ -294,6 +318,7 @@
   {
     "id": "kt-ch5-01",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 5,
     "questionInChapter": 1,
     "storyBeat": "美美帶爸媽到公園,把小貓介紹給他們。",
@@ -306,6 +331,7 @@
   {
     "id": "kt-ch5-02",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 5,
     "questionInChapter": 2,
     "storyBeat": "媽媽蹲下來,輕輕摸小貓的頭。「我們帶你回家好嗎?」",
@@ -318,6 +344,7 @@
   {
     "id": "kt-ch5-03",
     "level": "A2",
+    "difficulty": "hard",
     "chapter": 5,
     "questionInChapter": 3,
     "storyBeat": "他們先帶小貓去看獸醫,做身體檢查。",
@@ -330,6 +357,7 @@
   {
     "id": "kt-ch5-04",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 5,
     "questionInChapter": 4,
     "storyBeat": "回家後,他們給小貓一個軟軟的小床。",
@@ -342,6 +370,7 @@
   {
     "id": "kt-ch5-05",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 5,
     "questionInChapter": 5,
     "storyBeat": "小貓躺在床上,第一次覺得這麼安心。",
@@ -354,6 +383,7 @@
   {
     "id": "kt-ch5-06",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 5,
     "questionInChapter": 6,
     "storyBeat": "美美輕聲說:「歡迎回家。你永遠是我們的家人了。」",
@@ -367,6 +397,7 @@
   {
     "id": "kt-ch6-01",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 6,
     "questionInChapter": 1,
     "storyBeat": "第一場雪落下來,世界變得好白、好安靜。",
@@ -379,6 +410,7 @@
   {
     "id": "kt-ch6-02",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 6,
     "questionInChapter": 2,
     "storyBeat": "風很冷,小貓的腳都凍僵了。",
@@ -391,6 +423,7 @@
   {
     "id": "kt-ch6-03",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 6,
     "questionInChapter": 3,
     "storyBeat": "閉上眼睛,小貓夢見了老黑——以前教牠的街頭老朋友。",
@@ -403,6 +436,7 @@
   {
     "id": "kt-ch6-04",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 6,
     "questionInChapter": 4,
     "storyBeat": "老黑說:「孩子,沒人能替你決定,你要自己選。」",
@@ -415,6 +449,7 @@
   {
     "id": "kt-ch6-05",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 6,
     "questionInChapter": 5,
     "storyBeat": "小貓站起來,在雪地上一步一步往前。",
@@ -427,6 +462,7 @@
   {
     "id": "kt-ch6-06",
     "level": "A2",
+    "difficulty": "hard",
     "chapter": 6,
     "questionInChapter": 6,
     "storyBeat": "天快亮了。小貓終於明白:牠不再只是一隻小貓,牠是某個有故事的存在了。",
@@ -440,6 +476,7 @@
   {
     "id": "kt-ch7-01",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 7,
     "questionInChapter": 1,
     "storyBeat": "小貓踏上神社的石階,整片山林靜得不可思議。",
@@ -452,6 +489,7 @@
   {
     "id": "kt-ch7-02",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 7,
     "questionInChapter": 2,
     "storyBeat": "她坐在香爐旁,腦海一個一個浮現幫過她的人。",
@@ -464,6 +502,7 @@
   {
     "id": "kt-ch7-03",
     "level": "A2",
+    "difficulty": "hard",
     "chapter": 7,
     "questionInChapter": 3,
     "storyBeat": "神社靈說:沒有人是偶然走進你的故事的。",
@@ -476,6 +515,7 @@
   {
     "id": "kt-ch7-04",
     "level": "A2",
+    "difficulty": "hard",
     "chapter": 7,
     "questionInChapter": 4,
     "storyBeat": "她想起阿嬤、麵包店老闆、美美、布魯托——每個人都不是偶然。",
@@ -488,6 +528,7 @@
   {
     "id": "kt-ch7-05",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 7,
     "questionInChapter": 5,
     "storyBeat": "月光下,她突然明白自己屬於哪裡了。",
@@ -500,6 +541,7 @@
   {
     "id": "kt-ch7-06",
     "level": "A2",
+    "difficulty": "hard",
     "chapter": 7,
     "questionInChapter": 6,
     "storyBeat": "回家的路,其實是每一個她遇到的人連起來的。",
@@ -513,6 +555,7 @@
   {
     "id": "kt-ch8-01",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 8,
     "questionInChapter": 1,
     "storyBeat": "美美在雪地裡找到三花,把她抱回家。溫熱的浴、軟綿的床。",
@@ -525,6 +568,7 @@
   {
     "id": "kt-ch8-02",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 8,
     "questionInChapter": 2,
     "storyBeat": "半夜,風裡傳來一聲熟悉的狗吠——是布魯托。",
@@ -537,6 +581,7 @@
   {
     "id": "kt-ch8-03",
     "level": "A2",
+    "difficulty": "hard",
     "chapter": 8,
     "questionInChapter": 3,
     "storyBeat": "她想起布魯托、阿嬤、麵包店老闆——她的街頭家人。",
@@ -549,6 +594,7 @@
   {
     "id": "kt-ch8-04",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 8,
     "questionInChapter": 4,
     "storyBeat": "兩邊都是真愛——但她知道自己該做什麼。",
@@ -561,6 +607,7 @@
   {
     "id": "kt-ch8-05",
     "level": "A2",
+    "difficulty": "medium",
     "chapter": 8,
     "questionInChapter": 5,
     "storyBeat": "美美睡夢中伸出手,輕輕放開。三花從窗口溜出去。",
@@ -573,6 +620,7 @@
   {
     "id": "kt-ch8-06",
     "level": "A2",
+    "difficulty": "easy",
     "chapter": 8,
     "questionInChapter": 6,
     "storyBeat": "三花走到街頭家族中間——布魯托、小奶貓、街上的老朋友。她是中心。",

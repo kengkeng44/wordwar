@@ -2,8 +2,10 @@ import { create } from 'zustand';
 import {
   loadSentences,
   pickByLevel,
+  filterByDifficulty,
   type ClozeLevel,
   type ClozeQuestion,
+  type Difficulty,
 } from '../data/sentences';
 import {
   loadScenarios,
@@ -92,6 +94,10 @@ export interface RunState {
   /** v0.8: active story chapter (1..5). null when not in story mode. */
   chapter: ChapterId | null;
   level: ClozeLevel;
+  /** v0.11: player-selected difficulty tier. Persisted to localStorage.
+   * Applied to ALL modes (free / scenario / story) — filters the pool
+   * down to questions tagged with this tier, with graceful fallback. */
+  difficulty: Difficulty;
 
   /** v0.8: count of NEW (non-SRS) story questions in the current run.
    * Used by PlayScene to know when the chapter is complete (vs review). */
@@ -110,6 +116,8 @@ export interface RunState {
   /** @deprecated kept for compatibility — alias for loadContent */
   loadScenarios: () => Promise<void>;
   setLevel: (level: ClozeLevel) => void;
+  /** v0.11 — persists to localStorage + sets state so next run uses it. */
+  setDifficulty: (difficulty: Difficulty) => void;
   setMode: (mode: RunMode) => void;
   setScenario: (scenario: ScenarioId | null) => void;
   setChapter: (chapter: ChapterId | null) => void;
@@ -134,6 +142,7 @@ const STORY_QUESTIONS_PER_CHAPTER = 6;
 const SRS_REVIEW_LIMIT = 3;
 
 const LS_LEVEL = 'wordwar.level';
+const LS_DIFFICULTY = 'pickup.difficulty';
 
 function readLevel(): ClozeLevel {
   if (typeof localStorage === 'undefined') return 'A2';
@@ -164,6 +173,26 @@ function writeLevel(level: ClozeLevel): void {
   }
 }
 
+function readDifficulty(): Difficulty {
+  if (typeof localStorage === 'undefined') return 'medium';
+  try {
+    const v = localStorage.getItem(LS_DIFFICULTY);
+    if (v === 'easy' || v === 'medium' || v === 'hard') return v;
+  } catch {
+    // ignore
+  }
+  return 'medium';
+}
+
+function writeDifficulty(d: Difficulty): void {
+  if (typeof localStorage === 'undefined') return;
+  try {
+    localStorage.setItem(LS_DIFFICULTY, d);
+  } catch {
+    // ignore
+  }
+}
+
 export const useRunStore = create<RunState>((set, get) => ({
   questions: null,
   scenarioQuestions: null,
@@ -183,6 +212,7 @@ export const useRunStore = create<RunState>((set, get) => ({
   scenario: null,
   chapter: null,
   level: readLevel(),
+  difficulty: readDifficulty(),
   storyNewQuestionCount: 0,
   storyTotalQuestionCount: 0,
   loading: false,
@@ -235,6 +265,11 @@ export const useRunStore = create<RunState>((set, get) => ({
     set({ level });
   },
 
+  setDifficulty: (difficulty: Difficulty) => {
+    writeDifficulty(difficulty);
+    set({ difficulty });
+  },
+
   setMode: (mode: RunMode) => {
     set({ mode });
   },
@@ -253,6 +288,7 @@ export const useRunStore = create<RunState>((set, get) => ({
       scenarioQuestions,
       storyQuestions,
       level,
+      difficulty,
       pool,
       mode,
       scenario,
@@ -263,8 +299,13 @@ export const useRunStore = create<RunState>((set, get) => ({
     if (nextPool.length === 0) {
       if (mode === 'story' && chapter && storyQuestions) {
         // Story mode: up to 3 SRS reviews (excluding current chapter's
-        // questions) + the chapter's 6 questions in order. Force-correct
-        // flow means each entry stays in the queue once.
+        // questions) + the chapter's NEW questions (filtered by difficulty,
+        // ordered) — force-correct flow means each entry stays in the
+        // queue once.
+        //
+        // v0.11 — chapter questions are filtered by difficulty BEFORE
+        // becoming the chapter pool. If filter empties the pool we fall
+        // back to the chapter's full set via filterByDifficulty.
         const chapterIds = new Set(
           questionsForChapter(storyQuestions, chapter).map((q) => q.id)
         );
@@ -272,7 +313,8 @@ export const useRunStore = create<RunState>((set, get) => ({
         const srs = srsRaw
           .filter((q) => !chapterIds.has(q.id))
           .slice(0, SRS_REVIEW_LIMIT);
-        const newQs = questionsForChapter(storyQuestions, chapter);
+        const allChapterQs = questionsForChapter(storyQuestions, chapter);
+        const newQs = filterByDifficulty(allChapterQs, difficulty);
         const ordered = [...srs, ...newQs];
         nextPool = ordered.map(storyToCloze);
         set({
@@ -280,16 +322,20 @@ export const useRunStore = create<RunState>((set, get) => ({
           storyTotalQuestionCount: ordered.length,
         });
       } else if (mode === 'scenario' && scenario && scenarioQuestions) {
-        // Scenario mode: fixed order, 10 questions.
-        nextPool = questionsForScenario(scenarioQuestions, scenario).map(
-          scenarioToCloze
-        );
+        // Scenario mode: fixed order, filtered by difficulty.
+        // v0.11 — if filter empties this scenario at the requested tier,
+        // filterByDifficulty falls back to adjacent tiers so the player
+        // always sees questions.
+        const all = questionsForScenario(scenarioQuestions, scenario);
+        nextPool = filterByDifficulty(all, difficulty).map(scenarioToCloze);
       } else {
         // Free practice (v0.5): unified pool = sentences.json ∪ scenarios.json.
+        // v0.11: apply difficulty filter BEFORE level filter / shuffle.
         const base = questions ?? [];
         const scenarioCloze = (scenarioQuestions ?? []).map(scenarioToCloze);
         const unified = base.concat(scenarioCloze);
-        nextPool = pickByLevel(unified, level, QUESTIONS_PER_RUN);
+        const tierFiltered = filterByDifficulty(unified, difficulty);
+        nextPool = pickByLevel(tierFiltered, level, QUESTIONS_PER_RUN);
       }
     }
     if (nextPool.length === 0) {
