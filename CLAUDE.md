@@ -42,17 +42,31 @@
 
 | 版本 | 重點交付 |
 |-----|---------|
-| v0.8 | 5 章小貓回家路 MVP + Ghibli 暖色 + force-correct + SRS lite |
-| v0.8.2 | 林明子手繪嘗試（user 否決）→ 砍 |
-| v0.8.3 | RUMBO sticker 風 mascot（粗黑邊 + 平塗 + 16 隻） |
-| v0.8.4 | Mascot 深度迭代（5px outline + radial halo + 動態姿勢 + drop shadow） |
-| v0.9 | Rebrand WordWar → 拾光 (Pickup)；repo / Cloudflare project / tagline 全面換 |
-| v0.10 | Ch6「寒冬考驗」+ Ch7「神社的相遇」+ Ch8「選擇了家人」+ false-ending twist |
-| v0.11 | Duolingo-tier UI overhaul（ui-ux-designer agent）：semantic tokens / 7 animations / 3D button depth / 6-variant microcopy |
-| v0.12 | 難度系統：178 cloze 標 easy/medium/hard + BootScene 折疊難度 pill + localStorage 持久化 |
-| v0.13 | 極簡 splash：BootScene 單 mascot + 拾光 title + 折疊難度 + 砍 microcopy；blindRetry 答錯不揭露正答；BGM mp3 化 |
+| v0.8-0.13 | 5→8 章 + Ghibli 美學 + 難度 + 極簡 splash(歸檔,不再展開) |
+| v1.0-v1.7.5 | rebrand → Pickup, isometric chibi 風格主角(grandma + shiba), 4-tab BottomNav(Home/Tasks/Profile/Alerts), 進站轉場 PawDoro-style cat + zoom in/out + 中心 cream disc, code-split Phaser, vite WebP 轉檔 |
+| **v1.7.6-v1.9.7(2026-05-27 autonomous loop)** | **整段 Duolingo parity 改造** |
+| v1.7.6 | 全 6 POV scene PNG(rembg)|
+| v1.7.10 | code-split Phaser + banner shadow 同色系 |
+| v1.7.11 | Listening TTS + node activity sheet + XP/Level + press feedback |
+| v1.7.13 | iOS TTS unlock warmup + listening UI replace sentence with 🔊 |
+| v1.7.15 | grandma+shiba duo on map + listening reveal full sentence |
+| v1.8.0 | TOEIC 風 Ch1 重寫(4 題型 + 1st-person POV) + warm banner peach |
+| v1.8.3 | tap-tiles + tap-pairs UI(Duolingo 經典題型) |
+| v1.8.6 | CHECK 答錯 auto-reset + Story per-sentence narration with 🔊 |
+| v1.8.7 | 砍 PlayScene 底部 nav(immersive)+ char back to beside-current-node |
+| v1.8.8 | smaller story 🔊 SVG icon + map character idle bob loop |
+| v1.8.9 | Type What You Hear(text input)— 第 5 題型 |
+| v1.9.0 | Dashed-underline 點詞翻譯 via WordHint(章節介紹頁)|
+| v1.9.1 | Map top HUD bar(Chapters/XP/Level icons + values)|
+| v1.9.2 | Duolingo X close button(lesson 頂左,有 confirm)|
+| v1.9.3 | npcGrandma 換 isometric PNG(替代舊 Suntera SVG)|
+| v1.9.4 | Persistent daily streak(localStorage)+ HUD 加 🔥 |
+| v1.9.5 | Profile streak 用 persistent + Begin CTA 文字依模式 |
+| v1.9.6 | Tasks tab 加 Daily Streak hero card |
+| v1.9.7 | Achievements 8 badges in Alerts tab(streak/XP/chapter milestones)|
 
-**當前版本：v0.13。** 下一個目標：mascot 重做完成 + Ch6-8 視覺強化 + 公開 v1.0 ship。
+**當前版本：v1.9.7。** 整個 autonomous loop 期間 user 在睡覺,我照 Duolingo 對比清單一輪一輪補完。
+**下個目標**:剩餘 polish(confetti 答對特效升級 / new question types Listen+Image / Sentence Shuffle) + Ch2-8 內容回補(目前只有 Ch1)。
 
 ---
 
