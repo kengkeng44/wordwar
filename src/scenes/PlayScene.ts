@@ -516,6 +516,30 @@ export class PlayScene extends Phaser.Scene {
       result.correct
     );
 
+    // v1.7.15: after answering in listening mode, replace the 🔊 button
+    // with the full sentence so the player can see what they just heard
+    // (with the correct word highlighted in blue). This is the "reveal"
+    // payoff — useful for both correct answers (confirmation) and wrong
+    // answers (learning what was actually said).
+    if (state.listeningMode && this.hud && state.round) {
+      const correctWord = state.round.options[result.correctIndex] ?? '';
+      const fullSentenceHtml = state.round.sentence.replace(
+        /_{2,}/,
+        `<span style="color:#3d8aae;font-weight:900;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;">${correctWord}</span>`
+      );
+      const sentenceEl = this.hud.getSentenceElement();
+      if (sentenceEl) {
+        sentenceEl.innerHTML = `
+          <div style="font-size:11px;color:#8b6f4a;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;">
+            You heard
+          </div>
+          <div style="font-size:17px;font-weight:800;color:#3c2a1c;line-height:1.45;">
+            ${fullSentenceHtml}
+          </div>
+        `;
+      }
+    }
+
     if (result.correct) {
       this.mascot?.setAnim('happy');
       this.hud?.flash('#58cc02', 0.15);

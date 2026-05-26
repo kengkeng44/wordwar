@@ -412,39 +412,31 @@ export class StoryMapView {
     cat.className = 'pickup-map-cat';
     applyStyle(cat, {
       position: 'absolute',
-      width: '88px',
+      // v1.7.15: container holds grandma (main) + shiba (smaller sidekick).
+      // Width sized for both side-by-side with a slight overlap.
+      width: '150px',
       height: '110px',
       pointerEvents: 'none',
       zIndex: '5',
-      // v1.7.12: cat sprite hidden until replacement art lands (grandma /
-      // Shiba etc.). Code path kept intact so we can swap inner SVG and
-      // toggle display when new PNGs arrive.
-      display: 'none',
       transition: 'transform 700ms cubic-bezier(0.4, -0.3, 0.55, 1.5)',
       transformOrigin: '50% 100%',
       willChange: 'transform',
     });
-    // Same calico SVG as the tear-intro / loader, no rotation
+    // v1.7.15: grandma (main, 96px) + shiba (smaller sidekick, 62px)
+    // Both isometric chibi WebP (user-generated via ChatGPT, processed
+    // through rembg + Pillow WebP — see tools/process_grandma.py and
+    // tools/process_shiba.py).
     cat.innerHTML = `
-      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="width:100%;height:100%;display:block;filter:drop-shadow(0 6px 8px rgba(60,42,28,0.28));">
-        <path d="M 110 195 L 145 100 L 180 195 Z" fill="#9d3e1c"/>
-        <path d="M 290 195 L 255 100 L 220 195 Z" fill="#9d3e1c"/>
-        <path d="M 134 188 L 154 138 L 174 188 Z" fill="#e89887"/>
-        <path d="M 266 188 L 246 138 L 226 188 Z" fill="#e89887"/>
-        <ellipse cx="200" cy="295" rx="138" ry="128" fill="#fdf0d6"/>
-        <ellipse cx="158" cy="220" rx="38" ry="24" fill="#e89c5e" transform="rotate(-22 158 220)"/>
-        <ellipse cx="270" cy="250" rx="32" ry="38" fill="#3a2a1f" transform="rotate(18 270 250)"/>
-        <path d="M 80 330 L 130 335" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 80 352 L 130 350" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 270 335 L 320 330" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-        <path d="M 270 350 L 320 352" stroke="#3a2a1f" stroke-width="2.5" stroke-linecap="round" opacity="0.75"/>
-        <ellipse cx="160" cy="295" rx="22" ry="36" fill="#1a1208"/>
-        <ellipse cx="240" cy="295" rx="22" ry="36" fill="#1a1208"/>
-        <circle cx="168" cy="282" r="6.5" fill="#ffffff"/>
-        <circle cx="248" cy="282" r="6.5" fill="#ffffff"/>
-        <path d="M 190 340 L 210 340 L 200 350 Z" fill="#d48474"/>
-        <path d="M 178 372 Q 200 384 222 372" stroke="#1a1208" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-      </svg>
+      <img src="/mascots/iso-grandma.webp" alt="" style="
+        position:absolute; left:0; bottom:0;
+        width:96px; height:auto; display:block;
+        filter: drop-shadow(0 5px 6px rgba(60, 42, 28, 0.20));
+      " />
+      <img src="/mascots/iso-shiba.webp" alt="" style="
+        position:absolute; right:0; bottom:-2px;
+        width:62px; height:auto; display:block;
+        filter: drop-shadow(0 5px 6px rgba(60, 42, 28, 0.18));
+      " />
     `;
     return cat;
   }
@@ -480,10 +472,9 @@ export class StoryMapView {
     const nodeLeft = isLeft
       ? CONTAINER_W / 2 - NODE_SIZE / 2 - ZIG_OFFSET
       : CONTAINER_W / 2 - NODE_SIZE / 2 + ZIG_OFFSET;
-    const catX = nodeLeft + NODE_SIZE / 2 - 88 / 2;  // center horizontally on node
-    // v1.7.9: node is shorter (64px tall) — push cat up so its bottom
-    // overlaps the top ~12px of the node, like sitting on it not in it.
-    const catY = rowTop - 98;
+    // v1.7.15: container is now 150px wide (grandma + shiba duo).
+    const catX = nodeLeft + NODE_SIZE / 2 - 150 / 2;
+    const catY = rowTop - 96;
 
     if (!animate) {
       this.cat.style.transition = 'none';
