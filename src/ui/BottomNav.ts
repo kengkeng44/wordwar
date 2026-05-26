@@ -1,39 +1,40 @@
 /**
- * BottomNav — v1.7.3 Duolingo-style global tab bar.
+ * BottomNav — v1.7.5 4-tab structure (Home / Tasks / Profile / Alerts).
  *
- * Fixed bottom, muted/dark warm palette per user request (「最下面可以用暗的」).
- * Five tabs: Map (home) · Free · Scenarios · Stats · Settings.
- * Only the active tab is amber-tinted; others are muted brown.
+ * Per user 2026-05-26: 通知 / profile / 任務 / 地圖 (用家的 icon).
+ * Dropped from v1.7.4 5-tab: Free + Scenes (merged into Tasks),
+ * Stats + Settings (merged into Profile). Notifications/Alerts is new
+ * (placeholder until streak reminders + new-chapter pings exist).
  *
- * The nav is mounted per-scene by the scene that wants it (StoryModeScene
- * in v1.7.3). MenuScene / PlayScene don't show it yet — adding them is a
- * later UX call.
+ * Visual: fixed bottom, dark warm brown bg, amber-tint when active.
  */
 
 import { applyStyle } from './domUtil';
 
-export type BottomNavTab = 'map' | 'free' | 'scenarios' | 'stats' | 'settings';
+export type BottomNavTab = 'home' | 'tasks' | 'profile' | 'alerts';
 
 export interface BottomNavHandlers {
   onTab: (tab: BottomNavTab) => void;
 }
 
-// Inline SVG icons — outline style, single color (currentColor) so the
-// active tab color is driven by the parent button's `color`.
+// Inline SVG icons — outline, single-color via currentColor so the
+// active state is just a parent `color:` swap.
 const ICONS: Record<BottomNavTab, string> = {
-  map: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v13l6-3 6 3 6-3V4l-6 3-6-3-6 3z"/><path d="M9 4v13"/><path d="M15 7v13"/></svg>`,
-  free: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`,
-  scenarios: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14"/></svg>`,
-  stats: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9"/><path d="M10 19V5"/><path d="M16 19v-8"/><path d="M22 19H2"/></svg>`,
-  settings: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>`,
+  // House icon (per user: 地圖 用家的 icon)
+  home: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg>`,
+  // Clipboard / checklist for missions
+  tasks: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 11l2 2 4-4"/><path d="M9 17h6"/></svg>`,
+  // Person silhouette for profile
+  profile: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>`,
+  // Bell for alerts
+  alerts: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>`,
 };
 
 const LABELS: Record<BottomNavTab, string> = {
-  map: 'Map',
-  free: 'Free',
-  scenarios: 'Scenes',
-  stats: 'Stats',
-  settings: 'Settings',
+  home: 'Home',
+  tasks: 'Tasks',
+  profile: 'Profile',
+  alerts: 'Alerts',
 };
 
 export class BottomNav {
@@ -54,13 +55,13 @@ export class BottomNav {
       justifyContent: 'space-around',
       alignItems: 'stretch',
       padding: 'max(8px, env(safe-area-inset-bottom)) 6px max(10px, env(safe-area-inset-bottom)) 6px',
-      background: '#3c2a1c', // dark warm brown per user request
+      background: '#3c2a1c',
       borderTop: '2px solid #2a1d12',
       boxShadow: '0 -3px 12px rgba(0, 0, 0, 0.18)',
       fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
     });
 
-    const tabs: BottomNavTab[] = ['map', 'free', 'scenarios', 'stats', 'settings'];
+    const tabs: BottomNavTab[] = ['home', 'tasks', 'profile', 'alerts'];
     for (const tab of tabs) {
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -83,7 +84,7 @@ export class BottomNav {
         WebkitTapHighlightColor: 'transparent',
       });
       btn.innerHTML = `
-        <span style="width:26px;height:26px;display:flex;align-items:center;justify-content:center;">${ICONS[tab]}</span>
+        <span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;">${ICONS[tab]}</span>
         <span style="font-size:10px;font-weight:800;letter-spacing:0.4px;">${LABELS[tab]}</span>
       `;
       btn.addEventListener('click', (e) => {
