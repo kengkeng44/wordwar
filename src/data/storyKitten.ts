@@ -128,12 +128,12 @@ export const CHAPTER_META: Record<ChapterId, ChapterMeta> = {
   1: {
     id: 1,
     emoji: '',
-    titleZh: '流落街頭',
-    titleEn: 'A Rainy Night',
+    titleZh: '我們的第一天',
+    titleEn: 'The First Story',
     narration:
-      "The kitten wakes in an alley. The rain falls hard, soaking through her fur. She's hungry, she's cold, and she doesn't know where home is.\n\nThen, an old woman with a blue umbrella walks toward her…",
+      "I am 糰糰. I live with Grandma and my friend 花花.\n\nThe daughter lives far away. Every night, Grandma tells us a story.\n\nTonight, she tells me about the day we first met…",
     outro:
-      "The umbrella tilts over the kitten, and the rain grows quiet. For the first time, the world feels a little less frightening.",
+      "花花 is asleep. I lick my paw and curl up next to him.\n\nGoodnight, Grandma. Goodnight, 花花.",
     kittenMascotId: 'kittenCh1',
     npcMascotId: 'npcGrandma',
     // v1.8.0: shifted from cool blue (#6e88a8) to warm peach to align with
