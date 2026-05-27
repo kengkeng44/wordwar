@@ -25,8 +25,13 @@ import {
   isChapterUnlocked,
   isChapterCompleted,
   CHAPTER_META,
+  loadStoryQuestions,
+  questionsForChapter,
   type ChapterId,
+  type StoryQuestion,
 } from '../data/storyKitten';
+import { speak, stopSpeaking } from '../audio/tts';
+import { preloadHints, wireSentenceHints } from './WordHint';
 import { readXp, levelForXp } from '../data/xp';
 import { readStreak } from '../data/streak';
 
@@ -238,6 +243,7 @@ export class StoryMapView {
   }
 
   destroy(): void {
+    this.closeKeySentences();
     this.root.remove();
   }
 
@@ -317,25 +323,209 @@ export class StoryMapView {
           ${meta.titleEn}
         </div>
       </div>
-      <div aria-hidden="true" style="
-        width: 36px; height: 36px; border-radius: 10px;
-        background: rgba(255,255,255,0.2);
+      <button type="button" aria-label="Chapter key sentences" class="pickup-banner-paw" style="
+        width: 38px; height: 38px; border-radius: 11px;
+        background: rgba(255,255,255,0.22);
         display: flex; align-items: center; justify-content: center;
-        flex: 0 0 auto;
+        flex: 0 0 auto; border: none; cursor: pointer;
+        padding: 0; font-family: inherit;
+        touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+        transition: transform 80ms ease-out, background 160ms ease;
       ">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="#ffffff" aria-hidden="true">
-          <!-- palm pad -->
           <ellipse cx="12" cy="16" rx="5.6" ry="4.6"/>
-          <!-- 4 toe beans, slight arc -->
           <ellipse cx="6" cy="10" rx="2.2" ry="2.6" transform="rotate(-25 6 10)"/>
           <ellipse cx="9.7" cy="6.6" rx="2.1" ry="2.6"/>
           <ellipse cx="14.3" cy="6.6" rx="2.1" ry="2.6"/>
           <ellipse cx="18" cy="10" rx="2.2" ry="2.6" transform="rotate(25 18 10)"/>
         </svg>
-      </div>
+      </button>
     `;
+    const paw = card.querySelector('.pickup-banner-paw') as HTMLButtonElement | null;
+    if (paw) {
+      paw.addEventListener('mousedown', () => { paw.style.transform = 'translateY(2px)'; });
+      paw.addEventListener('mouseup', () => { paw.style.transform = ''; });
+      paw.addEventListener('mouseleave', () => { paw.style.transform = ''; });
+      paw.addEventListener('touchstart', () => { paw.style.transform = 'translateY(2px)'; }, { passive: true });
+      paw.addEventListener('touchend', () => { paw.style.transform = ''; });
+      paw.addEventListener('click', (e) => { e.preventDefault(); this.openKeySentences(1); });
+    }
     wrap.appendChild(card);
     return wrap;
+  }
+
+  // ─────────────────────────────────────────────────────────────────
+  // v1.9.11: Key Sentences overlay — tap the paw on section banner
+  // to open a Duolingo-Stories-style summary of the chapter's core
+  // sentences. Each sentence has 🔊 + EN with dashed-underline words
+  // + ZH translation (from storyBeat). Close X at top-left.
+  // ─────────────────────────────────────────────────────────────────
+  private keySheet?: HTMLDivElement;
+
+  private async openKeySentences(chapter: ChapterId): Promise<void> {
+    if (this.keySheet) return;
+    const meta = CHAPTER_META[chapter];
+    let questions: StoryQuestion[] = [];
+    try {
+      const all = await loadStoryQuestions();
+      questions = questionsForChapter(all, chapter);
+    } catch {
+      // ignore — empty list still renders a graceful "no data" state
+    }
+    preloadHints();
+
+    const sheet = document.createElement('div');
+    sheet.id = 'pickup-key-sentences';
+    applyStyle(sheet, {
+      position: 'fixed',
+      inset: '0',
+      background: '#fef8ed',
+      zIndex: '80',
+      paddingTop: 'max(28px, env(safe-area-inset-top))',
+      paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
+      overflowY: 'auto',
+      fontFamily: '"Nunito", "Noto Sans TC", system-ui, sans-serif',
+      color: '#3c2a1c',
+      opacity: '0',
+      transition: 'opacity 240ms ease-out',
+    });
+
+    const content = document.createElement('div');
+    applyStyle(content, {
+      width: 'min(420px, calc(100vw - 32px))',
+      margin: '0 auto',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '14px',
+    });
+
+    // Close X at top
+    const closeRow = document.createElement('div');
+    applyStyle(closeRow, { display: 'flex', alignItems: 'center' });
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Close');
+    close.innerHTML = '×';
+    applyStyle(close, {
+      width: '36px', height: '36px', borderRadius: '50%',
+      background: '#fffbf2',
+      border: '2px solid #ead9bb',
+      borderBottom: '3px solid #d4c098',
+      color: '#7a6850', fontSize: '22px', fontWeight: '900',
+      lineHeight: '1', cursor: 'pointer', padding: '0',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      fontFamily: 'inherit', touchAction: 'manipulation',
+      WebkitTapHighlightColor: 'transparent',
+    });
+    close.addEventListener('click', (e) => { e.preventDefault(); this.closeKeySentences(); });
+    closeRow.appendChild(close);
+    content.appendChild(closeRow);
+
+    // Title
+    const titleWrap = document.createElement('div');
+    titleWrap.innerHTML = `
+      <div style="font-size:12px;font-weight:800;letter-spacing:1.5px;color:#7a6850;text-transform:uppercase;text-align:center;">
+        ${meta.titleEn}
+      </div>
+      <div style="font-size:22px;font-weight:900;color:#3c2a1c;text-align:center;margin-top:4px;">
+        🐾 Key Sentences
+      </div>
+    `;
+    content.appendChild(titleWrap);
+
+    // Section header
+    const head = document.createElement('div');
+    head.textContent = '重點語句';
+    applyStyle(head, {
+      fontSize: '14px',
+      fontWeight: '900',
+      color: '#3d8aae',
+      marginTop: '6px',
+    });
+    content.appendChild(head);
+
+    // Sentence bubbles (Duolingo Stories style)
+    const list = document.createElement('div');
+    applyStyle(list, { display: 'flex', flexDirection: 'column', gap: '12px' });
+    questions.forEach((q) => {
+      const bubble = document.createElement('div');
+      applyStyle(bubble, {
+        background: '#ffffff',
+        border: '2px solid #ead9bb',
+        borderRadius: '14px',
+        padding: '12px 14px',
+        display: 'flex',
+        alignItems: 'flex-start',
+        gap: '10px',
+      });
+      // Speak this sentence (use full sentence with answer filled)
+      const correctWord = q.options[q.correctIndex] ?? '';
+      const audioText = q.sentence.replace(/_{2,}/g, correctWord);
+      const speakerBtn = document.createElement('button');
+      speakerBtn.type = 'button';
+      speakerBtn.setAttribute('aria-label', 'Listen');
+      speakerBtn.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="#3d8aae" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
+      applyStyle(speakerBtn, {
+        flex: '0 0 auto', width: '28px', height: '28px',
+        background: 'transparent', border: 'none',
+        cursor: 'pointer', padding: '0',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontFamily: 'inherit',
+        touchAction: 'manipulation', WebkitTapHighlightColor: 'transparent',
+        marginTop: '2px',
+      });
+      speakerBtn.addEventListener('click', (e) => { e.preventDefault(); speak(audioText); });
+      bubble.appendChild(speakerBtn);
+
+      const txtWrap = document.createElement('div');
+      txtWrap.style.flex = '1 1 auto';
+      // EN sentence with dashed-underline words
+      const enLine = document.createElement('div');
+      enLine.className = 'pickup-narration-line';
+      enLine.innerHTML = audioText.split(/(\s+)/).map(tok => {
+        if (/^\s+$/.test(tok) || tok === '') return tok;
+        return `<span class="word">${tok}</span>`;
+      }).join('');
+      applyStyle(enLine, {
+        fontSize: '15px',
+        fontWeight: '700',
+        color: '#3c2a1c',
+        lineHeight: '1.5',
+      });
+      txtWrap.appendChild(enLine);
+
+      // ZH translation (from storyBeat)
+      if (q.storyBeat) {
+        const zhLine = document.createElement('div');
+        zhLine.textContent = q.storyBeat;
+        applyStyle(zhLine, {
+          fontSize: '13px',
+          fontWeight: '600',
+          color: '#a8927a',
+          marginTop: '4px',
+          lineHeight: '1.45',
+        });
+        txtWrap.appendChild(zhLine);
+      }
+      bubble.appendChild(txtWrap);
+      list.appendChild(bubble);
+    });
+    content.appendChild(list);
+
+    sheet.appendChild(content);
+    document.body.appendChild(sheet);
+    wireSentenceHints(sheet);
+    requestAnimationFrame(() => { sheet.style.opacity = '1'; });
+    this.keySheet = sheet;
+  }
+
+  private closeKeySentences(): void {
+    if (!this.keySheet) return;
+    stopSpeaking();
+    const s = this.keySheet;
+    s.style.opacity = '0';
+    window.setTimeout(() => s.remove(), 220);
+    this.keySheet = undefined;
   }
 
   private buildNode(opts: {
