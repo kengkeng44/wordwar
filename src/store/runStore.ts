@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { addXp } from '../data/xp';
+import { addCoins } from '../data/coins';
 import {
   loadSentences,
   pickByLevel,
@@ -428,6 +429,7 @@ export const useRunStore = create<RunState>((set, get) => ({
     if (correct) {
       const listening = get().listeningMode;
       addXp(3 + (listening ? 1 : 0));
+      addCoins(1);  // v1.9.16: each correct = +1 gold coin
     }
 
     set({

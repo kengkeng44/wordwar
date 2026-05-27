@@ -34,6 +34,8 @@ import { speak, stopSpeaking } from '../audio/tts';
 import { preloadHints, wireSentenceHints } from './WordHint';
 import { readXp, levelForXp } from '../data/xp';
 import { readStreak } from '../data/streak';
+import { readCoins } from '../data/coins';
+import { useRunStore } from '../store/runStore';
 
 export interface StoryMapHandlers {
   onPlayChapter: (chapter: ChapterId) => void;
@@ -270,15 +272,18 @@ export class StoryMapView {
     const xp = readXp();
     const level = levelForXp(xp);
     const streak = readStreak();
+    const coins = readCoins();
+    const difficulty = useRunStore.getState().difficulty;
+    void xp; void level;  // kept around for future Crown-level mode
 
-    // Tier badge SVG — Duolingo-style stacked-crown that changes color
-    // based on level. Silver / Gold / Diamond.
-    const tierFor = (lv: number): { fill: string; stroke: string; label: string } => {
-      if (lv >= 5) return { fill: '#7ad8e0', stroke: '#3a9eaa', label: 'Diamond' };
-      if (lv >= 3) return { fill: '#f0c33a', stroke: '#c79410', label: 'Gold' };
+    // v1.9.16: Crown tier reflects DIFFICULTY setting per user request:
+    //   easy → Silver, medium → Gold, hard → Diamond
+    const tierForDifficulty = (d: 'easy' | 'medium' | 'hard'): { fill: string; stroke: string; label: string } => {
+      if (d === 'hard') return { fill: '#7ad8e0', stroke: '#3a9eaa', label: 'Diamond' };
+      if (d === 'medium') return { fill: '#f0c33a', stroke: '#c79410', label: 'Gold' };
       return { fill: '#c9d2da', stroke: '#7a8794', label: 'Silver' };
     };
-    const t = tierFor(level);
+    const t = tierForDifficulty(difficulty);
     const crownSvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
       <path d="M3 10l3 3 6-7 6 7 3-3v9H3z" fill="${t.fill}" stroke="${t.stroke}" stroke-width="1.4" stroke-linejoin="round"/>
       <circle cx="6" cy="9" r="1.4" fill="${t.stroke}"/>
@@ -286,10 +291,12 @@ export class StoryMapView {
       <circle cx="18" cy="9" r="1.4" fill="${t.stroke}"/>
     </svg>`;
 
-    // Gem SVG (XP slot) — blue diamond
-    const gemSvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-      <path d="M6 3h12l4 6-10 12L2 9z" fill="#1cb0f6" stroke="#0b8ec9" stroke-width="1.3" stroke-linejoin="round"/>
-      <path d="M6 3l-4 6 10 12M18 3l4 6-10 12M9 9h6M9 9L6 3M15 9l3-6M9 9l3 12M15 9l-3 12" fill="none" stroke="#0b8ec9" stroke-width="0.9" opacity="0.6"/>
+    // v1.9.16: Gold COIN SVG (separate currency from XP)
+    const coinSvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <circle cx="12" cy="12" r="9.5" fill="#f0c33a" stroke="#c79410" stroke-width="1.3"/>
+      <circle cx="12" cy="12" r="6.5" fill="none" stroke="#c79410" stroke-width="1" stroke-dasharray="1.5 1.5" opacity="0.6"/>
+      <text x="12" y="16" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="900" font-size="10" fill="#c79410">¢</text>
+      <ellipse cx="9" cy="9" rx="2.5" ry="1.2" fill="#ffffff" opacity="0.45" transform="rotate(-25 9 9)"/>
     </svg>`;
 
     // Lightning energy SVG (using streak count as the energy "fuel")
@@ -334,9 +341,10 @@ export class StoryMapView {
       return btn;
     };
 
+    // v1.9.16 4-slot HUD: Flag(language) / Crown(difficulty) / Coin / Energy
     wrap.appendChild(item(flagSvg, '', () => this.handlers.onSwitchTab?.('profile'), '#3c2a1c'));
-    wrap.appendChild(item(crownSvg, `L${level}`, () => this.handlers.onSwitchTab?.('profile'), t.stroke));
-    wrap.appendChild(item(gemSvg, String(xp), () => this.handlers.onSwitchTab?.('profile'), '#0b8ec9'));
+    wrap.appendChild(item(crownSvg, t.label, () => this.handlers.onSwitchTab?.('profile'), t.stroke));
+    wrap.appendChild(item(coinSvg, String(coins), () => this.handlers.onSwitchTab?.('profile'), '#c79410'));
     wrap.appendChild(item(energySvg, String(streak), () => this.handlers.onSwitchTab?.('alerts'), '#c4760b'));
     return wrap;
   }
