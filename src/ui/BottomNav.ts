@@ -19,15 +19,15 @@ export interface BottomNavHandlers {
 
 // Inline SVG icons — outline, single-color via currentColor so the
 // active state is just a parent `color:` swap.
+// v1.9.17: user-generated PNG icons (rembg + WebP), 32px nav tiles.
+// Active state is purely a glow/tint applied to the wrapping <span>
+// rather than recolouring the icon itself (PNGs are fixed-colour).
+const navImg = (file: string) => `<img src="/mascots/${file}" alt="" aria-hidden="true" width="32" height="32" style="display:block;" />`;
 const ICONS: Record<BottomNavTab, string> = {
-  // House icon (per user: 地圖 用家的 icon)
-  home: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg>`,
-  // Clipboard / checklist for missions
-  tasks: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 11l2 2 4-4"/><path d="M9 17h6"/></svg>`,
-  // Person silhouette for profile
-  profile: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>`,
-  // Bell for alerts
-  alerts: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>`,
+  home:    navImg('nav-home.webp'),
+  tasks:   navImg('nav-tasks.webp'),
+  profile: navImg('nav-profile.webp'),
+  alerts:  navImg('nav-alerts.webp'),
 };
 
 const LABELS: Record<BottomNavTab, string> = {
@@ -73,7 +73,10 @@ export class BottomNav {
         border: 'none',
         padding: '8px 4px 4px',
         cursor: 'pointer',
+        // v1.9.17: PNG icons are fixed-colour so we use opacity to dim
+        // inactive tabs. Active tab glows via a soft golden drop-shadow.
         color: isActive ? '#f7c97d' : '#a8927a',
+        opacity: isActive ? '1' : '0.55',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -99,7 +102,9 @@ export class BottomNav {
 
   setActive(tab: BottomNavTab): void {
     for (const [id, btn] of this.buttons) {
-      btn.style.color = id === tab ? '#f7c97d' : '#a8927a';
+      const active = id === tab;
+      btn.style.color = active ? '#f7c97d' : '#a8927a';
+      btn.style.opacity = active ? '1' : '0.55';
     }
   }
 

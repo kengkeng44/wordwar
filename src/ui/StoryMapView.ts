@@ -284,33 +284,14 @@ export class StoryMapView {
       return { fill: '#c9d2da', stroke: '#7a8794', label: 'Silver' };
     };
     const t = tierForDifficulty(difficulty);
-    const crownSvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-      <path d="M3 10l3 3 6-7 6 7 3-3v9H3z" fill="${t.fill}" stroke="${t.stroke}" stroke-width="1.4" stroke-linejoin="round"/>
-      <circle cx="6" cy="9" r="1.4" fill="${t.stroke}"/>
-      <circle cx="12" cy="5" r="1.4" fill="${t.stroke}"/>
-      <circle cx="18" cy="9" r="1.4" fill="${t.stroke}"/>
-    </svg>`;
-
-    // v1.9.16: Gold COIN SVG (separate currency from XP)
-    const coinSvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-      <circle cx="12" cy="12" r="9.5" fill="#f0c33a" stroke="#c79410" stroke-width="1.3"/>
-      <circle cx="12" cy="12" r="6.5" fill="none" stroke="#c79410" stroke-width="1" stroke-dasharray="1.5 1.5" opacity="0.6"/>
-      <text x="12" y="16" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="900" font-size="10" fill="#c79410">¢</text>
-      <ellipse cx="9" cy="9" rx="2.5" ry="1.2" fill="#ffffff" opacity="0.45" transform="rotate(-25 9 9)"/>
-    </svg>`;
-
-    // Lightning energy SVG (using streak count as the energy "fuel")
-    const energySvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-      <path d="M13 2L4 14h6l-2 8 9-12h-6l2-8z" fill="#ff9600" stroke="#c4760b" stroke-width="1.3" stroke-linejoin="round"/>
-    </svg>`;
-
-    // Flag (decorative, English course indicator) — UK flag stylized
-    const flagSvg = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-      <rect x="2" y="5" width="20" height="14" rx="2" fill="#1d4dba"/>
-      <path d="M2 5l20 14M22 5L2 19" stroke="#ffffff" stroke-width="2"/>
-      <path d="M12 5v14M2 12h20" stroke="#ffffff" stroke-width="3.5"/>
-      <path d="M12 5v14M2 12h20" stroke="#cf142b" stroke-width="2"/>
-    </svg>`;
+    // v1.9.17: user-generated PNG icons (rembg + WebP), 24px square.
+    // Crown recolored per tier via CSS filter.
+    const iconImg = (src: string, filter = 'none') =>
+      `<img src="/mascots/${src}" alt="" aria-hidden="true" width="24" height="24" style="display:block;filter:${filter};" />`;
+    const flagSvg   = iconImg('flag-en.webp');
+    const crownSvg  = iconImg('crown-gold.webp', t.filter);
+    const coinSvg   = iconImg('coin-gold.webp');
+    const energySvg = iconImg('energy-bolt.webp');
 
     const item = (innerHtml: string, value: string, onClick: () => void, valueColor: string) => {
       const btn = document.createElement('button');
@@ -644,20 +625,14 @@ export class StoryMapView {
       opacity: opts.unlocked ? '1' : '0.7',
     });
 
-    // v1.7.9: icon system —
-    //   completed → ★ emoji (golden star feel)
-    //   unlocked  → white paw-pad SVG (brand fingerprint)
-    //   locked    → 🔒 emoji
+    // v1.9.17: node icons now use user-generated PNGs.
+    //   completed → gold star PNG
+    //   unlocked  → white paw-pad PNG
+    //   locked    → 🔒 emoji (no PNG generated yet)
     if (opts.completed) {
-      row.textContent = '★';
+      row.innerHTML = `<img src="/mascots/node-star.webp" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
     } else if (opts.unlocked) {
-      row.innerHTML = `<svg viewBox="0 0 24 24" width="34" height="34" fill="#ffffff" aria-hidden="true" style="display:block;">
-        <ellipse cx="12" cy="16" rx="5.6" ry="4.6"/>
-        <ellipse cx="6" cy="10" rx="2.2" ry="2.6" transform="rotate(-25 6 10)"/>
-        <ellipse cx="9.7" cy="6.6" rx="2.1" ry="2.6"/>
-        <ellipse cx="14.3" cy="6.6" rx="2.1" ry="2.6"/>
-        <ellipse cx="18" cy="10" rx="2.2" ry="2.6" transform="rotate(25 18 10)"/>
-      </svg>`;
+      row.innerHTML = `<img src="/mascots/node-paw.webp" alt="" aria-hidden="true" width="36" height="36" style="display:block;" />`;
     } else {
       row.textContent = '🔒';
     }
