@@ -84,17 +84,60 @@ const CHARACTERS = {
     name: 'iso-grandma',
     prompt: `${STYLE_BASE}
 
-Subject: A kind elderly East Asian grandmother sitting on a small low wooden chair, reading from a small open storybook resting on her lap. Bedtime storytelling pose (NOT umbrella-holding). Gentle warm closed-mouth smile. Soft round glasses. Silver hair tied in low bun. Wearing warm amber knitted cardigan over cream blouse, brown long skirt. Hands gently on book. Posture peaceful, slightly leaning forward as if narrating. Big round black dot eyes with single white highlight (kawaii Duolingo style). Soft kind face with subtle laugh lines. Chair is small and simple, brown wood — no tile under it. The grandmother and chair together as a unified isometric unit, character clearly the focus.
+Subject: A blocky stylized cute elderly East Asian grandmother sitting on a small low wooden chair, reading from a small open storybook on her lap. Bedtime storytelling pose (NOT umbrella-holding).
 
-Inspired by Studio Ghibli grandmothers (warm, wise, gentle) + Duolingo chibi proportions (large head small body). Round shapes. Cozy and inviting. Avoid Western Disney style.`,
+CHARACTER STYLE — BLOCKY + KAWAII:
+- Body shapes are SIMPLIFIED, BLOCKY, CHUBBY rectangles and ovals — like Lego/Pop Mart vinyl figure style. NOT realistic anatomy.
+- 50% head proportion (very large head, very small body)
+- Cute exaggerated features:
+  - EYES: gently CLOSED into upward crescent smile lines (瞇瞇眼 squinted happy eyes — like Doraemon's mom or a Studio Ghibli granny mid-laugh). NOT big round open dot eyes.
+  - WRINKLES: DEEPER and LONGER laugh-line wrinkles radiating from eye corners and around mouth — exaggerated for cuteness, soft brown lines. These are a CHARACTER feature, not realistic detail.
+  - Soft curved warm smile mouth, slightly open
+  - Round soft glasses sit lightly on nose, lenses slightly tinted cream
+- Silver-white hair in low neat bun, simplified blocky shape
+- Wearing chunky warm amber knitted cardigan (simplified rectangular body shape) over cream blouse, brown long skirt
+- Hands are soft simplified mitten-shapes resting on book
+- Chair: small chunky brown wood, simplified rectangles
+
+CAMERA + POSE — FOR MAP LEFT-SIDE PLACEMENT:
+- 3/4 view angle, character is turned slightly to the right (body angled ~25-30° to her right, face slightly turned so she looks toward the right side of the canvas) — she will be placed on the LEFT side of the game map, facing right toward the lesson buttons curving on her right
+- Slight forward lean as if reading aloud to listeners on her right
+- The chair + character form one solid unified silhouette
+
+Inspired by: Doraemon's grandmother / Studio Ghibli grannies (warm, wise, gentle) + Pop Mart blocky vinyl figure simplicity + Duolingo cell-shading. Avoid Western Disney realism. Avoid bold ink outline (RUMBO-style is wrong here).`,
+  },
+  speaker: {
+    name: 'icon-speaker',
+    prompt: `${STYLE_BASE.replace('CRITICAL STYLE REFERENCE: emulate Duolingo\'s official character design language.', 'CRITICAL STYLE: a clean Duolingo-style flat icon (NOT a character).')}
+
+Subject: A stylized speaker / loudspeaker icon, designed for a UI button in a learning app. The speaker body is a chunky cube/trapezoid shape in WARM AMBER #e7a44a, with a slightly darker COFFEE BROWN #8b6f4a 3D-depth side (soft cel-shaded, NO gradient). Three curved sound-wave arcs emit from the right side of the speaker, in OLIVE GREEN #7d9a4f — three increasingly large arcs.
+
+CRITICAL — palette restriction: ONLY use amber/coffee/olive/cream/warm-dark. ABSOLUTELY NO orange (no #ff7a3a, no #ff4500), NO red, NO Disney-bright saturation. The previous v1.9.41 icon had an orange-red 3D-depth side + orange sound waves that clashed with Pickup's warm Ghibli palette — this regen must replace those with olive + coffee.
+
+Composition: speaker occupies roughly 70% of canvas, centered. Sound waves on right side. Subtle base shadow as one solid coffee ellipse beneath (NOT blurry, NOT separate). Soft round cute proportions, very friendly. No text, no words.`,
   },
   shiba: {
     name: 'iso-shiba',
     prompt: `${STYLE_BASE}
 
-Subject: A chibi shiba inu dog (柴犬), sitting upright in a relaxed listening posture. NO cushion or pillow underneath (character stands directly on transparent background). Attentive ears perked up. Gentle alert closed-mouth smile with tip of tongue slightly visible. Fluffy curled tail wrapped at side. Classic shiba markings: orange-amber back and head, cream belly + face mask + paws. Wide kawaii black-dot eyes with single white highlight. Looking up alert as if listening to a story being told. Compact round chibi body proportions, NOT realistic shiba anatomy.
+Subject: A blocky stylized cute chibi shiba inu dog (柴犬), sitting upright in relaxed listening posture. NO cushion or pillow underneath.
 
-Inspired by Studio Ghibli small animals and Duolingo chibi pets. Round shapes. The dog should look like a beloved family pet — warm, friendly, calm.`,
+CHARACTER STYLE — BLOCKY + KAWAII (mirror Grandma's aesthetic for visual cohesion):
+- Body shapes SIMPLIFIED, BLOCKY, CHUBBY — Lego/Pop Mart vinyl figure simplicity. NOT realistic shiba anatomy.
+- 45-50% head proportion (very large head, very small body)
+- EYES: gently closed into upturned crescent smile lines (瞇瞇眼 squinted happy eyes) — matches Grandma's eye design for cohesion
+- Soft curved warm smile, tip of pink tongue slightly visible
+- Round chunky face with classic shiba mask: orange-amber back of head + cream face/cheeks/muzzle
+- Body: orange-amber back, cream belly + paws, simplified blocky proportions
+- Fluffy curled tail wrapped at LEFT side (relative to dog) — runtime placement on RIGHT side of map curve
+- Paws are soft simplified mitten-shapes
+
+CAMERA + POSE — FOR MAP RIGHT-SIDE PLACEMENT:
+- 3/4 view angle, character turned slightly to the LEFT (body angled ~25-30° to her left, face slightly turned so the dog looks toward the LEFT side of the canvas) — she will be placed on the RIGHT side of the game map, facing left toward Grandma + the lesson buttons curving on her left
+- Sitting upright attentive listening pose, slight forward lean
+- Compact unified silhouette
+
+Inspired by: blocky chibi shiba inu plush + Doraemon's pet shapes + Pop Mart vinyl figure simplicity + Studio Ghibli small animals (warm, friendly, calm). Avoid Western Disney realism. Avoid bold ink outline (RUMBO is wrong here).`,
   },
 };
 
