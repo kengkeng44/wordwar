@@ -22,15 +22,13 @@
 
 // text -> audioId (Q id) for pre-generated MP3 lookup
 const audioLookup = new Map<string, string>();
-let lookupLoaded = false;
+let lookupPromise: Promise<void> | null = null;
 
 function applyDefaults(s: string): string {
   return s.replace(/\{catName\}/g, 'Mochi').replace(/\{dogName\}/g, 'Hana');
 }
 
 async function loadAudioLookup(): Promise<void> {
-  if (lookupLoaded) return;
-  lookupLoaded = true; // mark before await so concurrent calls no-op
   // Only Ch1 ships with MP3s today. Add Ch2+ here as chapters land.
   const chapters = [1];
   for (const ch of chapters) {
@@ -53,9 +51,16 @@ async function loadAudioLookup(): Promise<void> {
   }
 }
 
-// Kick off lookup load at module evaluation (fire-and-forget)
+function ensureLookup(): Promise<void> {
+  if (!lookupPromise) {
+    lookupPromise = loadAudioLookup();
+  }
+  return lookupPromise;
+}
+
+// Eagerly start lookup at module evaluation
 if (typeof window !== 'undefined') {
-  void loadAudioLookup();
+  void ensureLookup();
 }
 
 let activeAudio: HTMLAudioElement | null = null;
@@ -86,30 +91,30 @@ export function speak(text: string, lang = 'en-US'): void {
 
   stopSpeaking(); // cancel any in-flight playback
 
-  // Try pre-generated MP3 first (real grandma voice)
-  const audioId = audioLookup.get(cleaned);
-  if (audioId && typeof Audio !== 'undefined') {
-    try {
-      const audio = new Audio(`/audio/lessons/${audioId}.mp3`);
-      audio.playbackRate = 1.0;
-      audio.volume = 1.0;
-      activeAudio = audio;
-      audio.play().catch(() => {
-        // MP3 404 / autoplay block / playback fail → Web Speech fallback
-        if (activeAudio === audio) activeAudio = null;
-        speakWebSpeech(cleaned, lang);
-      });
-      audio.addEventListener('ended', () => {
-        if (activeAudio === audio) activeAudio = null;
-      });
-      return;
-    } catch {
-      // construction failed — fall through to Web Speech
+  // Async: wait for lookup map to be ready (first-call only blocks ~200ms)
+  // then try MP3. If lookup map populated already, this resolves immediately.
+  void ensureLookup().then(() => {
+    const audioId = audioLookup.get(cleaned);
+    if (audioId && typeof Audio !== 'undefined') {
+      try {
+        const audio = new Audio(`/audio/lessons/${audioId}.mp3`);
+        audio.playbackRate = 1.0;
+        audio.volume = 1.0;
+        activeAudio = audio;
+        audio.play().catch(() => {
+          if (activeAudio === audio) activeAudio = null;
+          speakWebSpeech(cleaned, lang);
+        });
+        audio.addEventListener('ended', () => {
+          if (activeAudio === audio) activeAudio = null;
+        });
+        return;
+      } catch {
+        // construction failed — fall through to Web Speech
+      }
     }
-  }
-
-  // Fallback: Web Speech API
-  speakWebSpeech(cleaned, lang);
+    speakWebSpeech(cleaned, lang);
+  });
 }
 
 export function stopSpeaking(): void {
