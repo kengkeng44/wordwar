@@ -5,6 +5,13 @@ import { ClozeUI } from '../ui/ClozeUI';
 import { GameHUD } from '../ui/GameHUD';
 import { Mascot } from '../ui/Mascot';
 import { CHAPTER_META } from '../data/storyKitten';
+import { speak } from '../audio/tts';
+import {
+  mountTapTiles,
+  mountTapPairs,
+  mountTypeWhatYouHear,
+  type TapHandle,
+} from '../ui/TapInputUI';
 import {
   loadChapterLessons,
   findLesson,
@@ -54,6 +61,9 @@ export class LessonScene extends Phaser.Scene {
   private mascot?: Mascot;
   private advanceTimer?: Phaser.Time.TimerEvent;
   private locked = false;
+  // v2.0.A.7: Duolingo alt-input UI handle for tap-tiles / tap-pairs /
+  // type-what-you-hear (mirrors PlayScene.tapHandle).
+  private tapHandle?: TapHandle;
 
   constructor() {
     super({ key: LessonScene.KEY });
@@ -142,6 +152,12 @@ export class LessonScene extends Phaser.Scene {
   private renderQuestion(q: Question): void {
     this.locked = false;
     this.cancelAdvanceTimer();
+
+    // Tear down any prior tap UI from the previous question — symmetric
+    // with PlayScene.ts:475-476.
+    this.tapHandle?.destroy();
+    this.tapHandle = undefined;
+
     // Push question into runStore so ClozeUI's subscription picks it up.
     // Cast to ClozeQuestion (permissive shape) — see header note re: types.
     useRunStore.setState({
@@ -153,6 +169,72 @@ export class LessonScene extends Phaser.Scene {
     this.clozeUI?.resetForRound();
     this.mascot?.setAnim('idle');
     this.renderHud();
+
+    // v2.0.A.7: dispatch by discriminated `q.type` — mirrors
+    // PlayScene.ts:473-520 routing pattern. Without this, tap-tiles /
+    // tap-pairs / type-what-you-hear fall through to ClozeUI's 4-option
+    // MC buttons and break (Ch1 grandma-v4 ships a tap-pairs review @ Q8).
+    //
+    // Routing map (covers all 7 QuestionType variants):
+    //   listen-mc            → ClozeUI 4-MC (default)
+    //   listen-emoji         → ClozeUI 4-MC (default)
+    //   listen-comprehension → ClozeUI 4-MC (default)
+    //   read-mc-with-audio   → ClozeUI 4-MC (default)
+    //   type-what-you-hear   → mountTypeWhatYouHear (text input)
+    //   tap-tiles            → mountTapTiles
+    //   tap-pairs            → mountTapPairs
+    const qType = q.type;
+    const round = q as any;
+    if (
+      this.hud &&
+      (qType === 'tap-tiles' || qType === 'tap-pairs' || qType === 'type-what-you-hear')
+    ) {
+      const slot = this.hud.buttonsSlot();
+      // Hide ClozeUI's standard 4-MC buttons for this round.
+      slot.innerHTML = '';
+      const correctIndex = round.correctIndex ?? 0;
+      const correctWord = round.options?.[correctIndex] ?? '';
+      const audioText = String(round.sentence ?? '').replace(/_{2,}/g, correctWord);
+
+      if (qType === 'tap-tiles' && round.tiles && round.correctOrder) {
+        this.tapHandle = mountTapTiles({
+          slot,
+          tiles: round.tiles,
+          correctOrder: round.correctOrder,
+          prompt: round.question ?? 'Tap what you hear',
+          onSpeak: () => speak(audioText),
+          onComplete: (correct) =>
+            this.handleAnswer(correct ? correctIndex : (correctIndex + 1) % 4),
+        });
+        window.setTimeout(() => speak(audioText), 280);
+        const sentEl = this.hud.getSentenceElement();
+        if (sentEl) sentEl.innerHTML = '';
+      } else if (qType === 'type-what-you-hear') {
+        this.tapHandle = mountTypeWhatYouHear({
+          slot,
+          correctAnswer: correctWord,
+          prompt: round.question ?? 'Type what you hear',
+          onSpeak: () => speak(audioText),
+          onComplete: (correct) =>
+            this.handleAnswer(correct ? correctIndex : (correctIndex + 1) % 4),
+        });
+        window.setTimeout(() => speak(audioText), 280);
+        const sentEl = this.hud.getSentenceElement();
+        if (sentEl) sentEl.innerHTML = '';
+      } else if (qType === 'tap-pairs' && round.pairs) {
+        this.tapHandle = mountTapPairs({
+          slot,
+          pairs: round.pairs,
+          prompt: round.question ?? 'Tap the pairs',
+          onComplete: (correct) =>
+            this.handleAnswer(correct ? correctIndex : (correctIndex + 1) % 4),
+        });
+        const sentEl = this.hud.getSentenceElement();
+        if (sentEl) {
+          sentEl.innerHTML = `<div style="font-size:13px;font-weight:700;color:#7a6850;text-align:center;">${round.sentence}</div>`;
+        }
+      }
+    }
   }
 
   private renderHud(): void {
@@ -235,6 +317,8 @@ export class LessonScene extends Phaser.Scene {
 
   private cleanupOverlay(): void {
     this.cancelAdvanceTimer();
+    this.tapHandle?.destroy();
+    this.tapHandle = undefined;
     this.clozeUI?.destroy();
     this.clozeUI = undefined;
     this.mascot?.destroy();
