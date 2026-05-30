@@ -1,0 +1,3652 @@
+[
+  {
+    "id": "kt-ch2-l1",
+    "chapter": 2,
+    "lessonInChapter": 1,
+    "segmentType": "outer-prologue",
+    "storyId": "outer",
+    "storyBeat": "{catName} 跳上矮牆,看到新書",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l1-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I jump on the wall again tonight.",
+        "question": "Which word did you hear?",
+        "options": [
+          "midnight",
+          "tonight",
+          "the wall",
+          "tomorrow"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "tonight = 今晚。我每天天黑就來奶奶院子。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l1-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma has a new book in blue.",
+        "question": "What color is the book?",
+        "options": [
+          "open",
+          "blue",
+          "red",
+          "old"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "blue = 藍色。今晚奶奶換了一本藍色封面的書。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l1-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} is waiting by her chair.",
+        "question": "Where is {dogName}?",
+        "options": [
+          "by her chair",
+          "near the gate",
+          "on the wall",
+          "inside the house"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "{dogName} 早就在奶奶椅子旁等了。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l1-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I see Grandma open a blue book tonight. {dogName} sits by her foot.",
+        "question": "What is new tonight?",
+        "options": [
+          "Grandma's chair",
+          "the blue book",
+          "the moon",
+          "the wall"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "藍色封面是今晚的新東西,牆和椅子每晚都在。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l1-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma opens the book. She is ready to tell a story.",
+        "question": "Why does she open the book?",
+        "options": [
+          "to read alone",
+          "to clean it",
+          "to tell a story",
+          "to find a photo"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "奶奶打開書是要說故事給我們聽。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l2",
+    "chapter": 2,
+    "lessonInChapter": 2,
+    "segmentType": "outer-prologue",
+    "storyId": "outer",
+    "storyBeat": "{dogName} 尾巴拍地等故事",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l2-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} thumps her tail on the floor.",
+        "question": "Which verb did you hear?",
+        "options": [
+          "wags",
+          "thumps",
+          "jumps",
+          "stops"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "thump = 拍打發出聲音。{dogName} 太開心,尾巴啪啪打地板。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l2-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She is ready for the story.",
+        "question": "How does she feel?",
+        "options": [
+          "ready",
+          "tired",
+          "ready to eat",
+          "afraid"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "ready = 準備好了。耳朵立起來,眼睛盯著書。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l2-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I sit beside {dogName} on the floor.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "I",
+          "sit",
+          "beside",
+          "{dogName}",
+          "on",
+          "the",
+          "floor",
+          "wall",
+          "fast"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanationZh": "我坐在 {dogName} 旁邊的地板上。wall / fast 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l2-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} sees me and her tail starts to move fast.",
+        "question": "Why does her tail move?",
+        "options": [
+          "she hears a car",
+          "she is happy to see me",
+          "she wants food",
+          "she is cold"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "她看到我就開心,尾巴自己動。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l2-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "We both look at Grandma. She is about to begin.",
+        "question": "What are we waiting for?",
+        "options": [
+          "the wall to dry",
+          "the rain to stop",
+          "dinner time",
+          "the story to begin"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "我跟 {dogName} 都在等故事開始。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l3",
+    "chapter": 2,
+    "lessonInChapter": 3,
+    "segmentType": "outer-prologue",
+    "storyId": "outer",
+    "storyBeat": "奶奶說「今晚是桃太郎」",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l3-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma says, \"Tonight is Momotaro.\"",
+        "question": "Whose name did you hear?",
+        "options": [
+          "Mochi",
+          "Tomato",
+          "Tomorrow",
+          "Momotaro"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "Momotaro = 桃太郎,日本童話裡的桃子男孩。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l3-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The story is from a far country.",
+        "question": "Where is the story from?",
+        "options": [
+          "a far country",
+          "a small farm",
+          "this town",
+          "Grandma's room"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "從很遠的國家來的故事(日本)。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l3-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She turns to the first page.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "turns",
+          "to",
+          "the",
+          "first",
+          "page",
+          "last",
+          "open"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "她翻到第一頁。last / open 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l3-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma reads slowly so we can hear every word.",
+        "question": "Why does she read slowly?",
+        "options": [
+          "the book is heavy",
+          "the light is dim",
+          "she is tired",
+          "so we can hear every word"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "慢慢念是要讓我們聽清楚每個字。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l3-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She says the story is long ago, in a small village.",
+        "question": "When does the story happen?",
+        "options": [
+          "this morning",
+          "next week",
+          "in a dream",
+          "long ago"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "long ago = 很久以前,故事的開場套語。",
+        "tags": [
+          "story",
+          "ch2",
+          "prologue",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l4",
+    "chapter": 2,
+    "lessonInChapter": 4,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "故事開始:老夫婦住在小村",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l4-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Long ago, an old man and an old woman lived in a small village.",
+        "question": "Who lived in the village?",
+        "options": [
+          "a king",
+          "three soldiers",
+          "a young boy",
+          "an old man and an old woman"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "故事主角是一對老夫婦。今晚奶奶說的故事從一個小村開始。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l4-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The old man went to the hills to cut grass.",
+        "question": "Where did he go?",
+        "options": [
+          "to the river",
+          "to the sea",
+          "to the market",
+          "to the hills"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "老爺爺上山割草。河是老奶奶去的,別搞混。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l4-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The old woman went to the river to wash clothes.",
+        "question": "Why did she go to the river?",
+        "options": [
+          "to wash clothes",
+          "to drink water",
+          "to fish",
+          "to swim"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她去河邊洗衣服。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l4-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "They had no child. They worked hard every day.",
+        "question": "What did the couple wish for?",
+        "options": [
+          "a new house",
+          "a horse",
+          "more grass",
+          "a child"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "他們沒孩子,心裡其實想要一個。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l4-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The river was wide and clear. Birds flew above it.",
+        "question": "What kind of river was it?",
+        "options": [
+          "frozen",
+          "narrow and dark",
+          "dry",
+          "wide and clear"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "河水又寬又清。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l4-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She washed clothes by the water. Then she saw something pink.",
+        "question": "What was about to happen?",
+        "options": [
+          "she would see something special",
+          "her clothes would dry",
+          "a fish would jump",
+          "she would fall in"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她看到粉紅色的東西,故事要轉折了。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l5",
+    "chapter": 2,
+    "lessonInChapter": 5,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "巨大桃子順流而下",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l5-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A giant peach was floating down the river.",
+        "question": "What was in the river?",
+        "options": [
+          "a paper boat",
+          "a log",
+          "a peach",
+          "a plum"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "peach = 桃子。一顆大大的桃子順著河漂下來。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l5-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "It was pink and round and very big.",
+        "question": "What color was it?",
+        "options": [
+          "small",
+          "pink",
+          "round",
+          "green"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "pink = 粉紅色。round / small 是形容詞但不是答顏色。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l5-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The peach floated toward her hands.",
+        "question": "Which verb did you hear?",
+        "options": [
+          "floated",
+          "flew",
+          "fell",
+          "rolled"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "float = 漂浮。桃子在水上漂。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l5-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The peach was bigger than her head.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "The",
+          "peach",
+          "was",
+          "bigger",
+          "than",
+          "her",
+          "head",
+          "smaller",
+          "hand"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanationZh": "比她的頭還大。smaller / hand 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l5-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The old woman had never seen a peach so big.",
+        "question": "How did she feel about the peach?",
+        "options": [
+          "angry",
+          "sleepy",
+          "bored",
+          "surprised"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "從沒看過這麼大的桃子,當然驚訝。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l5-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She thought, \"This peach will be a treat for my husband.\"",
+        "question": "Why did she want the peach?",
+        "options": [
+          "to throw away",
+          "to share with her husband",
+          "to sell at the market",
+          "to plant a tree"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "她想拿回去跟老爺爺一起吃。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l6",
+    "chapter": 2,
+    "lessonInChapter": 6,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "老奶奶把桃子抱回家",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l6-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She lifted the peach out of the water.",
+        "question": "Which verb did you hear?",
+        "options": [
+          "lit",
+          "dropped",
+          "lifted",
+          "pushed"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "lift = 抬起來。她把桃子從水裡抱起來。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l6-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The peach was heavy in her arms.",
+        "question": "How did the peach feel?",
+        "options": [
+          "light",
+          "wet",
+          "soft",
+          "heavy"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "heavy = 重的。她抱得有點吃力。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l6-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She walked home with the peach.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "walked",
+          "home",
+          "with",
+          "the",
+          "peach",
+          "ran",
+          "away"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "她抱著桃子走回家。ran / away 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l6-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The old man came home for dinner.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "The",
+          "old",
+          "man",
+          "came",
+          "home",
+          "for",
+          "dinner",
+          "lunch",
+          "young"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanationZh": "老爺爺回家吃晚餐。lunch / young 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l6-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She put the peach on the kitchen table. She smiled at her husband.",
+        "question": "Where did she put the peach?",
+        "options": [
+          "outside the door",
+          "in the river",
+          "on the floor",
+          "on the table"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "她把桃子放在桌上,要給老爺爺看。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l6-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The old man's eyes grew wide. He had never seen a peach so big.",
+        "question": "How did the old man react?",
+        "options": [
+          "he was hungry already",
+          "he was amazed",
+          "he was sleepy",
+          "he was angry"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他瞪大眼睛,驚訝得說不出話。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l7",
+    "chapter": 2,
+    "lessonInChapter": 7,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "切開桃子,裡面有個男嬰",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l7-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The old man took a knife to cut the peach.",
+        "question": "What did he take?",
+        "options": [
+          "a plate",
+          "a knife",
+          "a basket",
+          "a spoon"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "knife = 刀。他想把桃子切開來吃。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l7-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The peach opened by itself with a soft crack.",
+        "question": "How did the peach open?",
+        "options": [
+          "by itself",
+          "by water",
+          "by fire",
+          "by force"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "桃子自己裂開,不用使力。奶奶的聲音壓低,故事的魔法味來了。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l7-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Inside was a small baby boy.",
+        "question": "Who was inside?",
+        "options": [
+          "a bird",
+          "a small fish",
+          "a baby girl",
+          "a baby boy"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "boy = 男孩。桃子裡居然有一個小男嬰。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l7-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The baby cried softly. The couple held him close.",
+        "question": "What did the baby do?",
+        "options": [
+          "ate the peach",
+          "cried softly",
+          "ran away",
+          "slept all day"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "嬰兒小小聲地哭,老夫婦把他抱在懷裡。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l7-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The old woman's eyes were full of tears. She had wanted a child for years.",
+        "question": "Why was she crying?",
+        "options": [
+          "she was cold",
+          "the peach was sour",
+          "she was hurt",
+          "she was happy"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "等了好幾年的孩子終於出現,眼淚是高興的。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l7-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The old man whispered, \"Heaven has sent him to us.\"",
+        "question": "What did he mean?",
+        "options": [
+          "the baby is sleeping",
+          "the peach was old",
+          "the baby is a gift",
+          "they should sell him"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "他覺得這個孩子是上天給的禮物,不是普通的孩子。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l8",
+    "chapter": 2,
+    "lessonInChapter": 8,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "他們把男孩取名為桃太郎",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l8-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "They named the boy Momotaro.",
+        "question": "What name did they choose?",
+        "options": [
+          "Tomato",
+          "Momoko",
+          "Hanako",
+          "Momotaro"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "name = 命名。Momo 是桃子,taro 是男孩。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l8-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Momotaro means Peach Boy.",
+        "question": "What does the name mean?",
+        "options": [
+          "Brave Boy",
+          "River Boy",
+          "Peach Boy",
+          "Hill Boy"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "桃太郎的字面意思就是「桃子男孩」,因為他從桃子裡出來。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l8-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "They loved him very much.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "They",
+          "loved",
+          "him",
+          "very",
+          "much",
+          "little",
+          "fast"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "explanationZh": "他們非常愛他。little / fast 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l8-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The old woman fed him warm rice. The old man told him stories.",
+        "question": "How did they treat him?",
+        "options": [
+          "with strict rules",
+          "with money",
+          "with silence",
+          "with great care"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "餵飯、說故事,把他當自己的孩子細心養。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l8-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The neighbors heard the news and came to see the boy.",
+        "question": "Why did the neighbors come?",
+        "options": [
+          "to ask for help",
+          "to take the peach",
+          "to bring rice",
+          "to see the baby"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "鄰居聽到桃子裡出男孩的奇事,都來看新鮮。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l8-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The village had no child like Momotaro before.",
+        "question": "What was special about him?",
+        "options": [
+          "he could fly",
+          "he was very tall",
+          "he had blue hair",
+          "he came from a peach"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "他從桃子裡出來,這個出生方式整村獨一無二。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l9",
+    "chapter": 2,
+    "lessonInChapter": 9,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "桃太郎長大,又強又勇敢",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l9-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Momotaro grew up fast.",
+        "question": "How did he grow?",
+        "options": [
+          "fast",
+          "small",
+          "shy",
+          "slow"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "grow = 長大。他長得比一般孩子快很多。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l9-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He was strong and brave.",
+        "question": "Which two words did you hear?",
+        "options": [
+          "soft and slow",
+          "tall and thin",
+          "strong and brave",
+          "small and shy"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "strong = 強壯;brave = 勇敢。兩個都是男主角的招牌特質。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l9-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He could lift heavy stones with his hands.",
+        "question": "What could he do?",
+        "options": [
+          "swim the river",
+          "lift heavy stones",
+          "speak ten words",
+          "ride a horse"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他力氣大,搬石頭跟搬枕頭一樣。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l9-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Children in the village wanted to play with him.",
+        "question": "Why did they want to play with him?",
+        "options": [
+          "he was kind and strong",
+          "he had toys",
+          "he made them food",
+          "he was rich"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他人緣好,因為又強又對人和氣,不是因為有東西可分。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l9-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "He helped his old parents every day. He carried wood and water.",
+        "question": "What kind of son was he?",
+        "options": [
+          "a quiet son",
+          "a helpful son",
+          "a lazy son",
+          "a loud son"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "幫忙搬柴挑水,是個會體諒老人的孩子。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l9-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Years passed. He was now a young man.",
+        "question": "How much time passed?",
+        "options": [
+          "one season",
+          "many years",
+          "one night",
+          "one week"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "年復一年,桃太郎已經長成大人。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l10",
+    "chapter": 2,
+    "lessonInChapter": 10,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "村裡傳來妖怪偷東西的消息",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l10-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "One day, bad news came to the village.",
+        "question": "What kind of news was it?",
+        "options": [
+          "funny news",
+          "good news",
+          "old news",
+          "bad news"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "bad news = 壞消息。整村的人都緊張起來。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l10-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Demons came from the sea to steal food and gold.",
+        "question": "What did the demons steal?",
+        "options": [
+          "books and pens",
+          "wood and water",
+          "fish and salt",
+          "food and gold"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "demon = 妖怪;steal = 偷。他們把村裡的糧食和金子搶走。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l10-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The demons lived on an island.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "The",
+          "demons",
+          "lived",
+          "on",
+          "an",
+          "island",
+          "river",
+          "mountain"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "妖怪住在一座島上。river / mountain 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l10-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The villagers were too afraid to fight them.",
+        "question": "Why did no one fight the demons?",
+        "options": [
+          "the villagers were afraid",
+          "the demons were friends",
+          "no one cared",
+          "the demons were far away"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "妖怪太大太兇,村人光看就怕,沒人敢出手。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l10-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The island was called Onigashima, the Demon Island.",
+        "question": "What does Onigashima mean?",
+        "options": [
+          "Demon Island",
+          "Lost Island",
+          "Old Island",
+          "Peach Island"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "Oni = 妖怪;shima = 島。Onigashima = 妖怪島。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l10-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Momotaro heard the news and stood up.",
+        "question": "Why did he stand up?",
+        "options": [
+          "he had decided to act",
+          "his food was ready",
+          "his mother called him",
+          "he was tired of sitting"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他聽完做了決定。站起來不只是動作,是表態。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l11",
+    "chapter": 2,
+    "lessonInChapter": 11,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "桃太郎告訴父母:我要去",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l11-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Momotaro said, \"I will go to the island.\"",
+        "question": "What did he say he would do?",
+        "options": [
+          "send a letter",
+          "go to the island",
+          "stay at home",
+          "wait for help"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他親口說要出發,語氣堅定。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l11-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "His mother was worried but proud.",
+        "question": "How did his mother feel?",
+        "options": [
+          "worried but proud",
+          "angry and tired",
+          "scared and sad",
+          "calm and bored"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "媽媽兩種情緒同時:擔心孩子的安全,又為他的勇敢驕傲。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l11-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "He said, \"I must help the village.\"",
+        "question": "Why did he want to go?",
+        "options": [
+          "to find gold for himself",
+          "to play with demons",
+          "to help his village",
+          "to see the sea"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "他是為了村莊,不是為自己撈金子。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l11-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "His father held his shoulder and nodded slowly.",
+        "question": "What did his father mean?",
+        "options": [
+          "he was tired",
+          "he wanted to go too",
+          "he was angry",
+          "he agreed"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "點頭就是同意。父親沒多話,動作就是答案。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l11-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "His parents said, \"Come back safe. We will wait for you.\"",
+        "question": "What did they want most?",
+        "options": [
+          "him to come home safe",
+          "him to fight more demons",
+          "him to bring back gold",
+          "him to send letters"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他們最在乎兒子平安回來,不是金子。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l11-q6",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "Momotaro looked at the road. The journey would be long.",
+        "question": "What is a journey?",
+        "options": [
+          "a song",
+          "a small bag",
+          "a long trip",
+          "a meal"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "journey = 旅程,通常是很遠的路。妖怪島不近。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l12",
+    "chapter": 2,
+    "lessonInChapter": 12,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "媽媽包黍米糰子當乾糧",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l12-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "His mother made millet dumplings for him.",
+        "question": "What did she make?",
+        "options": [
+          "noodles",
+          "dumplings",
+          "soup",
+          "bread"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "dumpling = 糰子。日文叫 kibi-dango,是黍米做的小團子。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l12-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She packed them in a soft cloth.",
+        "question": "How did she pack them?",
+        "options": [
+          "in a paper bag",
+          "in a wooden box",
+          "in a glass jar",
+          "in a soft cloth"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "pack = 打包。她用布巾包好,方便兒子帶在身上。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l12-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "These dumplings were the best in the country.",
+        "question": "How good were the dumplings?",
+        "options": [
+          "the cheapest",
+          "the best in the country",
+          "the saltiest",
+          "the smallest"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "媽媽的手藝在整個國家是第一名,糰子又香又有勁。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l12-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "He took the dumplings and said thank you.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "He",
+          "took",
+          "the",
+          "dumplings",
+          "and",
+          "said",
+          "thank",
+          "you",
+          "throw",
+          "rice"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "explanationZh": "他接過糰子,跟媽媽道謝。throw / rice 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l12-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He put the cloth bag on his back.",
+        "question": "Where did he put the bag?",
+        "options": [
+          "on his back",
+          "in his hand",
+          "on the table",
+          "under the tree"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "把布袋背在背上,走路才方便。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l12-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "He waved goodbye and walked down the road.",
+        "question": "What did he do as he left?",
+        "options": [
+          "covered his face",
+          "shouted loudly",
+          "waved goodbye",
+          "ran without looking"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "他揮手道別,不是頭也不回。離別是平靜的。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l13",
+    "chapter": 2,
+    "lessonInChapter": 13,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "路上遇到一隻狗",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l13-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "On the road, he met a dog.",
+        "question": "Who did he meet first?",
+        "options": [
+          "a cat",
+          "a dog",
+          "a bird",
+          "a horse"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "dog = 狗。第一個夥伴出現了。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l13-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The dog asked, \"What is in your bag?\"",
+        "question": "What did the dog ask about?",
+        "options": [
+          "the bag",
+          "the village",
+          "the road",
+          "the weather"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "狗聞到香味,問袋子裡是什麼。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l13-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Momotaro gave the dog a dumpling to share.",
+        "question": "What did Momotaro do?",
+        "options": [
+          "kept all the food",
+          "shared a dumpling",
+          "asked for help first",
+          "ran away"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "share = 分享。他大方分一顆糰子。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l13-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The dog wagged his tail and said, \"I will go with you.\"",
+        "question": "What did the dog decide?",
+        "options": [
+          "to find a cat",
+          "to take more food",
+          "to go home",
+          "to join him"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "狗搖尾巴決定跟他一起去妖怪島,正式成為第一個夥伴。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l13-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Now they were two friends walking together.",
+        "question": "How many were they now?",
+        "options": [
+          "one",
+          "two",
+          "three",
+          "many"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "friend = 朋友。一人加一狗,隊伍從一變兩。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l13-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The dog said his nose was sharp. He could smell danger.",
+        "question": "What was the dog good at?",
+        "options": [
+          "running fast",
+          "swimming far",
+          "smelling danger",
+          "climbing trees"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "狗鼻子靈,聞得到危險。每隻動物有自己的本事。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l14",
+    "chapter": 2,
+    "lessonInChapter": 14,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "樹上跳下一隻猴子",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l14-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A monkey jumped down from a tree.",
+        "question": "Who came down?",
+        "options": [
+          "a monkey",
+          "a fox",
+          "a cat",
+          "a rabbit"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "monkey = 猴子。第二個夥伴從樹上跳下來。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l14-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The monkey was quick and clever.",
+        "question": "How was the monkey?",
+        "options": [
+          "quick and clever",
+          "big and heavy",
+          "slow and sleepy",
+          "shy and quiet"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "quick = 快;clever = 聰明。猴子的招牌組合。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l14-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Momotaro shared a dumpling with him too.",
+        "question": "What did Momotaro share again?",
+        "options": [
+          "a dumpling",
+          "his sword",
+          "his hat",
+          "his cloth"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他繼續用糰子當見面禮,每個夥伴都有一份。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l14-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The monkey said, \"I will climb the demon wall for you.\"",
+        "question": "What would the monkey do?",
+        "options": [
+          "dig the ground",
+          "make food",
+          "swim the sea",
+          "climb the wall"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "猴子最會爬,他答應替隊伍爬上妖怪城牆。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l14-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The dog and the monkey did not fight. They walked side by side.",
+        "question": "How did the dog and monkey act?",
+        "options": [
+          "like strangers",
+          "like friends",
+          "like brothers fighting",
+          "like enemies"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "雖然狗跟猴子常常不合,這趟卻並肩走。團隊已經成形。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l14-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Now they were three. Momotaro smiled.",
+        "question": "Why did Momotaro smile?",
+        "options": [
+          "the road was short",
+          "the team was growing",
+          "the dumplings were warm",
+          "the sun went down"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "隊伍越來越大,他知道勝算多了一分。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l15",
+    "chapter": 2,
+    "lessonInChapter": 15,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "天上飛來一隻雉雞",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l15-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A pheasant flew down from the sky.",
+        "question": "What kind of bird was it?",
+        "options": [
+          "a sparrow",
+          "a crow",
+          "a pheasant",
+          "an eagle"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "pheasant = 雉雞,日本童話的常客。第三個夥伴從天而降。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l15-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her feathers were green and gold.",
+        "question": "What colors were her feathers?",
+        "options": [
+          "blue and white",
+          "green and gold",
+          "black and grey",
+          "red and brown"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "雉雞的羽毛是綠跟金的,在陽光下會閃。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l15-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Momotaro shared his last dumpling with her.",
+        "question": "Which dumpling did he share?",
+        "options": [
+          "the last one",
+          "the first one",
+          "an extra one",
+          "a broken one"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他把最後一個糰子分給她,自己沒留。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l15-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The pheasant said, \"I can fly above the demons and watch.\"",
+        "question": "What was her job in the team?",
+        "options": [
+          "to watch from above",
+          "to carry the bag",
+          "to cook food",
+          "to dig holes"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她是空中偵察兵,從上面看,妖怪藏不住。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l15-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Each one had a different skill. Together they made a strong team.",
+        "question": "Why were they a strong team?",
+        "options": [
+          "different skills together",
+          "they were all big",
+          "they had many dumplings",
+          "they were all the same"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "強的不是誰最大,是技能互補:狗的鼻、猴的手、雉雞的翅膀。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l15-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "They reached the seashore at sunset.",
+        "question": "When did they reach the sea?",
+        "options": [
+          "at noon",
+          "at midnight",
+          "at dawn",
+          "at sunset"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "夕陽時抵達海邊,故事節奏從陸路轉海路。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l16",
+    "chapter": 2,
+    "lessonInChapter": 16,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "他們搭船橫渡海洋",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l16-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "They got into a small boat and sailed.",
+        "question": "Which verb did you hear?",
+        "options": [
+          "flew",
+          "swam",
+          "rolled",
+          "sailed"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "sail = 航行。一行人坐上小船出海。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l16-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The sea was wide and blue.",
+        "question": "What was the sea like?",
+        "options": [
+          "wide and blue",
+          "narrow and grey",
+          "hot and dry",
+          "small and green"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "海又寬又藍,跟一開始的小河完全不同景。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l16-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The wind pushed the boat forward.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "The",
+          "wind",
+          "pushed",
+          "the",
+          "boat",
+          "forward",
+          "back",
+          "small"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "風推著船往前走。back / small 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l16-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "They saw the dark island in the fog.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "They",
+          "saw",
+          "the",
+          "dark",
+          "island",
+          "in",
+          "the",
+          "fog",
+          "sun",
+          "river"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "explanationZh": "他們在霧裡看到那座黑黑的島。sun / river 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l16-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "No one spoke. Everyone watched the island grow bigger.",
+        "question": "Why was everyone quiet?",
+        "options": [
+          "they were sleeping",
+          "they could not see",
+          "they were nervous",
+          "they were eating"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "靠近敵營,空氣變緊,沒人想開口。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l16-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Momotaro touched his sword and breathed slow.",
+        "question": "What was he doing?",
+        "options": [
+          "looking for food",
+          "feeling lost",
+          "going to sleep",
+          "getting ready"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "摸刀+深呼吸 = 上場前的儀式,他在收心準備打。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l17",
+    "chapter": 2,
+    "lessonInChapter": 17,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "妖怪島的鐵門前",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l17-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Before them stood a tall iron gate.",
+        "question": "What stood before them?",
+        "options": [
+          "an iron gate",
+          "a stone tower",
+          "a wooden wall",
+          "a paper door"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "gate = 大門。鐵做的,又高又冷。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l17-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The gate was locked and strong.",
+        "question": "How was the gate?",
+        "options": [
+          "open and weak",
+          "broken and small",
+          "wet and old",
+          "locked and strong"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "鎖得緊緊的,牢得很。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l17-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The monkey climbed over the gate.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "The",
+          "monkey",
+          "climbed",
+          "over",
+          "the",
+          "gate",
+          "under",
+          "fast"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "猴子爬過大門。under / fast 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l17-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The monkey opened the gate from inside.",
+        "question": "Why did the team need the monkey?",
+        "options": [
+          "to open the gate from inside",
+          "to make breakfast",
+          "to scare the demons",
+          "to call the boat"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "只有猴子能爬上去從裡面開鎖,這是團隊勝利的第一步。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l17-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The pheasant flew over the wall and watched the demons.",
+        "question": "Why did the pheasant fly?",
+        "options": [
+          "to watch the demons",
+          "to bring help",
+          "to find food",
+          "to sing a song"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她從上面看妖怪在哪、有幾個,情報先到手。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l17-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The dog stood at the front, ready to bite.",
+        "question": "What was the dog ready to do?",
+        "options": [
+          "to eat",
+          "to sleep",
+          "to run",
+          "to fight"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "狗站最前面,牙齒露出來,他是衝鋒位。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l18",
+    "chapter": 2,
+    "lessonInChapter": 18,
+    "segmentType": "main-story",
+    "storyId": "momotaro",
+    "storyBeat": "戰鬥結束,妖怪投降",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l18-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Momotaro raised his sword and shouted.",
+        "question": "What did Momotaro raise?",
+        "options": [
+          "his hat",
+          "his hand",
+          "his sword",
+          "his bag"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "舉刀大喊,是動手的信號。fight = 打鬥。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l18-q2",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The team fought together and won.",
+        "question": "How did they win?",
+        "options": [
+          "by luck",
+          "by waiting",
+          "alone",
+          "together"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "勝利的關鍵是合作,不是誰一個人最猛。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l18-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The demons fell to their knees. They asked for mercy.",
+        "question": "What did the demons do?",
+        "options": [
+          "they ran away",
+          "they laughed",
+          "they gave up",
+          "they slept"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "妖怪跪下求饒,等於投降。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l18-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "They returned the gold and food they had stolen.",
+        "question": "What did the demons give back?",
+        "options": [
+          "gold and food",
+          "their swords",
+          "their names",
+          "their island"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "gold = 金子。偷的東西全部還回來。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l18-q5",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "The demons promised never to hurt the village again.",
+        "question": "What did the demons promise?",
+        "options": [
+          "to give more gold every year",
+          "not to hurt the village",
+          "to send food to Momotaro",
+          "to leave the island forever"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他們答應不再傷人,不是答應一直送禮。重點是停止作惡。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l18-q6",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "Momotaro and his friends sailed home rich and proud.",
+        "question": "How did Momotaro feel going home?",
+        "options": [
+          "proud",
+          "lost",
+          "afraid",
+          "lonely"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "完成承諾,帶著金子和夥伴回家,心是滿的。",
+        "tags": [
+          "story",
+          "ch2",
+          "main",
+          "momotaro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l19",
+    "chapter": 2,
+    "lessonInChapter": 19,
+    "segmentType": "aesop-side",
+    "storyId": "tortoise-and-hare",
+    "storyBeat": "奶奶說:這讓我想到龜兔賽跑",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l19-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma says, \"That reminds me of the tortoise and the hare.\"",
+        "question": "Whose story did Grandma start?",
+        "options": [
+          "the sun and the wind",
+          "the cat and the dog",
+          "the wolf and the boy",
+          "the tortoise and the hare"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "tortoise = 烏龜;hare = 兔子。奶奶順著桃太郎的合作話題,轉到另一個小故事。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l19-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A hare and a tortoise started a race.",
+        "question": "What did they start?",
+        "options": [
+          "a meal",
+          "a race",
+          "a fight",
+          "a song"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "race = 賽跑。兩個動物比誰先到終點。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l19-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The hare ran very fast.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "The",
+          "hare",
+          "ran",
+          "very",
+          "fast",
+          "slow",
+          "loud"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "explanationZh": "兔子跑得超快。slow / loud 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l19-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The tortoise walked very slowly. But he did not stop.",
+        "question": "What was special about the tortoise?",
+        "options": [
+          "he never stopped",
+          "he flew",
+          "he hid",
+          "he ran fast"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他慢,但從不停下,這才是這故事的重點。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l19-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The hare thought he had plenty of time. He sat down to rest.",
+        "question": "Why did the hare rest?",
+        "options": [
+          "he thought he was far ahead",
+          "he heard a noise",
+          "he could not see",
+          "he was sick"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他覺得贏定了才停下休息。自信過頭是他的弱點。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l20",
+    "chapter": 2,
+    "lessonInChapter": 20,
+    "segmentType": "aesop-side",
+    "storyId": "tortoise-and-hare",
+    "storyBeat": "慢而穩,烏龜先到終點",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l20-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The hare fell asleep under a tree.",
+        "question": "What did the hare do?",
+        "options": [
+          "called the tortoise",
+          "ran faster",
+          "fell asleep",
+          "ate a carrot"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "他打盹了。一覺睡過頭。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l20-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The tortoise kept walking step by step.",
+        "question": "How did the tortoise move?",
+        "options": [
+          "jump by jump",
+          "step by step",
+          "leap by leap",
+          "fly by fly"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "一步一步,不快但穩。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l20-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The tortoise crossed the line first.",
+        "question": "Who won the race?",
+        "options": [
+          "the hare",
+          "no one",
+          "the tortoise",
+          "both"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "烏龜先過終點線,贏的人不是跑得最快的。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l20-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The hare woke up too late.",
+        "question": "Why did the hare lose?",
+        "options": [
+          "he was too tired",
+          "he was too sure of himself",
+          "he ran the wrong way",
+          "he got lost"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他太有把握就睡著,錯不是腳慢,是心鬆。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l20-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Grandma says, \"Slow and steady wins the race.\"",
+        "question": "What is the lesson?",
+        "options": [
+          "never start a race",
+          "always run fast",
+          "sleep when you can",
+          "keep going steadily"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "steady = 穩定。慢也沒關係,別停就好。我跟 {dogName} 都點點頭。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "tortoise-and-hare",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l21",
+    "chapter": 2,
+    "lessonInChapter": 21,
+    "segmentType": "aesop-side",
+    "storyId": "wolf-cry",
+    "storyBeat": "牧羊男孩為了好玩說謊",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l21-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A shepherd boy watched sheep on the hill.",
+        "question": "What did the boy watch?",
+        "options": [
+          "ducks",
+          "cows",
+          "sheep",
+          "rabbits"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "shepherd = 牧羊人。他是顧羊的小孩。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l21-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He was bored. He thought of a joke.",
+        "question": "How did the boy feel?",
+        "options": [
+          "hungry",
+          "bored",
+          "scared",
+          "tired"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "整天看羊很無聊,他想搞點動靜。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l21-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He shouted Wolf to the village.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "He",
+          "shouted",
+          "Wolf",
+          "to",
+          "the",
+          "village",
+          "town",
+          "quiet"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "他朝村子喊「狼來了」。town / quiet 是干擾。lie = 說謊;cry = 大喊。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l21-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The villagers ran up the hill with sticks.",
+        "question": "Why did the villagers come?",
+        "options": [
+          "to play a game",
+          "to count the sheep",
+          "to fight the wolf",
+          "to bring food"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "他們聽到狼來,衝上來幫忙打狼。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l21-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "There was no wolf. The boy laughed loudly.",
+        "question": "Why did the boy laugh?",
+        "options": [
+          "he had tricked them",
+          "the wolf had run",
+          "the sheep ran away",
+          "he was happy to see them"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他笑是因為騙到了大人,把這當成好玩。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l22",
+    "chapter": 2,
+    "lessonInChapter": 22,
+    "segmentType": "aesop-side",
+    "storyId": "wolf-cry",
+    "storyBeat": "真的狼來了,沒人來救",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l22-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He played the same joke a second time.",
+        "question": "How many times did he lie?",
+        "options": [
+          "three times",
+          "twice",
+          "never",
+          "once"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "他又喊一次狼來了,還是假的。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l22-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Then one day, a real wolf came.",
+        "question": "What came that day?",
+        "options": [
+          "a real dog",
+          "a bear",
+          "a real wolf",
+          "a fox"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "這次是真的狼,不是惡作劇。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l22-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "He shouted, \"Wolf! Wolf!\" But no one came.",
+        "question": "Why did no one come?",
+        "options": [
+          "they were too far",
+          "they did not believe him",
+          "they were sleeping",
+          "they did not hear"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "前面騙太多次,現在沒人信他,即使這次是真的。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l22-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The wolf ate some sheep and ran away.",
+        "question": "What happened to the sheep?",
+        "options": [
+          "some were lost",
+          "they all came back",
+          "they were sold",
+          "they ran home alone"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "有幾隻被狼吃了,代價真實。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l22-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Grandma says, \"A liar is not heard, even when he tells the truth.\"",
+        "question": "What is the lesson?",
+        "options": [
+          "always shout louder",
+          "never watch sheep",
+          "wolves are good",
+          "lies cost trust"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "lie = 說謊。一次騙人,後面說真話也沒人信。我把耳朵壓低,記得這點。",
+        "tags": [
+          "story",
+          "ch2",
+          "aesop",
+          "wolf-cry",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l23",
+    "chapter": 2,
+    "lessonInChapter": 23,
+    "segmentType": "outer-outro",
+    "storyId": "outer",
+    "storyBeat": "{catName} 聽完故事,奶奶合上書",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l23-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma closes the blue book softly.",
+        "question": "What does Grandma do with the book?",
+        "options": [
+          "reads it again",
+          "throws it",
+          "opens it",
+          "closes it"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "輕輕合上書,代表今晚故事結束。",
+        "tags": [
+          "story",
+          "ch2",
+          "closing",
+          "outer-outro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l23-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I look at {dogName}. {dogName} looks back.",
+        "question": "Who do I look at?",
+        "options": [
+          "the moon",
+          "the book",
+          "Grandma",
+          "{dogName}"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "故事剛講完狗的角色,我跟 {dogName} 對望,想笑又不敢笑出聲。",
+        "tags": [
+          "story",
+          "ch2",
+          "closing",
+          "outer-outro",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch2-l23-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma scratches her ear gently.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "Grandma",
+          "scratches",
+          "her",
+          "ear",
+          "gently",
+          "loudly",
+          "fast"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "explanationZh": "奶奶輕輕搔 {dogName} 的耳朵。loudly / fast 是干擾。",
+        "tags": [
+          "story",
+          "ch2",
+          "closing",
+          "outer-outro",
+          "tap-tiles"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l23-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma says, \"Goodnight, little ones.\"",
+        "question": "What does Grandma wish us?",
+        "options": [
+          "a goodnight",
+          "a long trip",
+          "a good morning",
+          "a new book"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "她跟我們道晚安。",
+        "tags": [
+          "story",
+          "ch2",
+          "closing",
+          "outer-outro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l23-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "I jump off the wall and walk home in the moonlight.",
+        "question": "How do I leave?",
+        "options": [
+          "open the gate",
+          "run through the door",
+          "jump off the wall",
+          "fly to the roof"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "每晚我跳上牆來聽,聽完跳下去離開。今晚也一樣。",
+        "tags": [
+          "story",
+          "ch2",
+          "closing",
+          "outer-outro",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l23-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Tomorrow night she will tell another story.",
+        "question": "When will the next story come?",
+        "options": [
+          "next week",
+          "tomorrow night",
+          "in a dream",
+          "next year"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "明晚還有新故事,我會再來。",
+        "tags": [
+          "story",
+          "ch2",
+          "closing",
+          "outer-outro",
+          "listen-comprehension"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch2-l24",
+    "chapter": 2,
+    "lessonInChapter": 24,
+    "segmentType": "review",
+    "storyId": "outer",
+    "storyBeat": "番外:{dogName} 和 {catName} 問奶奶問題",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l24-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} asks, \"Why was the dog in the story?\"",
+        "question": "Who is asking the question?",
+        "options": [
+          "the old man",
+          "{dogName}",
+          "{catName}",
+          "Grandma"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "{dogName} 先問:故事裡為什麼有狗?",
+        "tags": [
+          "story",
+          "ch2",
+          "bonus",
+          "qa",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l24-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma says, \"Because dogs are loyal friends, like you.\"",
+        "question": "Why was the dog in the story?",
+        "options": [
+          "dogs are fast",
+          "dogs are loyal friends",
+          "dogs can fly",
+          "dogs are big"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "loyal = 忠心。奶奶說因為狗很忠誠,就像 {dogName} 一樣。",
+        "tags": [
+          "story",
+          "ch2",
+          "bonus",
+          "qa",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l24-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{catName} asks, \"Was the boy real?\"",
+        "question": "What does {catName} want to know?",
+        "options": [
+          "if the peach was sweet",
+          "if it rained",
+          "if the dog was kind",
+          "if the boy was real"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "{catName} 想知道桃太郎是不是真的人。",
+        "tags": [
+          "story",
+          "ch2",
+          "bonus",
+          "qa",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l24-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Grandma smiles, \"He lives in the story. That makes him real to us.\"",
+        "question": "What does Grandma mean?",
+        "options": [
+          "he is a ghost",
+          "the story makes him real to us",
+          "he is a true historical boy",
+          "he never existed at all"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "奶奶說,故事裡活著,對聽的人來說他就真實。",
+        "tags": [
+          "story",
+          "ch2",
+          "bonus",
+          "qa",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l24-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} asks, \"Why did the peach float?\"",
+        "question": "What is {dogName}'s next question?",
+        "options": [
+          "why did the dog bark",
+          "why did the peach float",
+          "why was she alone",
+          "why was it pink"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "{dogName} 想知道桃子為什麼會漂。",
+        "tags": [
+          "story",
+          "ch2",
+          "bonus",
+          "qa",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l24-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Grandma says, \"Peaches are full of air inside. Air is lighter than water.\"",
+        "question": "Why did the peach float?",
+        "options": [
+          "the river was slow",
+          "air inside is light",
+          "it was empty",
+          "magic made it float"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "桃子裡面有空氣,空氣比水輕,所以浮起來。",
+        "tags": [
+          "story",
+          "ch2",
+          "bonus",
+          "qa",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch2-l24-q7",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{catName} asks, \"Were the demons all bad?\"",
+        "question": "What does {catName} ask about?",
+        "options": [
+          "the boat",
+          "the dog",
+          "the peach",
+          "the demons"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "{catName} 在想:妖怪是不是都壞?",
+        "tags": [
+          "story",
+          "ch2",
+          "bonus",
+          "qa",
+          "listen-mc"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch2-l24-q8",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Grandma says, \"They took things from people. So in the story, yes, they were bad.\"",
+        "question": "Why were the demons called bad?",
+        "options": [
+          "they stole from people",
+          "they were big",
+          "they had horns",
+          "they lived on an island"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "因為他們偷別人東西,所以是壞的。大小或角不是壞的理由。",
+        "tags": [
+          "story",
+          "ch2",
+          "bonus",
+          "qa",
+          "listen-comprehension"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch2-l24-q9",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Momotaro core words",
+        "question": "Tap the pairs",
+        "pairs": [
+          {
+            "left": "peach",
+            "right": "桃子"
+          },
+          {
+            "left": "float",
+            "right": "漂浮"
+          },
+          {
+            "left": "brave",
+            "right": "勇敢"
+          },
+          {
+            "left": "demon",
+            "right": "妖怪"
+          }
+        ],
+        "explanationZh": "桃太郎主菜的四個核心詞:peach 桃、float 漂、brave 勇敢、demon 妖怪。",
+        "tags": [
+          "story",
+          "ch2",
+          "review",
+          "tap-pairs"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch2-l24-q10",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Companions and ending words",
+        "question": "Tap the pairs",
+        "pairs": [
+          {
+            "left": "dog",
+            "right": "狗"
+          },
+          {
+            "left": "monkey",
+            "right": "猴子"
+          },
+          {
+            "left": "pheasant",
+            "right": "雉雞"
+          },
+          {
+            "left": "gold",
+            "right": "金子"
+          }
+        ],
+        "explanationZh": "三隻夥伴 + 戰利品:dog 狗、monkey 猴、pheasant 雉雞、gold 金子。明晚還會有新故事。",
+        "tags": [
+          "story",
+          "ch2",
+          "review",
+          "tap-pairs"
+        ]
+      }
+    ]
+  }
+]
