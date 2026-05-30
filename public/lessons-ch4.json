@@ -2011,10 +2011,10 @@
         "options": [
           "tired",
           "tied",
-          "tired",
+          "tried",
           "timed"
         ],
-        "explanationZh": "tired = 累。(tied / timed 同 t- 開頭過去分詞但意思不同;第三選項是重複正確答案 — 干擾辨識。) 累但還能走。",
+        "explanationZh": "tired = 累。(tied 是「綁」過去式;tried 是「嘗試」拼字相近;timed 是「計時」聲音類似。) 累但還能走。",
         "correctIndex": 0,
         "tags": [
           "story",
