@@ -10,10 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet" />
-    <!-- v2.0.B.48 perf: parallel-fetch Ch1 critical assets while bundle parses -->
+    <!-- v2.0.B.52 perf: parallel-fetch Ch1 critical assets while bundle parses.
+         Lesson-page icons added because they appeared as broken [?] when
+         iOS Safari rendered the lesson before image fetch completed. -->
     <link rel="preload" as="image" href="/mascots/scene-mochi-talking.webp" />
     <link rel="preload" as="image" href="/mascots/iso-grandma.webp" />
     <link rel="preload" as="image" href="/mascots/iso-shiba.webp" />
+    <link rel="preload" as="image" href="/mascots/icon-speaker.webp" />
+    <link rel="preload" as="image" href="/mascots/icon-paw.webp" />
+    <link rel="preload" as="image" href="/mascots/calico-anchor.webp" />
     <link rel="preload" as="audio" href="/audio/lessons/mochi-ch1-fullnarration.mp3" />
     <style>
       html, body {

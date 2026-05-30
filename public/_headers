@@ -1,0 +1,38 @@
+# v2.0.B.52 Cloudflare Pages cache rules — leverages async stale-while-revalidate
+# (rolled out Feb 2026). repeat visitor gets cached asset INSTANTLY + edge
+# revalidates in background, so no wait for any returning user.
+
+# HTML must revalidate on every load so new deploys are picked up immediately.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Hashed Vite-built JS/CSS chunks are immutable. Cache for a year.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Mascots / icons / scene images — heavy reuse across lesson screens.
+# 1 day fresh + 7 day stale-while-revalidate.
+/mascots/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Audio: narration MP3s + lesson per-sentence MP3s.
+# Same tier as mascots (1 day fresh + 7 day SWR).
+/audio/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Lesson data JSON — moderately fresh (we may update lessons frequently).
+# 1 hour fresh + 1 day SWR.
+/lessons-*.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/story-kitten.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/vocab.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Favicon + manifest stable
+/favicon.svg
+  Cache-Control: public, max-age=604800
