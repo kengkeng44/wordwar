@@ -128,13 +128,75 @@ let activeAudio: HTMLAudioElement | null = null;
 
 // v2.0.B.70: persistent Audio element reused across speak() calls. iOS
 // Safari allows audio.play() outside user-gesture context IF the SAME
-// audio element was previously played during a gesture. We prime this
-// element on first user gesture (unlockAudio) so subsequent setTimeout
-// autoSpeak calls can play() without NotAllowedError.
+// audio element was previously played during a gesture.
 let persistentAudio: HTMLAudioElement | null = null;
 function getPersistentAudio(): HTMLAudioElement {
   if (!persistentAudio) persistentAudio = new Audio();
   return persistentAudio;
+}
+
+// v2.0.B.73: Web Audio API path. Per research, HTML5 Audio + setTimeout
+// is fundamentally unreliable on iOS Safari — gesture token doesn't survive
+// the async gap. Web Audio is the canonical fix: AudioContext.resume() in
+// gesture, AudioBufferSourceNode plays from any context including setTimeout.
+// We pre-fetch + decode MP3s to AudioBuffers, cache them, and play via Web
+// Audio when available. Falls back to HTML5 Audio on platforms without it.
+let sharedAudioCtx: AudioContext | null = null;
+const audioBufferCache = new Map<string, AudioBuffer>();
+let currentSource: AudioBufferSourceNode | null = null;
+
+function getAudioCtx(): AudioContext | null {
+  if (sharedAudioCtx) return sharedAudioCtx;
+  try {
+    const AC = (window as unknown as { AudioContext?: typeof AudioContext }).AudioContext
+      ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AC) return null;
+    sharedAudioCtx = new AC();
+    return sharedAudioCtx;
+  } catch {
+    return null;
+  }
+}
+
+async function loadBuffer(url: string): Promise<AudioBuffer | null> {
+  if (audioBufferCache.has(url)) return audioBufferCache.get(url) ?? null;
+  const ctx = getAudioCtx();
+  if (!ctx) return null;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return null;
+    const ab = await res.arrayBuffer();
+    const buf = await new Promise<AudioBuffer>((resolve, reject) => {
+      ctx.decodeAudioData(ab.slice(0), resolve, reject);
+    });
+    audioBufferCache.set(url, buf);
+    return buf;
+  } catch (e) {
+    debugLog(`buffer load fail: ${url} ${(e as Error)?.message?.slice(0, 40)}`);
+    return null;
+  }
+}
+
+function playBuffer(buf: AudioBuffer): boolean {
+  const ctx = getAudioCtx();
+  if (!ctx) return false;
+  try {
+    if (ctx.state === 'suspended') void ctx.resume();
+    if (currentSource) {
+      try { currentSource.stop(); } catch {}
+      currentSource = null;
+    }
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    src.connect(ctx.destination);
+    src.onended = () => { if (currentSource === src) currentSource = null; };
+    src.start(0);
+    currentSource = src;
+    return true;
+  } catch (e) {
+    debugLog(`webaudio play fail: ${(e as Error)?.message?.slice(0, 40)}`);
+    return false;
+  }
 }
 
 function cleanText(text: string): string {
@@ -179,14 +241,27 @@ export function speak(text: string, lang = 'en-US'): void {
   const audioId = audioLookup.get(cleaned);
 
   if (audioId && typeof Audio !== 'undefined') {
+    const url = isMochi
+      ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
+      : `/audio/lessons/${audioId}.mp3`;
+    debugLog(`${isMochi?'🐱':'👵'} try: ${audioId} map=${mapSize}`);
+
+    // v2.0.B.73: Web Audio path first (canonical iOS Safari fix).
+    // AudioBufferSourceNode plays reliably from any context after unlock.
+    const cached = audioBufferCache.get(url);
+    if (cached) {
+      if (playBuffer(cached)) {
+        debugLog(`webaudio play OK: ${audioId}`);
+        return;
+      }
+    } else {
+      // Kick off async load; meanwhile try HTML5 fallback below
+      void loadBuffer(url).then(buf => {
+        if (buf) debugLog(`buffer cached: ${audioId}`);
+      });
+    }
+
     try {
-      const url = isMochi
-        ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
-        : `/audio/lessons/${audioId}.mp3`;
-      debugLog(`${isMochi?'🐱':'👵'} try: ${audioId} map=${mapSize}`);
-      // v2.0.B.71: reuse the persistent audio element + call .load() after
-      // src change to force iOS to fetch + decode the new file. Without
-      // .load() the change can race with prior play() Promise.
       const audio = getPersistentAudio();
       audio.src = url;
       audio.load();
@@ -294,13 +369,7 @@ function unlockAudio(): void {
       src.start(0);
     }
   } catch {}
-  // (b) Prime the persistent HTML5 Audio element with a tiny real silent
-  // MP3 (854 bytes). iOS attaches gesture-token to this specific element
-  // once play() resolves → future speak() calls reuse this element + can
-  // .play() from setTimeout contexts without NotAllowedError.
-  // v2.0.B.72: DO NOT reset src='' after prime — that detaches the gesture
-  // token on some iOS versions. Leave silent.mp3 loaded; speak() changes
-  // src on the SAME element which preserves the unlocked state.
+  // (b) Prime the persistent HTML5 Audio element (fallback path).
   try {
     const a = getPersistentAudio();
     a.muted = true;
@@ -313,9 +382,19 @@ function unlockAudio(): void {
       a.muted = false;
       a.volume = 1;
       isAudioUnlocked = true;
-    }).catch(() => {
-      // ignore; will retry on next gesture
+    }).catch(() => {});
+  } catch {}
+
+  // v2.0.B.73: Also pre-load AudioBuffers for Ch1 question audios — first
+  // gesture is the best time to start fetch + decode so playback later is
+  // instant (no buffer race on autoSpeak setTimeout).
+  try {
+    const preloadUrls = Array.from(audioLookup.entries()).slice(0, 32).map(([text, id]) => {
+      return mochiTexts.has(text)
+        ? `/audio/lessons/mochi-${hash8(text)}.mp3`
+        : `/audio/lessons/${id}.mp3`;
     });
+    for (const url of preloadUrls) void loadBuffer(url);
   } catch {}
 }
 

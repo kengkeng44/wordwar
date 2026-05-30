@@ -251,42 +251,27 @@ export class ChapterIntroScene extends Phaser.Scene {
         transition: 'background 120ms ease',
       });
 
-      // v2.0.B.53: Mochi avatar replaces generic speaker icon. Clicking the
-      // avatar plays that sentence's audio + reveals the blanked text.
-      // Frameless conversational layout per user feedback.
+      // v2.0.B.73: background-image avatar (head crop via background-size +
+      // background-position — cleaner than img + transform tricks).
+      // scene-mochi-talking.webp's head sits at ~y=25% of source image;
+      // background-size: 180% + position: center 18% frames head + ears.
       const avatar = document.createElement('button');
       avatar.type = 'button';
       avatar.setAttribute('aria-label', `Mochi 唸第 ${idx + 1} 句 · Listen to sentence ${idx + 1}`);
       applyStyle(avatar, {
         flex: '0 0 auto',
-        width: '40px',
-        height: '40px',
-        background: 'transparent',
+        width: '44px',
+        height: '44px',
+        background: '#fef8ed url(/mascots/scene-mochi-talking.webp) no-repeat center 18% / 175%',
         border: 'none',
         borderRadius: '50%',
         cursor: 'pointer',
         padding: '0',
-        overflow: 'hidden',
         display: 'block',
         touchAction: 'manipulation',
         WebkitTapHighlightColor: 'transparent',
         transition: 'transform 120ms ease',
       });
-      const avatarImg = document.createElement('img');
-      avatarImg.src = '/mascots/scene-mochi-talking.webp';
-      avatarImg.alt = '';
-      avatarImg.setAttribute('aria-hidden', 'true');
-      applyStyle(avatarImg, {
-        width: '180%',          // v2.0.B.72: zoom into head
-        height: '180%',
-        objectFit: 'cover',
-        objectPosition: 'center 20%',  // focus on face/head area
-        display: 'block',
-        pointerEvents: 'none',
-        marginLeft: '-40%',
-        marginTop: '-15%',
-      });
-      avatar.appendChild(avatarImg);
       // pulse on the FIRST avatar only — hints "tap me to start"
       if (idx === 0) avatar.classList.add('pickup-speaker-pulse');
 
