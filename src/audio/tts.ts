@@ -20,6 +20,8 @@
  *   - stopSpeaking() handles both audio paths
  */
 
+import { audio as audioMgr } from './AudioManager';
+
 // text -> audioId (Q id) for pre-generated MP3 lookup
 const audioLookup = new Map<string, string>();
 // v2.0.B.32: mochi narration set — texts whose voice should be the young
@@ -145,18 +147,18 @@ let silentLoopAudio: HTMLAudioElement | null = null;
 // gesture, AudioBufferSourceNode plays from any context including setTimeout.
 // We pre-fetch + decode MP3s to AudioBuffers, cache them, and play via Web
 // Audio when available. Falls back to HTML5 Audio on platforms without it.
-let sharedAudioCtx: AudioContext | null = null;
+// v2.0.B.90 CRITICAL: use AudioManager's singleton AudioContext instead of
+// creating a separate one. tts.ts and AudioManager.ts were creating TWO
+// independent AudioContexts on iOS — AudioManager gets unlocked when SFX
+// fire (button taps), but tts.ts's ctx never received gesture-resume signal,
+// so Web Audio playback rejected. ONE singleton = both SFX + speech unlock
+// together on first gesture.
 const audioBufferCache = new Map<string, AudioBuffer>();
 let currentSource: AudioBufferSourceNode | null = null;
 
 function getAudioCtx(): AudioContext | null {
-  if (sharedAudioCtx) return sharedAudioCtx;
   try {
-    const AC = (window as unknown as { AudioContext?: typeof AudioContext }).AudioContext
-      ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-    if (!AC) return null;
-    sharedAudioCtx = new AC();
-    return sharedAudioCtx;
+    return audioMgr.ensureContext() ?? null;
   } catch {
     return null;
   }
