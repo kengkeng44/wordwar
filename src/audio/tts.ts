@@ -184,12 +184,12 @@ export function speak(text: string, lang = 'en-US'): void {
         ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
         : `/audio/lessons/${audioId}.mp3`;
       debugLog(`${isMochi?'🐱':'👵'} try: ${audioId} map=${mapSize}`);
-      // v2.0.B.70: reuse the persistent audio element instead of new Audio().
-      // iOS Safari's gesture-token only attaches to an element that was
-      // play()'d during a gesture (unlockAudio primes this one). Reusing
-      // it lets setTimeout-scheduled play() succeed without NotAllowedError.
+      // v2.0.B.71: reuse the persistent audio element + call .load() after
+      // src change to force iOS to fetch + decode the new file. Without
+      // .load() the change can race with prior play() Promise.
       const audio = getPersistentAudio();
       audio.src = url;
+      audio.load();
       audio.playbackRate = 1.0;
       audio.volume = 1.0;
       audio.muted = false;
@@ -294,23 +294,27 @@ function unlockAudio(): void {
       src.start(0);
     }
   } catch {}
-  // (b) Prime the persistent HTML5 Audio element so iOS allows future
-  // .play() calls from setTimeout contexts. Use a real existing MP3
-  // (mochi narration) muted+vol=0 so user hears nothing.
+  // (b) Prime the persistent HTML5 Audio element with a tiny real silent
+  // MP3 (854 bytes). iOS attaches gesture-token to this specific element
+  // once play() resolves → future speak() calls reuse this element + can
+  // .play() from setTimeout contexts without NotAllowedError.
   try {
     const a = getPersistentAudio();
     a.muted = true;
     a.volume = 0;
-    a.src = '/audio/lessons/mochi-ch1-fullnarration.mp3';
+    a.src = '/silent.mp3';
+    a.load();
     void a.play().then(() => {
       a.pause();
       a.currentTime = 0;
       a.muted = false;
       a.volume = 1;
       a.src = '';
-    }).catch(() => {});
+      isAudioUnlocked = true;
+    }).catch(() => {
+      // ignore; will retry on next gesture (isAudioUnlocked stays false)
+    });
   } catch {}
-  isAudioUnlocked = true;
 }
 
 if (typeof window !== 'undefined') {
