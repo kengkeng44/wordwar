@@ -165,7 +165,10 @@ export function speak(text: string, lang = 'en-US'): void {
         : `/audio/lessons/${audioId}.mp3`;
       debugLog(`${isMochi?'🐱':'👵'} try: ${audioId} map=${mapSize}`);
       const audio = new Audio(url);
-      audio.playbackRate = 1.0;
+      // v2.0.B.36: Mochi voice gets playbackRate=1.3 — fakes higher pitch
+      // (sounds child-like, OpenAI TTS has no native child voice) + faster
+      // pace (user wants Mochi much faster than grandma).
+      audio.playbackRate = isMochi ? 1.3 : 1.0;
       audio.volume = 1.0;
       activeAudio = audio;
       audio.play().then(() => {

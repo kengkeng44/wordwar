@@ -319,6 +319,9 @@ export class ChapterIntroScene extends Phaser.Scene {
         if (!url) return null as unknown as HTMLAudioElement;
         const a = new Audio(url);
         a.preload = 'auto';
+        // v2.0.B.36: Mochi narration sounds child-like via playbackRate=1.3
+        // (higher pitch + faster pace). All ChapterIntro narration is Mochi POV.
+        a.playbackRate = url.includes('/mochi-') ? 1.3 : 1.0;
         a.load();
         return a;
       }).filter(Boolean) as HTMLAudioElement[];
