@@ -5,7 +5,7 @@ import { ClozeUI } from '../ui/ClozeUI';
 import { GameHUD } from '../ui/GameHUD';
 import { Mascot } from '../ui/Mascot';
 import { CHAPTER_META } from '../data/storyKitten';
-import { speak } from '../audio/tts';
+import { speak, autoSpeak } from '../audio/tts';
 import {
   mountTapTiles,
   mountTapPairs,
@@ -210,7 +210,7 @@ export class LessonScene extends Phaser.Scene {
           onComplete: (correct) =>
             this.handleAnswer(correct ? correctIndex : (correctIndex + 1) % 4),
         });
-        window.setTimeout(() => speak(audioText), 280);
+        autoSpeak(audioText);
         const sentEl = this.hud.getSentenceElement();
         if (sentEl) sentEl.innerHTML = '';
       } else if (qType === 'type-what-you-hear') {
@@ -222,7 +222,7 @@ export class LessonScene extends Phaser.Scene {
           onComplete: (correct) =>
             this.handleAnswer(correct ? correctIndex : (correctIndex + 1) % 4),
         });
-        window.setTimeout(() => speak(audioText), 280);
+        autoSpeak(audioText);
         const sentEl = this.hud.getSentenceElement();
         if (sentEl) sentEl.innerHTML = '';
       } else if (qType === 'tap-pairs' && round.pairs) {

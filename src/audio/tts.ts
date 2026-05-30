@@ -228,3 +228,18 @@ export function mp3UrlFor(text: string): string | null {
 export function ensureLookupReady(): Promise<void> {
   return ensureLookup();
 }
+
+// v2.0.B.44: iOS Safari/WebKit autoplay rule — audio.play() called outside
+// a user-gesture handler synchronously rejects with NotAllowedError. A
+// setTimeout-delayed speak() always violates this, so we skip auto-speak
+// entirely on iOS and rely on the user tapping the pulsing 🔊 speaker icon
+// (the SpeakerButton onclick IS a valid user gesture). Non-iOS browsers
+// keep the smooth auto-speak transition.
+export const IS_IOS_DEVICE: boolean =
+  typeof navigator !== 'undefined' &&
+  /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+export function autoSpeak(text: string, lang = 'en-US', delayMs = 280): void {
+  if (IS_IOS_DEVICE) return;
+  window.setTimeout(() => speak(text, lang), delayMs);
+}
