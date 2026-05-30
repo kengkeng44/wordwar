@@ -188,8 +188,8 @@ export class ChapterIntroScene extends Phaser.Scene {
       : '/mascots/scene-grandma-storytime.webp';
     heroImg.alt = '';
     applyStyle(heroImg, {
-      width: '100%',
-      maxWidth: '360px',
+      width: '60%',
+      maxWidth: '220px',
       height: 'auto',
       display: 'block',
       animation: 'pickup-rock-gentle 4s ease-in-out infinite',
@@ -369,16 +369,16 @@ export class ChapterIntroScene extends Phaser.Scene {
     attachPressFeedback(cta, { depth: 2, borderBottom: { from: 5, to: 3 } });
     cta.addEventListener('click', (e) => {
       e.preventDefault();
-      // v2.0.B.76 Solution B: synchronous warm-up within gesture. iOS 18+
-      // requires the gesture call stack to "see" the audio activity within
-      // a strict time window. Fetching+decoding all Ch1 audio NOW (while
-      // gesture token still valid) ensures Q1 mount hits AudioBuffer cache
-      // → playBuffer() succeeds without HTML5 race or autoplay block.
+      // v2.0.B.78: warm-up in background + 1.2s max wait. B.76 blocked
+      // indefinitely waiting for Howler load events that never fired in
+      // some iOS Safari conditions → "載入中" stuck forever. Now: kick
+      // warm-up async, race with 1.2s timeout, proceed regardless.
       stopSpeaking();
       const origText = cta.textContent;
       cta.textContent = '載入中… · Loading…';
       (cta as HTMLButtonElement).disabled = true;
-      void warmUpChapterAudio(chapter).finally(() => {
+      const timeout = new Promise<void>(r => setTimeout(r, 1200));
+      void Promise.race([warmUpChapterAudio(chapter), timeout]).finally(() => {
         cta.textContent = origText;
         (cta as HTMLButtonElement).disabled = false;
         this.root?.remove();
