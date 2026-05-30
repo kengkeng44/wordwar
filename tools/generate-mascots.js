@@ -220,30 +220,36 @@ Composition: paw centered, ~80% canvas (slightly bigger than icon-paw to fill no
   },
   scene: {
     name: 'scene-grandma-storytime',
-    prompt: `CRITICAL STYLE: Pickup app HERO SCENE illustration. Studio Ghibli warm + Duolingo chibi character DNA. Wide horizontal composition (landscape 1024×1024 OK).
+    prompt: `CRITICAL STYLE: Pickup app HERO SCENE illustration. Studio Ghibli watercolor warm + Duolingo chibi DNA. STRICT rules — DO NOT VIOLATE:
 
-PALETTE: amber #e7a44a, cream #fef8ed, coffee brown #8b6f4a, olive green #7d9a4f, warm dark text #3c2a1c. NO bright Disney, NO neon, NO red/orange clash. Warm twilight glow only.
+ABSOLUTE RULES (read all 5 before drawing):
+1. NO black ink outlines, NO bold outlines, NO comic-book lines around shapes. ZERO outline. Pure flat color block edges only. (Previous v1 had bold dark outlines — that is WRONG.)
+2. PALETTE is CREAM-DOMINANT — soft cream #fef8ed should be the largest visible color area (~50%). Amber #e7a44a and coffee brown #8b6f4a are ACCENTS only (small areas). NOT yellow-dominant. (Previous v1 was too yellow — that is WRONG.)
+3. FULL BODY visible for every character — no cropping. Grandma's feet MUST be visible at bottom of her body. (Previous v1 cut grandma's feet — that is WRONG.)
+4. Grandma sits on a WOODEN ROCKING CHAIR (搖搖椅) with curved rocker runners CLEARLY visible at the base. Not a regular chair. The runners curve like a smile shape under the chair.
+5. NO frame, NO border, NO box, NO sticker edge, NO baked drop shadow.
 
-SCENE: A quiet outdoor yard at gentle evening twilight. Soft cream-amber moonlight ambient.
-- LEFT: A kind elderly East Asian grandmother (silver hair low bun, round glasses, soft 瞇瞇眼 closed smile eyes, deep cute wrinkles, blocky chibi like Lego/Pop Mart vinyl, warm amber knitted cardigan + brown skirt) sitting on a small low wooden chair, reading from an open storybook resting on her lap. Slight forward lean as if narrating.
-- CENTER-RIGHT, at grandma's feet on grass: A calico chibi cat (Mochi — orange + brown + white tricolor, blocky chibi vinyl style, big oval pupils with tiny white highlight) sitting upright facing grandma, attentive listening.
-- BESIDE MOCHI, slightly to the right: A chibi shiba inu (Hana — orange-amber + cream, fluffy curled tail, 瞇瞇眼 squinted happy eyes matching grandma's smile-eye style for cohesion) also sitting upright facing grandma, listening attentively.
+SCENE: A quiet outdoor yard at gentle twilight. Three characters in cream-dominant soft watercolor light.
+- LEFT-CENTER: A kind elderly East Asian grandmother (silver-WHITE hair low bun, round glasses, soft 瞇瞇眼 closed smile eyes, deep cute wrinkles, blocky chibi like Lego/Pop Mart vinyl, soft CREAM cardigan with light amber accents — NOT dominant amber, brown long skirt, FULL legs and small simple shoes visible). She sits on a WOODEN ROCKING CHAIR (search reference: traditional rocking chair with curved bottom runners), reading from open storybook on her lap.
+- LEFT-FOOT of grandma, on the soft ground: Mochi the calico chibi cat (orange + brown + white tricolor, blocky vinyl style, 瞇瞇眼 squinted happy eyes for cohesion with grandma + Hana), sitting upright facing grandma.
+- RIGHT-FOOT of grandma: Hana the chibi shiba inu (orange-amber + CREAM markings, fluffy curled tail, 瞇瞇眼 closed smile eyes), sitting upright facing grandma.
 
-Both Mochi and Hana share the SAME blocky cute aesthetic as grandma. Three characters form a unified composition: grandma slightly higher (on chair), the two animals smaller at her feet looking up.
+BACKGROUND: PURE cream #fef8ed flat background. Optionally a few minimal cream/coffee plant suggestions (very faint). NO complex environment.
 
-BACKGROUND: VERY simple yard floor (suggested grass + a few simplified plant shapes), soft warm cream-amber gradient sky behind suggesting twilight. NO complex environment, NO foliage detail, NO buildings. Background must be MINIMAL — pure mood + space.
+COLORS BY ELEMENT:
+- Grandma's cardigan: soft warm cream-amber (not saturated)
+- Grandma's hair: light silver-white #f0ebe0
+- Grandma's skirt: muted coffee #a08a72 (NOT dark)
+- Mochi's cat fur: cream base + small orange + small brown patches
+- Hana's shiba fur: cream base + light amber patches
+- Rocking chair: soft warm coffee #8b6f4a
+- Background: pure cream #fef8ed
 
-COMPOSITION:
-- NO frame, NO border, NO box around scene
-- NO sticker outline
-- NO baked drop shadow
-- Pure transparent background OR pure flat cream #fef8ed background only
-- Characters cleanly placed in space, ample padding around them
-- Slight ambient soft floor shadow under each character (small ellipse coffee tone, NOT blur)
+Soft watercolor cell-shading. Subtle floor shadow under chair + animals (small ellipse, coffee tone, no blur).
 
-INSPIRED BY: Studio Ghibli quiet bedtime scenes + Pop Mart vinyl figure simplicity. Avoid Disney saturation. The mood should be cozy, slow, warm — bedtime story atmosphere.
+Inspired by: Studio Ghibli quiet pastoral scenes (Spirited Away interior light, My Neighbor Totoro). Soft, cozy, NOT saturated, NOT cartoony.
 
-Square 1024×1024. NO text, NO words, NO speech bubbles.`,
+Square 1024×1024. NO text, NO words, NO speech bubbles. NO black outlines.`,
   },
   flame: {
     name: 'icon-flame',

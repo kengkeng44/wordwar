@@ -157,6 +157,13 @@ export class ChapterIntroScene extends Phaser.Scene {
       padding: '8px 0 16px',
       minHeight: '180px',
     });
+    // v2.0.B.31: inject @keyframes rocking once (idempotent via id check)
+    if (!document.getElementById('pickup-rock-keyframes')) {
+      const style = document.createElement('style');
+      style.id = 'pickup-rock-keyframes';
+      style.textContent = `@keyframes pickup-rock-gentle { 0%,100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }`;
+      document.head.appendChild(style);
+    }
     const heroImg = document.createElement('img');
     heroImg.src = '/mascots/scene-grandma-storytime.webp';
     heroImg.alt = '';
@@ -165,6 +172,8 @@ export class ChapterIntroScene extends Phaser.Scene {
       maxWidth: '360px',
       height: 'auto',
       display: 'block',
+      animation: 'pickup-rock-gentle 4s ease-in-out infinite',
+      transformOrigin: '50% 92%',
     });
     // Fallback: if scene image fails to load (404 during transition), show
     // the legacy kitten + NPC SVGs side-by-side without the pink frame.
