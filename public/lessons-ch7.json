@@ -1,0 +1,3718 @@
+[
+  {
+    "id": "kt-ch7-l1",
+    "chapter": 7,
+    "lessonInChapter": 1,
+    "segmentType": "outer-prologue",
+    "storyId": "outer",
+    "storyBeat": "{catName} 跳上奶奶院子的矮牆",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l1-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Tonight the yard is quiet.",
+        "question": "Which word did you hear?",
+        "options": [
+          "quick",
+          "quiet",
+          "quite",
+          "quit"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "quiet = 安靜的。今晚院子特別靜,我也放輕腳步。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l1-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I jump on the low wall again.",
+        "question": "Which verb did you hear?",
+        "options": [
+          "jump",
+          "bump",
+          "pump",
+          "dump"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "jump = 跳。又是熟悉的矮牆,我輕輕一躍。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l1-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma is here.",
+        "question": "Type the word you hear.",
+        "options": [
+          "here",
+          "hear",
+          "her",
+          "hair"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "here = 在這裡。奶奶坐在老位置,我安心。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l1-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The night air feels cool.",
+        "question": "How does the air feel?",
+        "options": [
+          "cool",
+          "wet",
+          "hot",
+          "loud"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "cool = 涼。晚風吹過,鬍鬚一抖。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l1-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Where does {catName} go tonight?",
+        "question": "Where does {catName} go?",
+        "options": [
+          "to the woods",
+          "to Grandma's yard",
+          "to a market",
+          "to the river"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "每晚的固定行程,奶奶的院子是我的港口。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l2",
+    "chapter": 7,
+    "lessonInChapter": 2,
+    "segmentType": "outer-prologue",
+    "storyId": "outer",
+    "storyBeat": "{dogName} 趴下,奶奶坐回椅子",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l2-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{dogName} lies down by her feet.",
+        "question": "Which verb did you hear?",
+        "options": [
+          "lifts",
+          "leaves",
+          "lights",
+          "lies"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "lie down = 趴下。{dogName} 是熟練的聽眾,先就位。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l2-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma sits in her old chair.",
+        "question": "Where does Grandma sit?",
+        "options": [
+          "in her chair",
+          "by the gate",
+          "on the wall",
+          "on the floor"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "sit = 坐。老椅子吱呀一聲,故事準備開始。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l2-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "We are ready to listen.",
+        "question": "How do we feel?",
+        "options": [
+          "ready",
+          "lost",
+          "tired",
+          "angry"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "ready = 準備好的。耳朵豎起來,眼睛半閉。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l2-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She opens the old book.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "opens",
+          "the",
+          "old",
+          "book",
+          "fast",
+          "loud"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "explanationZh": "順序:She → opens → the → old → book。fast / loud 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l2-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "What does Grandma do?",
+        "question": "What does Grandma do?",
+        "options": [
+          "feeds the cat",
+          "cooks dinner",
+          "sits and opens a book",
+          "calls her daughter"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "她坐下,翻開書,動作很慢。我看了好幾遍,每次都安心。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l3",
+    "chapter": 7,
+    "lessonInChapter": 3,
+    "segmentType": "outer-prologue",
+    "storyId": "outer",
+    "storyBeat": "奶奶翻開故事書「今晚是安靜的故事」",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l3-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Tonight is a quiet tale.",
+        "question": "Which word did you hear?",
+        "options": [
+          "tale",
+          "tall",
+          "tail",
+          "tell"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "tale = 故事(古字)。今晚不是吵鬧的冒險,是一個慢慢的故事。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l3-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The fire is low and warm.",
+        "question": "How is the fire?",
+        "options": [
+          "high and hot",
+          "low and warm",
+          "out and cold",
+          "wild and big"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "low = 矮、小。爐火只剩一點,照在書頁上剛好。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l3-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "It is about six swans.",
+        "question": "Type the number you hear.",
+        "options": [
+          "six",
+          "sick",
+          "sit",
+          "see"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "six = 六。六隻天鵝,是今晚的主角。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l3-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She turns the page slowly.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "turns",
+          "the",
+          "page",
+          "slowly",
+          "quickly",
+          "down"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "explanationZh": "順序:She → turns → the → page → slowly。quickly / down 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l3-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "What is tonight's story about?",
+        "question": "What is tonight's story about?",
+        "options": [
+          "a busy town",
+          "a brown dog",
+          "a small cat",
+          "six swans"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "奶奶說:今晚的故事是六隻天鵝。我豎起耳朵。",
+        "tags": [
+          "story",
+          "ch7",
+          "prologue"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l4",
+    "chapter": 7,
+    "lessonInChapter": 4,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "國王有六個王子和一個小公主",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l4-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A king had six bright sons.",
+        "question": "How many sons did the king have?",
+        "options": [
+          "six",
+          "sixteen",
+          "seven",
+          "two"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "six = 六。國王有六個兒子,個個明亮。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l4-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He also had one small daughter.",
+        "question": "Who else did he have?",
+        "options": [
+          "a nephew",
+          "a friend",
+          "a brother",
+          "a daughter"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "daughter = 女兒。一個小女兒,是這個故事的安靜主角。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l4-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "His first wife died young.",
+        "question": "What happened to the first wife?",
+        "options": [
+          "she stayed",
+          "she ran",
+          "she sang",
+          "she died"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "die = 過世。第一個王后年輕就走了,留下七個孩子。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l4-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The king took a new wife.",
+        "question": "Choose the best meaning of 'took a new wife'.",
+        "options": [
+          "lost a friend",
+          "married someone new",
+          "found a job",
+          "sold a horse"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "take a wife = 娶妻(古英文用法)。國王再婚了。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l4-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The children were happy then.",
+        "question": "Type the time word you hear.",
+        "options": [
+          "then",
+          "than",
+          "thin",
+          "thing"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "then = 那時候。後來的事還沒發生,當時七個孩子都還快樂。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l4-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The little sister loved her brothers.",
+        "question": "How did she feel about them?",
+        "options": [
+          "lost them",
+          "loved them",
+          "missed them",
+          "feared them"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "love = 愛。妹妹很愛六個哥哥,他們是她的全世界。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l5",
+    "chapter": 7,
+    "lessonInChapter": 5,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "新王后是女巫,藏在森林裡",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l5-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The new wife was a witch.",
+        "question": "What was she?",
+        "options": [
+          "a witch",
+          "a guard",
+          "a baker",
+          "a queen's friend"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "witch = 女巫。她藏著祕密,國王看不見。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l5-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The king hid the boys in a wood.",
+        "question": "Where did he hide them?",
+        "options": [
+          "in a wood",
+          "in a tower",
+          "in a barn",
+          "in a cave"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "wood = 森林(古英文同 forest)。國王想保護兒子,把他們藏到森林裡。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l5-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "He did not tell his new wife.",
+        "question": "Did he tell the new wife?",
+        "options": [
+          "no, he did not",
+          "he told the dog",
+          "yes, he did",
+          "he told the cook"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "他知道新王后不可信,把藏匿地點瞞下來。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l5-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "But the witch found out anyway.",
+        "question": "What did the witch do?",
+        "options": [
+          "found out",
+          "forgave him",
+          "fell asleep",
+          "ran away"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "find out = 發現、查到。女巫終究還是查到了森林的位置。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l5-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She walked into the wood.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "walked",
+          "into",
+          "the",
+          "wood",
+          "fast",
+          "tree"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "explanationZh": "順序:She → walked → into → the → wood。fast / tree 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l5-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her heart was cold and dark.",
+        "question": "How was her heart?",
+        "options": [
+          "cold and dark",
+          "loud and proud",
+          "light and kind",
+          "warm and soft"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "cold = 冷的。她心裡只有惡意,沒有溫度。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l6",
+    "chapter": 7,
+    "lessonInChapter": 6,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "王后丟出六件白襯衫,兄弟變成天鵝",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l6-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She threw six white shirts at them.",
+        "question": "What did she throw?",
+        "options": [
+          "wet socks",
+          "white shirts",
+          "wide hats",
+          "white stones"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "shirt = 襯衫。她丟出六件白襯衫,每一件都帶著咒語。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l6-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Feathers grew on their arms.",
+        "question": "What grew on their arms?",
+        "options": [
+          "fingers",
+          "feathers",
+          "flowers",
+          "fences"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "feather = 羽毛。手臂上長出白羽毛,皮膚消失了。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l6-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Their wings opened wide.",
+        "question": "What does 'wings opened wide' mean?",
+        "options": [
+          "wings turned red",
+          "wings broke off",
+          "wings closed up",
+          "wings spread out"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "open wide = 張開、展開。羽翼一張就到肩膀那麼長。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l6-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "They became six swans.",
+        "question": "Type the animal you hear.",
+        "options": [
+          "swans",
+          "sheep",
+          "snakes",
+          "swords"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "swan = 天鵝。六個哥哥,六隻天鵝,飛走了。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l6-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Did they speak before they flew?",
+        "question": "Did they speak before they flew?",
+        "options": [
+          "they laughed",
+          "no, they did not",
+          "they cried",
+          "yes, they did"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "天鵝不會說話。咒語一落下,他們就連話都來不及說。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l6-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The sky was cold above them.",
+        "question": "How was the sky?",
+        "options": [
+          "warm",
+          "loud",
+          "pink",
+          "cold"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "cold = 冷的。秋末的天空,六隻白鳥飛入灰雲。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l7",
+    "chapter": 7,
+    "lessonInChapter": 7,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "六隻天鵝飛向冷天空",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l7-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Six swans rose into the sky.",
+        "question": "Which verb did you hear?",
+        "options": [
+          "rode",
+          "ran",
+          "rose",
+          "rolled"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "rose = 升起。六隻白鳥拍動翅膀,一齊往上。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l7-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Their feathers shone in the light.",
+        "question": "What shone in the light?",
+        "options": [
+          "feathers",
+          "fences",
+          "flowers",
+          "fingers"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "shone = 閃耀(shine 過去式)。羽毛在天光下白得發亮。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l7-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The sister felt very alone.",
+        "question": "How did the sister feel?",
+        "options": [
+          "proud",
+          "happy",
+          "alone",
+          "sleepy"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "alone = 獨自一人。哥哥們全飛走了,只剩她站在空屋外。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l7-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The swans flew far away.",
+        "question": "Where did the swans go?",
+        "options": [
+          "back home",
+          "into the river",
+          "to the queen",
+          "far away"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "fly away = 飛走。六個身影越來越小,最後變成一行白點。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l7-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Could they come back as boys?",
+        "question": "Could they turn back to boys?",
+        "options": [
+          "not yet",
+          "yes, right away",
+          "only as wolves",
+          "no, never again"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "not yet = 還沒。咒語還沒解開,他們暫時回不來。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l7-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "They flew into the gray sky.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "They",
+          "flew",
+          "into",
+          "the",
+          "gray",
+          "sky",
+          "wide",
+          "near"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "順序:They → flew → into → the → gray → sky。wide / near 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l8",
+    "chapter": 7,
+    "lessonInChapter": 8,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "妹妹獨自在大房子,決定離家",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l8-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The sister stood alone at home.",
+        "question": "Where did she stand?",
+        "options": [
+          "at home",
+          "at school",
+          "at the gate",
+          "at the lake"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "alone = 獨自。大房子空了,只剩她和回聲。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l8-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She would not stay there.",
+        "question": "Did she stay home?",
+        "options": [
+          "she sang",
+          "no",
+          "she slept",
+          "yes"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "would not stay = 不肯留下。她下定決心要走。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l8-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She wanted to find her brothers.",
+        "question": "Why did she leave home?",
+        "options": [
+          "to find her brothers",
+          "to find a king",
+          "to find gold",
+          "to find food"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "find = 找到。她要把六個哥哥找回來,不能空等。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l8-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She set out at dawn.",
+        "question": "What does 'set out' mean?",
+        "options": [
+          "sit down",
+          "start a trip",
+          "go to sleep",
+          "set the table"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "set out = 出發、上路。天剛亮,她就背起小包袱離開。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l8-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She walked toward the wood.",
+        "question": "Type the verb you hear.",
+        "options": [
+          "walked",
+          "waited",
+          "wanted",
+          "wished"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "walked = 走(過去式)。她一步一步,朝森林走去。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l8-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her heart was brave but scared.",
+        "question": "How was her heart?",
+        "options": [
+          "brave but scared",
+          "sleepy",
+          "bored",
+          "loud and angry"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "brave = 勇敢。她也怕,但腳沒停下。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l9",
+    "chapter": 7,
+    "lessonInChapter": 9,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "妹妹走進森林,腳走到流血",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l9-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She walked deep into the wood.",
+        "question": "Where did she walk?",
+        "options": [
+          "into the wood",
+          "down a road",
+          "out of town",
+          "up a hill"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "deep = 深處。她越走越遠,光線越來越暗。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l9-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her feet began to bleed.",
+        "question": "What happened to her feet?",
+        "options": [
+          "they sang",
+          "they ran",
+          "they bled",
+          "they grew"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "bleed = 流血。鞋磨壞了,腳跟一道道紅。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l9-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The trees were tall and dark.",
+        "question": "How were the trees?",
+        "options": [
+          "tall and dark",
+          "small and bright",
+          "wet and warm",
+          "loud and busy"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "tall = 高的。樹遮住天,連風都被吸進葉子裡。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l9-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She did not turn back.",
+        "question": "Did she go home?",
+        "options": [
+          "yes, she ran home",
+          "no, she went on",
+          "she cried and slept",
+          "she lost her way"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "turn back = 折返。哥哥還沒找到,她不能回頭。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l9-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Why did her feet hurt?",
+        "question": "Why did her feet hurt?",
+        "options": [
+          "she walked too far",
+          "she fell asleep",
+          "she sang too long",
+          "she ate too much"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "hurt = 痛。路太長,鞋太薄,連石頭都認得她的腳印。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l9-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She walked until the sun set.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "walked",
+          "until",
+          "the",
+          "sun",
+          "set",
+          "rose",
+          "now"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "順序:She → walked → until → the → sun → set。rose / now 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l10",
+    "chapter": 7,
+    "lessonInChapter": 10,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "黃昏找到一間小屋,七張小床",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l10-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "At dusk she found a small hut.",
+        "question": "What did she find?",
+        "options": [
+          "a tall tower",
+          "a long road",
+          "a wide lake",
+          "a small hut"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "hut = 小屋。黃昏時分,她看見一盞燈。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l10-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Inside there were seven beds.",
+        "question": "How many beds were there?",
+        "options": [
+          "two",
+          "ten",
+          "seven",
+          "six"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "seven = 七。六個哥哥加她自己,剛好七張床。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l10-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She lay down on one bed.",
+        "question": "What did she do?",
+        "options": [
+          "lay down",
+          "ran out",
+          "shouted",
+          "stood up"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "lay down = 躺下。她累壞了,挑了最小的床。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l10-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She felt safe at last.",
+        "question": "What does 'at last' mean?",
+        "options": [
+          "finally",
+          "soon",
+          "again",
+          "loudly"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "at last = 終於。一整天走下來,她終於能闔上眼。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l10-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She waited for the swans.",
+        "question": "Type the verb you hear.",
+        "options": [
+          "waited",
+          "wanted",
+          "walked",
+          "watched"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "waited = 等待。她不睡,先撐著等天黑。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l10-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The hut was small and warm.",
+        "question": "How was the hut?",
+        "options": [
+          "cold and dark",
+          "bright and big",
+          "loud and busy",
+          "small and warm"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "warm = 暖的。屋裡有一點爐灰,擋住外頭的風。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l11",
+    "chapter": 7,
+    "lessonInChapter": 11,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "天鵝回家,變回男孩一刻鐘",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l11-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "At sundown the swans came home.",
+        "question": "When did they come home?",
+        "options": [
+          "at noon",
+          "at sundown",
+          "at midnight",
+          "at dawn"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "sundown = 日落。黃昏的光下,六隻白鳥落在門口。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l11-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Their feathers fell away.",
+        "question": "What fell away?",
+        "options": [
+          "fences",
+          "flowers",
+          "feathers",
+          "fingers"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "fall away = 掉落。羽毛一片一片落下,皮膚露出來。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l11-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "They became boys for a short time.",
+        "question": "How long were they boys?",
+        "options": [
+          "all day",
+          "a short time",
+          "forever",
+          "all night"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "short time = 短暫的時間。只有一刻鐘,他們是兄弟。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l11-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "They saw their sister there.",
+        "question": "Who did they see?",
+        "options": [
+          "a stranger",
+          "the king",
+          "their mother",
+          "their sister"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "see = 看見。他們認出小妹,眼睛亮起來。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l11-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The swans turned back to boys.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "The",
+          "swans",
+          "turned",
+          "back",
+          "to",
+          "boys",
+          "girls",
+          "soon"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "順序:The → swans → turned → back → to → boys。girls / soon 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l11-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She was so happy to see them.",
+        "question": "How did she feel?",
+        "options": [
+          "lost",
+          "tired",
+          "bored",
+          "happy"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "happy = 快樂的。她想笑,但還沒得到答案。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l12",
+    "chapter": 7,
+    "lessonInChapter": 12,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "解咒條件:六年沉默 + 縫六件星花襯衫",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l12-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She must sew six star-flower shirts.",
+        "question": "How many shirts must she sew?",
+        "options": [
+          "seven",
+          "six",
+          "sixteen",
+          "one"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "sew = 縫。她要縫六件,每件用星花做。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l12-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She must stay silent for six years.",
+        "question": "How long must she stay silent?",
+        "options": [
+          "six years",
+          "one night",
+          "six days",
+          "ten weeks"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "silent = 沉默的。六年不能說一個字。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l12-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She must not laugh either.",
+        "question": "What else must she not do?",
+        "options": [
+          "walk",
+          "eat",
+          "laugh",
+          "sleep"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "laugh = 笑。不能說、不能笑,連忍不住的微笑都不行。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l12-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "One word would break the spell.",
+        "question": "What would break the spell?",
+        "options": [
+          "one tear",
+          "one word",
+          "one step",
+          "one laugh"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "spell = 咒語。一個字、一聲笑,所有努力就會碎。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l12-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She nodded and said yes.",
+        "question": "Type the verb you hear.",
+        "options": [
+          "nodded",
+          "needed",
+          "noted",
+          "knotted"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "nodded = 點頭。她答應,連聲音都壓住。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l12-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She would weave each shirt by hand.",
+        "question": "What does 'weave' mean here?",
+        "options": [
+          "wash with water",
+          "wait for help",
+          "wear in winter",
+          "make by hand"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "weave = 織。一針一線,六件襯衫,六年的功夫。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l13",
+    "chapter": 7,
+    "lessonInChapter": 13,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "她開始採星花,刺破手指也不哭",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l13-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She gathered star-flowers by the river.",
+        "question": "Where did she gather them?",
+        "options": [
+          "in a cave",
+          "in a barn",
+          "on a hill",
+          "by the river"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "gather = 採集。河邊長著最白的星花。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l13-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Thorns cut her small hands.",
+        "question": "What cut her hands?",
+        "options": [
+          "ropes",
+          "stones",
+          "bees",
+          "thorns"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "thorn = 刺。荊棘藏在花叢裡,她的手指一道道紅。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l13-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She did not cry out loud.",
+        "question": "Did she cry?",
+        "options": [
+          "no, she stayed silent",
+          "yes, very loud",
+          "she sang",
+          "she laughed"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "cry out = 出聲哭。她忍著,連嘶一聲都吞回去。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l13-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She wove every night by candlelight.",
+        "question": "When did she weave?",
+        "options": [
+          "every night",
+          "only in summer",
+          "only at noon",
+          "once a year"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "wove = weave 過去式。每個夜晚,燭光下她的手不停。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l13-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She did not speak a word.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "did",
+          "not",
+          "speak",
+          "a",
+          "word",
+          "loud",
+          "fast"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "順序:She → did → not → speak → a → word。loud / fast 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l13-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She kept her promise.",
+        "question": "Type the noun you hear.",
+        "options": [
+          "promise",
+          "present",
+          "problem",
+          "process"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "promise = 承諾。她答應了,就會撐住。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l14",
+    "chapter": 7,
+    "lessonInChapter": 14,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "她坐在樹上織衣,年輕國王發現她",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l14-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She sat high up in a tree.",
+        "question": "Where did she sit?",
+        "options": [
+          "in a tree",
+          "on the ground",
+          "by a fire",
+          "in a boat"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "in a tree = 在樹上。她把織具掛在樹枝上,離地遠一點才安全。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l14-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A young king rode by.",
+        "question": "Who rode by?",
+        "options": [
+          "a young king",
+          "an old farmer",
+          "a small boy",
+          "a wild wolf"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "king = 國王。他打獵經過,抬頭看見樹上的影子。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l14-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "He looked up and saw her.",
+        "question": "What did he do?",
+        "options": [
+          "shouted out",
+          "looked up",
+          "rode away",
+          "fell down"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "look up = 抬頭。他停下馬,看著樹上那個沉默的女孩。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l14-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She would not say a word.",
+        "question": "Did she speak to him?",
+        "options": [
+          "she ran away",
+          "no, she did not",
+          "yes, she did",
+          "she sang softly"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "not a word = 一個字都沒。她搖頭,手裡的線沒斷。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l14-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "He took her home with him.",
+        "question": "What does 'took her home' mean?",
+        "options": [
+          "brought her to his place",
+          "left her there",
+          "sent her away",
+          "sold her food"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "take home = 帶回家。他把她抱下樹,放在馬背上。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l14-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her face was calm and soft.",
+        "question": "How was her face?",
+        "options": [
+          "calm",
+          "loud",
+          "wild",
+          "angry"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "calm = 安靜、沉穩的。她的臉沒有掙扎,只有一點點悲傷。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l15",
+    "chapter": 7,
+    "lessonInChapter": 15,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "國王帶她回宮,愛她沉默的臉",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l15-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The king made her his wife.",
+        "question": "What did the king do?",
+        "options": [
+          "sent her away",
+          "married her",
+          "fed her",
+          "hired her"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "made her his wife = 娶她為妻。他不在乎她不說話。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l15-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She still wove every night.",
+        "question": "What did she still do?",
+        "options": [
+          "rode horses",
+          "wove shirts",
+          "wrote letters",
+          "sang songs"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "still wove = 還是織。皇宮裡也一樣,她不停手。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l15-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The king loved her quiet face.",
+        "question": "What did the king love?",
+        "options": [
+          "her quiet face",
+          "her bright song",
+          "her loud laugh",
+          "her gold ring"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "quiet face = 安靜的臉。她不說話,可是眼睛有故事。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l15-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She hid the shirts in a chest.",
+        "question": "Type the verb you hear.",
+        "options": [
+          "hid",
+          "had",
+          "held",
+          "heard"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "hid = 藏(hide 過去式)。她把六件白襯衫鎖在木箱裡。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l15-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She kept her silent promise.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "kept",
+          "her",
+          "silent",
+          "promise",
+          "loud",
+          "broke"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "explanationZh": "順序:She → kept → her → silent → promise。loud / broke 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l15-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her days were quiet but kind.",
+        "question": "How were her days?",
+        "options": [
+          "cold and dark",
+          "wild and free",
+          "loud and busy",
+          "quiet but kind"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "kind = 溫和的。沉默的日子也有溫度。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l16",
+    "chapter": 7,
+    "lessonInChapter": 16,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "王后的母親說謊,要燒死她",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l16-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The king's mother did not like her.",
+        "question": "Who did not like the silent wife?",
+        "options": [
+          "the dog",
+          "the cook",
+          "the king's brother",
+          "the king's mother"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "the king's mother = 國王的母親。她覺得這個媳婦不對勁。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l16-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She told lies to her son.",
+        "question": "What did she tell?",
+        "options": [
+          "stories",
+          "lies",
+          "songs",
+          "jokes"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "lies = 謊話。她說了好多壞話,一句一句鑽進國王心裡。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l16-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She said the wife was a witch.",
+        "question": "What did she call her?",
+        "options": [
+          "a witch",
+          "a maid",
+          "a sister",
+          "a queen"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "witch = 女巫。她用最重的字,壓在沉默上面。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l16-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "At last the king believed her.",
+        "question": "Did the king believe?",
+        "options": [
+          "he ran away",
+          "he laughed it off",
+          "yes, at last",
+          "no, never"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "at last = 終於。國王也撐不住,信了。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l16-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "They built a fire to burn her.",
+        "question": "What does 'to burn her' mean?",
+        "options": [
+          "to wash her clothes",
+          "to feed her warm food",
+          "to harm her with fire",
+          "to keep her warm"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "burn = 燒。他們在廣場堆起木柴,要把她送上火。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l16-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her face was still calm.",
+        "question": "How was her face?",
+        "options": [
+          "loud",
+          "calm",
+          "red",
+          "wild"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "still calm = 依然安靜。她不喊冤,只把最後一件襯衫抱緊。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l17",
+    "chapter": 7,
+    "lessonInChapter": 17,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "火堆點起,她抱著六件襯衫",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l17-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The fire was tall and hot.",
+        "question": "How was the fire?",
+        "options": [
+          "wet and dark",
+          "low and cool",
+          "soft and slow",
+          "tall and hot"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "tall = 高的。火焰從柴堆上竄起來。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l17-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She held the shirts to her chest.",
+        "question": "What did she hold?",
+        "options": [
+          "the shirts",
+          "a torch",
+          "a stone",
+          "a sword"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "hold = 抱、拿。她把六件白襯衫抱得緊緊的。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l17-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The crowd was loud and angry.",
+        "question": "How was the crowd?",
+        "options": [
+          "loud and angry",
+          "tired and bored",
+          "quiet and kind",
+          "small and shy"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "loud = 吵的。廣場上人聲像浪,沖著她而來。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l17-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "One shirt was not done yet.",
+        "question": "What was wrong with the shirts?",
+        "options": [
+          "one was burned",
+          "one was lost",
+          "one was not done",
+          "one was wet"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "not done = 還沒織完。最後一件還少一隻袖子。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l17-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She did not say a word.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "did",
+          "not",
+          "say",
+          "a",
+          "word",
+          "loud",
+          "yes"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "順序:She → did → not → say → a → word。loud / yes 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l17-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The smoke rose fast.",
+        "question": "Type the noun you hear.",
+        "options": [
+          "smoke",
+          "smell",
+          "smile",
+          "snake"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "smoke = 煙。煙從柴堆冒上來,擋了她的眼睛。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l18",
+    "chapter": 7,
+    "lessonInChapter": 18,
+    "segmentType": "main-story",
+    "storyId": "six-swans",
+    "storyBeat": "六隻天鵝穿過煙降下,她扔出襯衫",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l18-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Six swans flew through the smoke.",
+        "question": "What flew through the smoke?",
+        "options": [
+          "six crows",
+          "six birds of fire",
+          "six swans",
+          "six stars"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "fly through = 穿過。六隻白鳥從煙裡落下來,翅膀全是灰。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l18-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She threw the shirts at them.",
+        "question": "What did she throw?",
+        "options": [
+          "the wood",
+          "the shirts",
+          "the stones",
+          "the smoke"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "throw = 丟、扔。她使盡最後力氣,把六件襯衫拋向天鵝。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l18-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The brothers stood beside her.",
+        "question": "Who stood beside her?",
+        "options": [
+          "the king's mother",
+          "the brothers",
+          "the cook",
+          "the queen's friend"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "beside = 在旁邊。六個哥哥落下,變回少年,圍著她。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l18-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The youngest had a swan wing.",
+        "question": "What did the youngest have?",
+        "options": [
+          "a long beard",
+          "a silver sword",
+          "a gold crown",
+          "a swan wing"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "swan wing = 天鵝翅膀。最小的哥哥手臂沒變回來,留下一道白羽。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l18-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She spoke at last.",
+        "question": "What does 'at last' mean?",
+        "options": [
+          "softly",
+          "finally",
+          "again",
+          "loudly"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "at last = 終於。六年沉默之後,她開口了。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l18-q6",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The fire went out fast.",
+        "question": "What happened to the fire?",
+        "options": [
+          "went out",
+          "turned blue",
+          "moved away",
+          "grew big"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "go out = 熄滅。她一說話,火堆好像也鬆口了。",
+        "tags": [
+          "story",
+          "ch7",
+          "main",
+          "swans"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l19",
+    "chapter": 7,
+    "lessonInChapter": 19,
+    "segmentType": "aesop-side",
+    "storyId": "three-wishes",
+    "storyBeat": "三個願望:伐木工人 vs 妻子,起爭執",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l19-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma starts a short side tale.",
+        "question": "What does Grandma start?",
+        "options": [
+          "a long song",
+          "a quick meal",
+          "a short tale",
+          "a loud joke"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "short tale = 短篇故事。奶奶換口氣,要說一個小故事。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l19-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A poor man got three wishes.",
+        "question": "How many wishes did he get?",
+        "options": [
+          "five",
+          "two",
+          "ten",
+          "three"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "three wishes = 三個願望。一個窮人撿到精靈送的三個機會。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l19-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "His wife wanted to choose too.",
+        "question": "Who else wanted to choose?",
+        "options": [
+          "his wife",
+          "his son",
+          "his dog",
+          "his neighbor"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "wanted to choose = 想決定。妻子湊過來,兩個人就吵起來。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l19-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "They argued about every wish.",
+        "question": "Type the verb you hear.",
+        "options": [
+          "argued",
+          "agreed",
+          "added",
+          "asked"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "argued = 爭吵。一個想要金子,一個想要房子,誰也不讓。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l19-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Their voices got loud and hot.",
+        "question": "How were their voices?",
+        "options": [
+          "low and shy",
+          "soft and kind",
+          "loud and hot",
+          "tired and slow"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "loud = 大聲的。願望還沒許,先把感情用光。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l20",
+    "chapter": 7,
+    "lessonInChapter": 20,
+    "segmentType": "aesop-side",
+    "storyId": "three-wishes",
+    "storyBeat": "三個願望:香腸掉鼻上,最後一個願望浪費",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l20-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "He wished for a long sausage.",
+        "question": "What did he wish for first?",
+        "options": [
+          "a sausage",
+          "a horse",
+          "a house",
+          "a hat"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "sausage = 香腸。肚子餓,願望就小,他先要一根香腸。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l20-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She wished it onto his nose.",
+        "question": "Where did the sausage land?",
+        "options": [
+          "on the floor",
+          "on his nose",
+          "in the pot",
+          "in his hand"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "onto his nose = 黏到鼻子上。妻子一氣之下,把香腸黏在丈夫鼻頭。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l20-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The last wish removed it.",
+        "question": "What did the last wish do?",
+        "options": [
+          "made gold",
+          "removed the sausage",
+          "built a house",
+          "called a friend"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "remove = 移除。第三個願望只能拿來把香腸從鼻子上拔下來。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l20-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "They wasted every wish.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "They",
+          "wasted",
+          "every",
+          "wish",
+          "won",
+          "today"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "explanationZh": "順序:They → wasted → every → wish。won / today 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l20-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The lesson is to think first.",
+        "question": "What is the lesson?",
+        "options": [
+          "think before wishing",
+          "argue every day",
+          "eat more sausage",
+          "wish more loudly"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "think first = 先想。許願不難,難的是先把脾氣放下。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "three-wishes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l21",
+    "chapter": 7,
+    "lessonInChapter": 21,
+    "segmentType": "aesop-side",
+    "storyId": "mouse-bride",
+    "storyBeat": "老鼠新娘:父母想替女兒找最強的對象",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l21-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "A mouse mother had a small daughter.",
+        "question": "Who had a small daughter?",
+        "options": [
+          "a bird aunt",
+          "a mouse mother",
+          "a cat uncle",
+          "a fox father"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "mouse mother = 鼠媽媽。她想替女兒找最強的丈夫。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l21-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She wanted the strongest groom.",
+        "question": "What did she want?",
+        "options": [
+          "the strongest groom",
+          "the oldest book",
+          "the tallest tree",
+          "the kindest cook"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "strongest = 最強的。她以為強就是好。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l21-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She asked the sun first.",
+        "question": "Who did she ask first?",
+        "options": [
+          "a tree",
+          "the sun",
+          "the moon",
+          "the king"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "the sun = 太陽。她抬頭問太陽:你是最強嗎?",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l21-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The sun said a cloud was stronger.",
+        "question": "Type the word you hear.",
+        "options": [
+          "cloud",
+          "crowd",
+          "cold",
+          "could"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "cloud = 雲。太陽說:雲一遮我就沒了,雲比我強。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l21-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The mother kept on asking.",
+        "question": "How did she feel?",
+        "options": [
+          "tired",
+          "angry",
+          "sleepy",
+          "determined"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "determined = 很堅持的。她不死心,繼續找。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l22",
+    "chapter": 7,
+    "lessonInChapter": 22,
+    "segmentType": "aesop-side",
+    "storyId": "mouse-bride",
+    "storyBeat": "老鼠新娘:太陽 → 雲 → 風 → 牆 → 老鼠",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l22-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The cloud said the wind was stronger.",
+        "question": "Who was stronger than the cloud?",
+        "options": [
+          "the rain",
+          "the wind",
+          "the rock",
+          "the tree"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "wind = 風。雲一被風吹就散,風比雲強。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l22-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The wind said the wall was stronger.",
+        "question": "Who was stronger than the wind?",
+        "options": [
+          "the sea",
+          "the king",
+          "the wall",
+          "the moon"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "wall = 牆。風吹不倒牆,牆比風強。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l22-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The wall said a mouse was stronger.",
+        "question": "Who was stronger than the wall?",
+        "options": [
+          "a horse",
+          "a mouse",
+          "a star",
+          "a man"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "mouse = 老鼠。牆說:小老鼠每天在我身上挖洞,我也擋不住。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l22-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She married a mouse like her.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "married",
+          "a",
+          "mouse",
+          "like",
+          "her",
+          "tall",
+          "loud"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "順序:She → married → a → mouse → like → her。tall / loud 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l22-q5",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The right match was at home.",
+        "question": "What does this mean?",
+        "options": [
+          "the best match was nearby",
+          "the best match was the sun",
+          "she lost the wedding",
+          "she stayed alone"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "right match = 對的對象。她繞了一圈,才看見家門口的小老鼠。",
+        "tags": [
+          "story",
+          "ch7",
+          "aesop",
+          "mouse-bride"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l23",
+    "chapter": 7,
+    "lessonInChapter": 23,
+    "segmentType": "outer-outro",
+    "storyId": "outer",
+    "storyBeat": "奶奶闔上書「她終於說話了」",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l23-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Grandma closes the old book.",
+        "question": "What does Grandma do?",
+        "options": [
+          "lights a candle",
+          "closes the book",
+          "opens the door",
+          "feeds the cat"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "close = 合上。她合上書,動作和翻開時一樣慢。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l23-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "She says, 'At last she spoke.'",
+        "question": "What does Grandma say?",
+        "options": [
+          "long ago she ran",
+          "never she smiled",
+          "at last she spoke",
+          "soon she slept"
+        ],
+        "correctIndex": 2,
+        "explanationZh": "at last = 終於。奶奶輕輕點頭,像是替妹妹鬆口氣。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l23-q3",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The tale was true and quiet.",
+        "question": "How was the tale?",
+        "options": [
+          "fake and quick",
+          "true and quiet",
+          "loud and busy",
+          "wild and angry"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "true = 真實的;quiet = 安靜的。今晚的故事一直很輕,但每一個字都有重量。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l23-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Her voice was soft and warm.",
+        "question": "How was Grandma's voice?",
+        "options": [
+          "soft and warm",
+          "loud and sharp",
+          "fast and dry",
+          "cold and shaky"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "soft = 輕的;warm = 暖的。她說最後一句的時候,像在哄睡。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l23-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The night is still.",
+        "question": "Type the word you hear.",
+        "options": [
+          "still",
+          "steal",
+          "stir",
+          "stiff"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "still = 靜止的、安靜的。院子外的世界也跟著安靜下來。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l24",
+    "chapter": 7,
+    "lessonInChapter": 24,
+    "segmentType": "outer-outro",
+    "storyId": "outer",
+    "storyBeat": "{catName} 跳回街上,夜很靜",
+    "questions": [
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l24-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I jump down from the wall.",
+        "question": "What do I do?",
+        "options": [
+          "jump down",
+          "lie down",
+          "look up",
+          "run back"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "jump down = 跳下來。我從矮牆跳下,腳掌不出聲。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l24-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The street is very quiet.",
+        "question": "How is the street?",
+        "options": [
+          "very bright",
+          "very quiet",
+          "very loud",
+          "very wet"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "quiet = 安靜的。今晚比平常更靜,連風都收起來。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l24-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I feel calm inside.",
+        "question": "How do I feel?",
+        "options": [
+          "loud",
+          "calm",
+          "angry",
+          "scared"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "calm = 平靜的。聽完六年沉默的故事,我也安靜了。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l24-q4",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "The yard light goes out behind me.",
+        "question": "What happens behind me?",
+        "options": [
+          "the wind shouts",
+          "the light goes out",
+          "the cat sings",
+          "the door opens"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "go out = 熄滅。奶奶關了院子的燈,我也朝街角走。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l24-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "I walk home in the quiet night.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "I",
+          "walk",
+          "home",
+          "in",
+          "the",
+          "quiet",
+          "night",
+          "loud"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "explanationZh": "順序:I → walk → home → in → the → quiet → night。loud 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "closing",
+          "outer-outro"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kt-ch7-l25",
+    "chapter": 7,
+    "lessonInChapter": 25,
+    "segmentType": "review",
+    "storyId": "review",
+    "storyBeat": "今晚的關鍵字 + {catName} 跟 {dogName} 的番外問答",
+    "questions": [
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch7-l25-q1",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Six-swans story words",
+        "question": "Tap the pairs.",
+        "pairs": [
+          {
+            "left": "swan",
+            "right": "天鵝"
+          },
+          {
+            "left": "feather",
+            "right": "羽毛"
+          },
+          {
+            "left": "wing",
+            "right": "翅膀"
+          },
+          {
+            "left": "shirt",
+            "right": "襯衫"
+          }
+        ],
+        "explanationZh": "main story 四個關鍵字。swan / feather / wing / shirt — 六隻天鵝、白羽毛、張開翅膀、六件襯衫。",
+        "tags": [
+          "story",
+          "ch7",
+          "review",
+          "tap-pairs"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch7-l25-q2",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Silent-sister theme words",
+        "question": "Tap the pairs.",
+        "pairs": [
+          {
+            "left": "silent",
+            "right": "沉默的"
+          },
+          {
+            "left": "weave",
+            "right": "織"
+          },
+          {
+            "left": "sew",
+            "right": "縫"
+          },
+          {
+            "left": "spell",
+            "right": "咒語"
+          }
+        ],
+        "explanationZh": "解咒四件事:silent 沉默、weave 織、sew 縫、spell 咒語。她用六年把這四個字練成一件事。",
+        "tags": [
+          "story",
+          "ch7",
+          "review",
+          "tap-pairs"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch7-l25-q3",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Setting words",
+        "question": "Tap the pairs.",
+        "pairs": [
+          {
+            "left": "wood",
+            "right": "森林"
+          },
+          {
+            "left": "hut",
+            "right": "小屋"
+          },
+          {
+            "left": "fire",
+            "right": "火"
+          },
+          {
+            "left": "smoke",
+            "right": "煙"
+          }
+        ],
+        "explanationZh": "場景四件事:wood 森林、hut 小屋、fire 火、smoke 煙。從黑森林到火堆煙,妹妹走了好遠的路。",
+        "tags": [
+          "story",
+          "ch7",
+          "review",
+          "tap-pairs"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch7-l25-q4",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Aesop side words",
+        "question": "Tap the pairs.",
+        "pairs": [
+          {
+            "left": "wish",
+            "right": "願望"
+          },
+          {
+            "left": "sausage",
+            "right": "香腸"
+          },
+          {
+            "left": "mouse",
+            "right": "老鼠"
+          },
+          {
+            "left": "wall",
+            "right": "牆"
+          }
+        ],
+        "explanationZh": "兩個短篇關鍵字:三個願望(wish / sausage)+ 老鼠新娘(mouse / wall)。",
+        "tags": [
+          "story",
+          "ch7",
+          "review",
+          "tap-pairs"
+        ]
+      },
+      {
+        "type": "tap-pairs",
+        "id": "kt-ch7-l25-q5",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Feeling words",
+        "question": "Tap the pairs.",
+        "pairs": [
+          {
+            "left": "brave",
+            "right": "勇敢"
+          },
+          {
+            "left": "alone",
+            "right": "獨自"
+          },
+          {
+            "left": "quiet",
+            "right": "安靜的"
+          },
+          {
+            "left": "true",
+            "right": "真實的"
+          }
+        ],
+        "explanationZh": "今晚的心情四字:brave 勇敢、alone 獨自、quiet 安靜、true 真實。",
+        "tags": [
+          "story",
+          "ch7",
+          "review",
+          "tap-pairs"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l25-q6",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Why could she not speak for six years?",
+        "question": "Why was she silent?",
+        "options": [
+          "to win a prize",
+          "to please the king",
+          "to sleep more",
+          "to save her brothers"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "她沉默不是因為害怕,是為了救六個哥哥。沉默是她的勇敢。",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus",
+          "inference"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l25-q7",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "Could {dogName} be silent for six years?",
+        "question": "What does {dogName} wonder?",
+        "options": [
+          "could I stay silent that long",
+          "where is the moon",
+          "do I want a bone",
+          "should I bark louder"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "{dogName} 想:六年不出聲,我做得到嗎?連看到松鼠都要忍住。",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus",
+          "inference"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l25-q8",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "The youngest brother had a swan wing.",
+        "question": "What did he have?",
+        "options": [
+          "a strong arm",
+          "a sword",
+          "a song",
+          "a swan wing"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "最小的哥哥手臂沒變回來,留下一片白羽。是這個故事最溫柔的傷口。",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l25-q9",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "Why was one sleeve not done?",
+        "question": "Why was one sleeve missing?",
+        "options": [
+          "she ran out of time",
+          "she was lazy",
+          "the cat took it",
+          "she lost the cloth"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "火快點起來,她還沒織完最後一隻袖子。差一點就完美,但時間到了。",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus",
+          "inference"
+        ]
+      },
+      {
+        "type": "read-mc-with-audio",
+        "id": "kt-ch7-l25-q10",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She spoke at last and saved them.",
+        "question": "What does 'at last' mean?",
+        "options": [
+          "finally",
+          "again",
+          "softly",
+          "loudly"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "at last = 終於。六年的安靜,在火堆邊化成第一句話。",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus"
+        ]
+      },
+      {
+        "type": "type-what-you-hear",
+        "id": "kt-ch7-l25-q11",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Silence can be brave too.",
+        "question": "Type the adjective you hear.",
+        "options": [
+          "brave",
+          "broad",
+          "bright",
+          "brown"
+        ],
+        "correctIndex": 0,
+        "explanationZh": "brave = 勇敢。不出聲也可以是一種勇敢。",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus"
+        ]
+      },
+      {
+        "type": "listen-emoji",
+        "id": "kt-ch7-l25-q12",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "{catName} thinks about the sister.",
+        "question": "How does {catName} feel?",
+        "options": [
+          "sleepy",
+          "hungry",
+          "angry",
+          "thoughtful"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "我盯著矮牆外的月亮想了很久。六年。我的一生才幾個六年?",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus"
+        ]
+      },
+      {
+        "type": "tap-tiles",
+        "id": "kt-ch7-l25-q13",
+        "level": "A2",
+        "difficulty": "medium",
+        "sentence": "She waited and did not speak.",
+        "question": "Tap the tiles in order.",
+        "tiles": [
+          "She",
+          "waited",
+          "and",
+          "did",
+          "not",
+          "speak",
+          "loud",
+          "ran"
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "explanationZh": "順序:She → waited → and → did → not → speak。loud / ran 是干擾。",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus"
+        ]
+      },
+      {
+        "type": "listen-comprehension",
+        "id": "kt-ch7-l25-q14",
+        "level": "A2",
+        "difficulty": "hard",
+        "sentence": "Love can be quiet too.",
+        "question": "What is the lesson?",
+        "options": [
+          "love is for kings only",
+          "love is always sad",
+          "love is always loud",
+          "love does not need words"
+        ],
+        "correctIndex": 3,
+        "explanationZh": "她沒有說過一個字,但救了哥哥。愛不一定要說出來,也可以一針一線織進襯衫裡。",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus",
+          "inference"
+        ]
+      },
+      {
+        "type": "listen-mc",
+        "id": "kt-ch7-l25-q15",
+        "level": "A2",
+        "difficulty": "easy",
+        "sentence": "Will {catName} come back tomorrow?",
+        "question": "Will {catName} come back?",
+        "options": [
+          "No",
+          "Yes",
+          "Never",
+          "Maybe"
+        ],
+        "correctIndex": 1,
+        "explanationZh": "Yes — 我每晚都會再來。明天還有新故事。",
+        "tags": [
+          "story",
+          "ch7",
+          "bonus"
+        ]
+      }
+    ]
+  }
+]
