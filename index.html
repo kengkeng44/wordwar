@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet" />
+    <!-- v2.0.B.47 perf: parallel-fetch Ch1 critical assets while bundle parses -->
+    <link rel="preload" as="image" href="/mascots/scene-mochi-talking.webp" />
+    <link rel="preload" as="audio" href="/audio/lessons/mochi-ch1-fullnarration.mp3" />
     <style>
       html, body {
         font-family: 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
@@ -89,6 +92,36 @@
     </div>
     <a href="#app" class="skip-link">Skip to main content</a>
     <main id="app"></main>
+    <script>
+      // v2.0.B.47 perf: skip 2.8s splash on repeat visits (sessionStorage flag).
+      // First-time visitor still sees branding splash (which also masks JS
+      // bundle parse cost). Returning user lands on app immediately.
+      try {
+        if (sessionStorage.getItem('pickup.splash.seen') === '1') {
+          var el = document.getElementById('pickup-tear-intro');
+          if (el) el.remove();
+        } else {
+          sessionStorage.setItem('pickup.splash.seen', '1');
+        }
+      } catch (e) {}
+      // Boot timing budget instrumentation.
+      window.__pickupBootStart = performance.now();
+      window.addEventListener('load', function () {
+        var ms = Math.round(performance.now() - window.__pickupBootStart);
+        var hit = sessionStorage.getItem('pickup.perf.warned') === '1';
+        var budget = sessionStorage.getItem('pickup.splash.seen.cached') === '1' ? 1000 : 3000;
+        console.log('[BootPerf] load=' + ms + 'ms budget=' + budget + 'ms');
+        sessionStorage.setItem('pickup.splash.seen.cached', '1');
+        if (ms > budget && !hit) {
+          sessionStorage.setItem('pickup.perf.warned', '1');
+          var w = document.createElement('div');
+          w.textContent = 'PERF: ' + ms + 'ms (budget ' + budget + 'ms)';
+          w.style.cssText = 'position:fixed;left:8px;bottom:8px;background:#c84a3a;color:#fff;padding:6px 10px;border-radius:8px;font:11px/1.3 monospace;z-index:99999;';
+          document.body.appendChild(w);
+          setTimeout(function () { w.remove(); }, 6000);
+        }
+      });
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
