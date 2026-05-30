@@ -33,6 +33,10 @@ const COLOR_TEXT_MUTED = '#7a6850';
  */
 export class ChapterIntroScene extends Phaser.Scene {
   private root?: HTMLDivElement;
+  // v2.0.B.46: track narration concat audio so scene SHUTDOWN can pause it.
+  // Without this, the Audio element keeps playing in browser background
+  // after user enters a lesson — Mochi's voice doesn't disappear.
+  private narrationAudio?: HTMLAudioElement;
 
   constructor() {
     super({ key: 'ChapterIntroScene' });
@@ -52,6 +56,18 @@ export class ChapterIntroScene extends Phaser.Scene {
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.root?.remove();
       this.root = undefined;
+      // v2.0.B.46: pause narration so Mochi's voice doesn't bleed into lesson scene
+      if (this.narrationAudio) {
+        try {
+          this.narrationAudio.pause();
+          this.narrationAudio.currentTime = 0;
+          this.narrationAudio.src = '';
+        } catch {
+          // ignore
+        }
+        this.narrationAudio = undefined;
+      }
+      stopSpeaking();
     });
   }
 
@@ -301,21 +317,23 @@ export class ChapterIntroScene extends Phaser.Scene {
     let isPlayingState = false;
     // v2.0.B.38: SINGLE Audio element + single concatenated MP3. iOS Safari
     // chain unreliable; one play() call is the canonical reliable pattern.
-    const concatAudio = new Audio('/audio/lessons/mochi-ch1-fullnarration.mp3');
-    concatAudio.preload = 'auto';
-    concatAudio.addEventListener('ended', () => {
+    this.narrationAudio = new Audio('/audio/lessons/mochi-ch1-fullnarration.mp3');
+    this.narrationAudio.preload = 'auto';
+    this.narrationAudio.addEventListener('ended', () => {
       isPlayingState = false;
       pawIcon.style.transform = 'scale(1)';
     });
     startBtn.onclick = () => {
+      const a = this.narrationAudio;
+      if (!a) return;
       if (isPlayingState) {
         // Tap again while playing → restart
-        concatAudio.currentTime = 0;
+        a.currentTime = 0;
       }
       isPlayingState = true;
       pawIcon.style.transform = 'scale(0.85)';
       pawIcon.style.transition = 'transform 200ms ease';
-      void concatAudio.play().catch((e) => {
+      void a.play().catch((e) => {
         console.error('concat play fail', e);
         isPlayingState = false;
         pawIcon.style.transform = 'scale(1)';
