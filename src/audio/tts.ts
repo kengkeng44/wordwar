@@ -135,6 +135,10 @@ function getPersistentAudio(): HTMLAudioElement {
   return persistentAudio;
 }
 
+// v2.0.B.75: silent looping HTML5 Audio that forces page to media channel
+// (vs ringer channel) on iOS — so Web Audio plays even with side-switch muted.
+let silentLoopAudio: HTMLAudioElement | null = null;
+
 // v2.0.B.73: Web Audio API path. Per research, HTML5 Audio + setTimeout
 // is fundamentally unreliable on iOS Safari — gesture token doesn't survive
 // the async gap. Web Audio is the canonical fix: AudioContext.resume() in
@@ -355,17 +359,27 @@ let isAudioUnlocked = false;
 
 function unlockAudio(): void {
   if (isAudioUnlocked) return;
-  // v2.0.B.74: CRITICAL FIX — use the SHARED sharedAudioCtx singleton so
-  // speak()'s playBuffer reuses the SAME context that was resumed during
-  // gesture. B.73 created a temp AudioContext here that died; speak()
-  // created a DIFFERENT context later which was never gesture-resumed
-  // → iOS rejected all Web Audio playback. Bug only visible because
-  // audio-context-singleton pattern wasn't fully enforced.
+  // v2.0.B.75 CRITICAL — iOS WebKit Bug 237322: Web Audio is MUTED when the
+  // iPhone side-switch is in silent/vibrate mode. HTML5 Audio plays through
+  // media channel but Web Audio routes through ringer channel (= side-switch
+  // muted = no sound). Workaround per swevans/unmute pattern: continuously
+  // loop a silent HTML5 Audio tag — this forces the page's audio output
+  // onto the media channel, so Web Audio plays regardless of side-switch.
+  try {
+    if (!silentLoopAudio) {
+      silentLoopAudio = new Audio('/silent.mp3');
+      silentLoopAudio.loop = true;
+      silentLoopAudio.volume = 0;
+      silentLoopAudio.preload = 'auto';
+    }
+    void silentLoopAudio.play().catch(() => {});
+  } catch {}
+
+  // Shared AudioContext resume — only ONE context across the app.
   try {
     const ctx = getAudioCtx();
     if (ctx) {
       if (ctx.state === 'suspended') void ctx.resume();
-      // Play silent 1-sample buffer source as the unlock gesture-trigger
       const buf = ctx.createBuffer(1, 1, 22050);
       const src = ctx.createBufferSource();
       src.buffer = buf;
