@@ -7,7 +7,7 @@ import {
 } from '../data/storyKitten';
 import { applyStyle, attachPressFeedback } from '../ui/domUtil';
 import { getMascotSvg } from '../ui/mascots';
-import { stopSpeaking } from '../audio/tts';
+import { stopSpeaking, speak } from '../audio/tts';
 import { preloadHints, wireSentenceHints } from '../ui/WordHint';
 import { createSpeakerButton } from '../ui/SpeakerButton';
 import { applyCatName } from '../data/catName';
@@ -250,25 +250,11 @@ export class ChapterIntroScene extends Phaser.Scene {
         gap: '10px',
         paddingBottom: '8px',
         borderBottom: `1.5px dashed ${COLOR_BORDER}`,
+        cursor: 'pointer',
       });
-
-      // v1.9.25 audit #5: use shared SpeakerButton component.
-      const speaker = createSpeakerButton({
-        text: sentence,
-        size: 'sm',
-        ariaLabel: `Listen to sentence ${idx + 1}`,
-      });
-      row.appendChild(speaker);
 
       const text = document.createElement('div');
-      // v1.9.0: wrap each word in <span class="word"> so WordHint can
-      // bind tap handlers — Duolingo-style dashed underline + popup
-      // translation on tap.
       text.className = 'pickup-narration-line';
-      text.innerHTML = sentence.split(/(\s+)/).map(tok => {
-        if (/^\s+$/.test(tok) || tok === '') return tok;
-        return `<span class="word">${tok}</span>`;
-      }).join('');
       applyStyle(text, {
         flex: '1 1 auto',
         fontSize: '15px',
@@ -276,8 +262,45 @@ export class ChapterIntroScene extends Phaser.Scene {
         color: COLOR_TEXT_DARK,
         fontWeight: '700',
         paddingTop: '6px',
+        userSelect: 'none',
       });
+
+      // v2.0.B.51: per user feedback "字幕不要直接呈現 用__的方式呈獻 點了才出現字".
+      // Initially show one underscore-blank per word (count matches word
+      // count so user sees the structure). Tapping speaker OR the row
+      // reveals the real text + plays audio. Once revealed, stays revealed.
+      const tokens = sentence.split(/(\s+)/);
+      const realHtml = tokens.map(tok => {
+        if (/^\s+$/.test(tok) || tok === '') return tok;
+        return `<span class="word">${tok}</span>`;
+      }).join('');
+      const blankHtml = tokens.map(tok => {
+        if (/^\s+$/.test(tok) || tok === '') return tok;
+        return `<span style="color:${COLOR_BORDER_DARK};letter-spacing:1px;">${'_'.repeat(Math.min(Math.max(tok.length, 2), 6))}</span>`;
+      }).join('');
+      text.innerHTML = blankHtml;
+      let revealed = false;
+      const reveal = () => {
+        if (revealed) return;
+        revealed = true;
+        text.innerHTML = realHtml;
+        // Re-wire WordHint dashed-underline word click after innerHTML rewrite
+        wireSentenceHints(text);
+      };
+
+      const speaker = createSpeakerButton({
+        text: sentence,
+        size: 'sm',
+        ariaLabel: `Listen to sentence ${idx + 1}`,
+        onClick: () => { reveal(); speak(sentence); },
+      });
+      row.appendChild(speaker);
       row.appendChild(text);
+      row.addEventListener('click', (e) => {
+        // Don't double-trigger if user tapped the speaker (its own onClick already revealed)
+        if ((e.target as HTMLElement).closest('button')) return;
+        reveal();
+      });
 
       narrationWrap.appendChild(row);
     });

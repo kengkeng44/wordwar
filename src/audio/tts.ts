@@ -132,16 +132,10 @@ function speakWebSpeech(text: string, lang: string): void {
 }
 
 function debugLog(msg: string) {
-  if (typeof document === 'undefined') return;
-  console.log('[TTS]', msg);
-  let el = document.getElementById('pickup-tts-debug');
-  if (!el) {
-    el = document.createElement('div');
-    el.id = 'pickup-tts-debug';
-    el.style.cssText = 'position:fixed;top:8px;right:8px;background:rgba(0,0,0,0.88);color:#fff;padding:6px 10px;border-radius:8px;font:11px/1.3 monospace;z-index:99999;max-width:220px;pointer-events:none;word-break:break-all;';
-    document.body.appendChild(el);
-  }
-  el.textContent = msg.slice(0, 200);
+  // v2.0.B.51: silent debug — only console, no DOM overlay (user feedback:
+  // scary error messages confusing UX). Audio failures fall back to
+  // WebSpeech silently; user just sees no auto-play and taps 🔊 manually.
+  if (typeof console !== 'undefined') console.log('[TTS]', msg);
 }
 
 export function speak(text: string, lang = 'en-US'): void {
