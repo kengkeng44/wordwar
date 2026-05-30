@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { useRunStore, RUN_CONFIG } from '../store/runStore';
 import { audio } from '../audio/AudioManager';
 import { startBgm } from '../audio/bgm';
-import { speak, stopSpeaking, autoSpeak, IS_IOS_DEVICE } from '../audio/tts';
+import { speak, stopSpeaking, autoSpeak } from '../audio/tts';
 import { mountTapTiles, mountTapPairs, mountTypeWhatYouHear, type TapHandle } from '../ui/TapInputUI';
 import {
   sfxCorrect,
