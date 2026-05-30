@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { useRunStore, RUN_CONFIG } from '../store/runStore';
 import { audio } from '../audio/AudioManager';
 import { startBgm } from '../audio/bgm';
-import { speak, stopSpeaking, autoSpeak } from '../audio/tts';
+import { speak, stopSpeaking, autoSpeak, IS_IOS_DEVICE } from '../audio/tts';
 import { mountTapTiles, mountTapPairs, mountTypeWhatYouHear, type TapHandle } from '../ui/TapInputUI';
 import {
   sfxCorrect,
@@ -396,27 +396,31 @@ export class PlayScene extends Phaser.Scene {
           });
         }
       }
-      window.setTimeout(() => {
-        speak(sentenceText);
-        // v1.9.48 audit-4 #5: iOS TTS race fallback. If speechSynthesis
-        // doesn't actually start within 1s, the listening question becomes
-        // unsolvable. Reveal the sentence as a graceful escape.
+      // v2.0.B.49: gate auto-speak on iOS (root cause of NotAllowedError that
+      // still fired on q2 transitions in v1.x PlayScene Ch1 story mode flow).
+      // Mirrors B.44/B.45 fix but covers the multi-line setTimeout block that
+      // single-line grep missed. iOS users tap pulsing 🔊 SpeakerButton manually.
+      if (!IS_IOS_DEVICE) {
         window.setTimeout(() => {
-          if (typeof window === 'undefined' || !window.speechSynthesis) return;
-          const ss = window.speechSynthesis;
-          if (!ss.speaking && !ss.pending) {
-            const sentEl = this.hud?.getSentenceElement();
-            if (sentEl && !sentEl.querySelector('.pickup-tts-fallback')) {
-              const fb = document.createElement('div');
-              fb.className = 'pickup-tts-fallback';
-              fb.style.cssText =
-                'font-size:13px;color:#8b6f4a;font-style:italic;margin-top:10px;text-align:center;line-height:1.4;';
-              fb.textContent = `🔇 Audio unavailable — ${sentenceText}`;
-              sentEl.appendChild(fb);
+          speak(sentenceText);
+          // v1.9.48 audit-4 #5: iOS TTS race fallback (non-iOS only now).
+          window.setTimeout(() => {
+            if (typeof window === 'undefined' || !window.speechSynthesis) return;
+            const ss = window.speechSynthesis;
+            if (!ss.speaking && !ss.pending) {
+              const sentEl = this.hud?.getSentenceElement();
+              if (sentEl && !sentEl.querySelector('.pickup-tts-fallback')) {
+                const fb = document.createElement('div');
+                fb.className = 'pickup-tts-fallback';
+                fb.style.cssText =
+                  'font-size:13px;color:#8b6f4a;font-style:italic;margin-top:10px;text-align:center;line-height:1.4;';
+                fb.textContent = `🔇 Audio unavailable — ${sentenceText}`;
+                sentEl.appendChild(fb);
+              }
             }
-          }
-        }, 1000);
-      }, 280);
+          }, 1000);
+        }, 280);
+      }
     }
 
     // v1.7.16: Reading mode also gets a small 🔊 speaker button next
