@@ -210,3 +210,19 @@ export function stopSpeaking(): void {
 export function isTtsSupported(): boolean {
   return typeof window !== 'undefined' && !!window.speechSynthesis;
 }
+
+// v2.0.B.33: helper for queue-based playback (ChapterIntroScene start button).
+// Returns MP3 URL for a sentence or null if no MP3 available.
+export function mp3UrlFor(text: string): string | null {
+  const cleaned = cleanText(text);
+  if (!cleaned) return null;
+  const audioId = audioLookup.get(cleaned);
+  if (!audioId) return null;
+  return mochiTexts.has(cleaned)
+    ? `/audio/lessons/mochi-${hash8(cleaned)}.mp3`
+    : `/audio/lessons/${audioId}.mp3`;
+}
+
+export function ensureLookupReady(): Promise<void> {
+  return ensureLookup();
+}
