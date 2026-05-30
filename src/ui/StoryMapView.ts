@@ -90,12 +90,15 @@ const NODE_PATH: Array<{ dx: number; top: number }> = [
 // end. X alternates with mild jitter to avoid straight-line monotony.
 // Polish in Phase D (Plan 9) once Ch1 content lands and visual density
 // is testable.
+// v2.0.B.84: extended 24 → 25 nodes per Ch1-Ch8 unified spec.
+// L1-L3 outer prologue / L4-L18 main story (15) / L19-L22 aesop sides (4) /
+// L23 outer outro / L24 番外 bonus / L25 review tap-pairs.
 const NODE_PATH_V2: Array<{ dx: number; top: number }> = [
   // Outer prologue (3)
   { dx: 10,  top: 16  },
   { dx: 30,  top: 100 },
   { dx: -20, top: 184 },
-  // Main story (12)
+  // Main story (15)
   { dx: 18,  top: 268 },
   { dx: 38,  top: 352 },
   { dx: 24,  top: 436 },
@@ -108,17 +111,20 @@ const NODE_PATH_V2: Array<{ dx: number; top: number }> = [
   { dx: -12, top: 1024 },
   { dx: -32, top: 1108 },
   { dx: -16, top: 1192 },
-  // Aesop sides (6-9, fits 6)
   { dx: 14,  top: 1276 },
   { dx: 34,  top: 1360 },
   { dx: 18,  top: 1444 },
+  // Aesop sides (4)
   { dx: -10, top: 1528 },
   { dx: -30, top: 1612 },
   { dx: -14, top: 1696 },
-  // Outer outro + review (3)
   { dx: 16,  top: 1780 },
+  // Outer outro (1)
   { dx: 30,  top: 1864 },
-  { dx: 8,   top: 1948 },
+  // 番外 bonus (1) — slightly offset to mark special
+  { dx: 0,   top: 1948 },
+  // Review tap-pairs (1)
+  { dx: 8,   top: 2032 },
 ];
 
 // v2.0 feature flag — when true Ch1 renders via lesson-driven V2 path.
