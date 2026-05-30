@@ -274,17 +274,9 @@ export function mountTypeWhatYouHear(opts: {
     fontFamily: 'inherit',
   });
 
-  // v1.9.34 audit-2 F1: migrate type-what-you-hear speaker to shared SpeakerButton.
-  const speaker = createSpeakerButton({
-    text: '',
-    size: 'lg',
-    variant: 'primary',
-    pulse: true,
-    ariaLabel: 'Replay audio',
-    onClick: opts.onSpeak,
-  });
-  speaker.style.alignSelf = 'center';
-  root.appendChild(speaker);
+  // v2.0.B.54: removed central 72px speaker. Sentence card above now shows
+  // sentence-with-blank + small 🔊 prefix — replay handled there. Avoids
+  // double speaker visual that confused users (which one's the main listen?).
 
   const promptEl = document.createElement('div');
   promptEl.textContent = prompt;

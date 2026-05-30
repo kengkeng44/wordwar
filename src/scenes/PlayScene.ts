@@ -490,8 +490,31 @@ export class PlayScene extends Phaser.Scene {
           onComplete: (correct) => this.handleAnswer(correct ? round.correctIndex : (round.correctIndex + 1) % 4),
         });
         autoSpeak(audioText);
+        // v2.0.B.54: per user feedback "全空白我不太喜歡" + 學測/TOEIC 不是這格式.
+        // Render sentence with visible blank + small 🔊 prefix in the sentence
+        // card so A2 learner sees context. Tap 🔊 to replay audio anytime.
         const sentEl = this.hud.getSentenceElement();
-        if (sentEl) sentEl.innerHTML = '';
+        if (sentEl) {
+          const underscoreLen = Math.max(correctWord.length, 4);
+          const blankHtml = `<span style="display:inline-block;border-bottom:2.5px solid #b07a2a;min-width:${underscoreLen * 12}px;height:1.2em;vertical-align:-2px;margin:0 4px;"></span>`;
+          const sentenceHtml = round.sentence.replace(/_{2,}/, blankHtml);
+          sentEl.innerHTML = `
+            <div style="display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;padding:8px 4px;">
+              <button type="button" aria-label="Replay sentence audio" class="pickup-sentence-speaker pickup-speaker-pulse" style="
+                flex:0 0 auto; width:36px; height:36px; padding:0;
+                background:#3d8aae; border:none; border-bottom:3px solid #2c6986;
+                border-radius:50%; cursor:pointer;
+                display:inline-flex; align-items:center; justify-content:center;
+                touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+              ">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5zm4.5 7c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+              </button>
+              <span style="font-size:18px;line-height:1.7;font-weight:800;color:#3c2a1c;flex:1 1 auto;min-width:0;">${sentenceHtml}</span>
+            </div>
+          `;
+          const spk = sentEl.querySelector('.pickup-sentence-speaker') as HTMLButtonElement | null;
+          spk?.addEventListener('click', (e) => { e.preventDefault(); speak(audioText); });
+        }
       } else if (qType === 'tap-pairs' && round.pairs) {
         this.tapHandle = mountTapPairs({
           slot,
