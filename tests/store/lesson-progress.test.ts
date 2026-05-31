@@ -31,8 +31,14 @@ describe('lesson progress', () => {
     expect(isLessonUnlocked(1, 1, 0)).toBe(true);
   });
 
-  it('isLessonUnlocked: lesson N unlocks after N-1 completed', () => {
-    expect(isLessonUnlocked(1, 5, 4)).toBe(true);
-    expect(isLessonUnlocked(1, 5, 3)).toBe(false);
+  it('isLessonUnlocked: first 10 lessons always unlocked (v2.0.B.109 dev preview)', () => {
+    // L1-L10 always unlocked regardless of completion
+    expect(isLessonUnlocked(1, 5, 0)).toBe(true);
+    expect(isLessonUnlocked(1, 10, 0)).toBe(true);
+  });
+
+  it('isLessonUnlocked: lesson N > 10 unlocks after N-1 completed', () => {
+    expect(isLessonUnlocked(1, 15, 14)).toBe(true);
+    expect(isLessonUnlocked(1, 15, 13)).toBe(false);
   });
 });
