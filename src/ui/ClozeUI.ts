@@ -674,9 +674,9 @@ export class ClozeUI {
           const text = round.options[i];
           this.buttons[i].el.setAttribute('data-text', text);
           if (this.hideOptionText) {
-            // Hide text — show only 🔊 + letter
+            // v2.0.B.103: blind ABCD — only letter pill visible, no instruction text
             this.buttons[i].label.textContent = '';
-            this.buttons[i].label.innerHTML = `<span style="color:#8b6f4a;font-size:14px;font-weight:700;">🔊 點聽 · tap to listen · 再點選擇 · tap again to pick</span>`;
+            this.buttons[i].label.innerHTML = '';
           } else {
             this.buttons[i].label.textContent = text;
           }
