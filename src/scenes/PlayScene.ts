@@ -432,18 +432,24 @@ export class PlayScene extends Phaser.Scene {
           if (isBlindListen && typeof window !== 'undefined' && window.speechSynthesis) {
             try {
               window.speechSynthesis.cancel();
-              // v2.0.B.107: TOEIC Part 3-4 standard order = sentence FIRST,
-              // then "Question. ..." prefix. User: "Q&A 應該要放在題目的後面".
+              // v2.0.B.108: longer pause between sentence and question via
+              // onend + setTimeout. User: "問題跟題目要間隔長一點點".
               const u1 = new SpeechSynthesisUtterance(sentenceText);
               u1.lang = 'en-US';
               u1.rate = 0.85;
-              window.speechSynthesis.speak(u1);
               if (round.question) {
-                const u2 = new SpeechSynthesisUtterance(`Question. ${round.question}`);
-                u2.lang = 'en-US';
-                u2.rate = 0.9;
-                window.speechSynthesis.speak(u2);
+                u1.onend = () => {
+                  window.setTimeout(() => {
+                    try {
+                      const u2 = new SpeechSynthesisUtterance(`Question. ${round.question}`);
+                      u2.lang = 'en-US';
+                      u2.rate = 0.9;
+                      window.speechSynthesis.speak(u2);
+                    } catch {}
+                  }, 1000); // 1s pause between sentence and "Question. ..."
+                };
               }
+              window.speechSynthesis.speak(u1);
               return;
             } catch {}
           }

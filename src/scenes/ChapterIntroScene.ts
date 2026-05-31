@@ -262,11 +262,11 @@ export class ChapterIntroScene extends Phaser.Scene {
         flex: '0 0 auto',
         width: '40px',
         height: '40px',
-        // v2.0.B.107: tweaked head crop — was '165% / 22%' which cut ears.
-        // Now '200% / 30%' shows the FULL head including ears + nose + eyes.
-        // background-size 200% = image 2x circle = head occupies ~half source
-        // → fills circle after positioning at 30% from top (skipping body).
-        background: '#fef8ed url(/mascots/scene-mochi-talking.webp) no-repeat center 30% / 200%',
+        // v2.0.B.108: cat 縮小 inside the circle. User: "大頭貼裡面的貓咪頭像還
+        // 是沒有縮小喔". Reduced background-size 200% → 130%, so cat content is
+        // smaller relative to circle — padding around head, head doesn't fill
+        // edge-to-edge. Position 22% to keep head centered.
+        background: '#fef8ed url(/mascots/scene-mochi-talking.webp) no-repeat center 22% / 130%',
         border: 'none',
         borderRadius: '50%',
         cursor: 'pointer',
