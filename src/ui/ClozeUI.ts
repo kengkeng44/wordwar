@@ -123,6 +123,13 @@ export class ClozeUI {
   /** v0.8.1 blind retry: cached explanation text from the first wrong tap,
    *  shown only after the player finally lands on the correct option. */
   private pendingExplanationZh = '';
+  /** v2.0.B.101 blind-listening mode: hide option text until user picks.
+   * For listen-mc / listen-comprehension types — user taps option to HEAR
+   * it (TTS speech), double-taps same option to commit selection. Trains
+   * pure listening discrimination per TOEIC Part 2 pattern. */
+  private hideOptionText = false;
+  private lastTappedIdx = -1;
+  private lastTappedAt = 0;
 
   constructor(handlers: ClozeUIHandlers, opts: ClozeUIOptions) {
     this.handlers = handlers;
@@ -185,6 +192,27 @@ export class ClozeUI {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const idx = Number(btn.getAttribute('data-cloze-idx'));
+
+        // v2.0.B.101 blind-listening: for listen-mc / listen-comprehension,
+        // first tap = LISTEN to option via TTS (gesture-safe). Same option
+        // double-tap within 600ms = COMMIT as answer. Different option tap
+        // = switch + listen.
+        if (this.hideOptionText && !this.locked && !this.awaitingForceCorrect) {
+          const text = btn.getAttribute('data-text') ?? '';
+          const now = Date.now();
+          if (this.lastTappedIdx === idx && now - this.lastTappedAt < 800) {
+            // Double-tap commit
+            this.handlers.onAnswer(idx);
+            return;
+          }
+          // Single tap: speak via TTS + mark visual selection
+          this.speakOptionText(text);
+          this.markBlindSelected(idx);
+          this.lastTappedIdx = idx;
+          this.lastTappedAt = now;
+          return;
+        }
+
         // v0.8.1 blind retry: in force-correct mode, after a wrong tap
         // the player keeps trying. Wrong tap → mark red locally (no
         // onAnswer, store already recorded the original wrong answer
@@ -637,10 +665,54 @@ export class ClozeUI {
     if (round !== this.currentQuestion) {
       this.currentQuestion = round;
       if (round) {
+        // v2.0.B.101: detect blind-listening mode for listen-mc / listen-comprehension
+        const qType = (round as unknown as { type?: string }).type;
+        this.hideOptionText = qType === 'listen-mc' || qType === 'listen-comprehension';
+        this.lastTappedIdx = -1;
+        this.lastTappedAt = 0;
         for (let i = 0; i < this.buttons.length; i++) {
-          this.buttons[i].label.textContent = round.options[i];
+          const text = round.options[i];
+          this.buttons[i].el.setAttribute('data-text', text);
+          if (this.hideOptionText) {
+            // Hide text — show only 🔊 + letter
+            this.buttons[i].label.textContent = '';
+            this.buttons[i].label.innerHTML = `<span style="color:#8b6f4a;font-size:14px;font-weight:700;">🔊 點聽 · tap to listen · 再點選擇 · tap again to pick</span>`;
+          } else {
+            this.buttons[i].label.textContent = text;
+          }
         }
         this.resetForRound();
+      }
+    }
+  }
+
+  /** v2.0.B.101: speak option text via Web Speech API. Gesture-safe since
+   * called inside button click handler. */
+  private speakOptionText(text: string): void {
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
+    try {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = 0.85;
+      u.pitch = 1;
+      u.volume = 1;
+      window.speechSynthesis.speak(u);
+    } catch {
+      // ignore
+    }
+  }
+
+  /** v2.0.B.101: visual mark for currently-selected (but not committed) blind option. */
+  private markBlindSelected(idx: number): void {
+    for (let i = 0; i < this.buttons.length; i++) {
+      const { el } = this.buttons[i];
+      if (i === idx) {
+        el.style.background = '#fff4d4';
+        el.style.borderColor = '#e7a44a';
+      } else {
+        el.style.background = '#ffffff';
+        el.style.borderColor = COLOR_BORDER;
       }
     }
   }
